@@ -1,18 +1,21 @@
 #define _GNU_SOURCE
-#include <link.h>
+
 #include <stdio.h>
+
+// dlsym shit
+#include <link.h>
 #include <string.h>
 #include <dlfcn.h>
 
-// for sockets
-#include <sys/socket.h>
-#include <sys/un.h>
-#define SOCK_PATH  "test.sock"
-
-// for unlink
+// named pipe
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <unistd.h>
 
+
 static uint8_t OMP_APP = 0;
+static const char *PIPE_PATH = "test.pipe";
+static int num_threads = 4;
 
 static int omp_checker(struct dl_phdr_info *i, size_t size, void *data) {
     if ((strstr(i->dlpi_name, "libomp") != NULL) || (strstr(i->dlpi_name, "libgomp") != NULL)) {
@@ -29,39 +32,15 @@ static void set_threads(int num){
     return;
 }
 
-static void create_socket(void){
-    struct sockaddr_un addr;
-
-    // Create a UNIX domain socket
-    int sock_fd = socket(AF_UNIX, SOCK_STREAM, 0);
-    printf("Server socket fd = %d\n", sock_fd);
-    if (sock_fd == -1) {
-        printf("socket fd could not be created!\n");
-    }
-
-    // Clearing path of future socket
-    unlink(SOCK_PATH);
-
-    // Zero out the address, and set family and path
-    memset(&addr, 0, sizeof(struct sockaddr_un));
-    addr.sun_family = AF_UNIX;
-    strncpy(addr.sun_path, SOCK_PATH, sizeof(addr.sun_path) - 1);
-
-    // Bind the socket to the address
-    if (bind(sock_fd, (struct sockaddr *) &addr, sizeof(struct sockaddr_un)) == -1) {
-        printf("Binding failed!\n");
-    }
-
-    // Set socket to listen mode
-    if (listen(sock_fd, 1) == -1) {
-        printf("Listen failed!\n");
-    }
-
+static void create_pipe(void){
+    mkfifo(PIPE_PATH, 0666);
+    int fd_extern = open(PIPE_PATH, O_RDONLY);
     char buf[256];
-    ssize_t n = read(sock_fd, buf, 1);
-    printf("LOL%cLOL\n", buf[0]);
-    close(sock_fd);
-    printf("Socket closed.\n");
+    read(fd_extern, buf, 1);
+    printf("Okay. We are gonna use %c threads.\n", buf[0]);
+    num_threads = buf[0] - '0';
+    close(fd_extern);
+    unlink(PIPE_PATH);
     return;
 }
 
@@ -71,11 +50,11 @@ void main(void) {
     dl_iterate_phdr(omp_checker, NULL);
     if (OMP_APP) {
         printf("App uses OMP!\n");
-        set_threads(4);
+        create_pipe();
+        set_threads(num_threads);
     } else {
         printf("App does not use OMP!\n");
     }
     printf("--------\n");
-    create_socket();
     return;
 }
