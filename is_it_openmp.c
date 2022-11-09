@@ -41,11 +41,9 @@ static void set_threads(int num){
 static void *create_pipe(void *arg){
     // dereference internal pipe
     int internal_pipe = *((int *) arg);
-    fprintf(stderr, "Intpipe:%d\n", internal_pipe);
     // create named pipe for external com
     mkfifo(PIPE_PATH, 0666);
     int fd_extern = open(PIPE_PATH, O_RDONLY | O_NONBLOCK);
-    fprintf(stderr, "Intpipe:%d\n", fd_extern);
     // epoll
     struct epoll_event event, events[MAX_EVENTS];
     event.events = EPOLLIN;
@@ -53,11 +51,12 @@ static void *create_pipe(void *arg){
     int event_count;
     char buf[2];
 
-    if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, internal_pipe, &event) || epoll_ctl(epoll_fd, EPOLL_CTL_ADD, fd_extern, &event)) {
-        printf("Failed to add file descriptor to epoll\n");
-        close(epoll_fd);
+    if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, internal_pipe, &event)) {
+        printf("Failed to add file descriptor of internal pipe to epoll\n");
     }
-    fprintf(stderr, "LOLOLOLOL%d", epoll_fd);
+    if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, fd_extern, &event)) {
+        printf("Failed to add file descriptor of named pipe to epoll\n");
+    }
         {
         event_count = epoll_wait(epoll_fd, events, MAX_EVENTS, -1);
         printf("%d ready events\n", event_count);
@@ -86,7 +85,7 @@ void main(void) {
     dl_iterate_phdr(omp_checker, NULL);
     if (OMP_APP) {
         printf("App uses OMP!\n");
-        // pipe to child
+        // pipe to child - zero is reading, one is writing
         int internal_fds[2];
         pipe(internal_fds);
         // start listener thread
