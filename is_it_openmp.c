@@ -1,7 +1,6 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
-#include <stdbool.h>
 
 // dlsym
 #include <link.h>
@@ -20,6 +19,7 @@
 #include <sys/epoll.h>
 
 #define MAX_EVENTS 2
+#define READ_SIZE 10
 static uint8_t OMP_APP = 0;
 static const char *PIPE_PATH = "test.pipe";
 
@@ -46,12 +46,10 @@ static void *create_pipe(void *arg){
     // get thread args for internal pipe
     struct thread_args* targs = arg;
     int internal_pipe = targs->int_pipe_fd;
-    fprintf(stderr, "Intpipe:%d\n", internal_pipe);
 
     // create named pipe for external com
     mkfifo(PIPE_PATH, 0666);
-    int fd_extern = open(PIPE_PATH, O_RDONLY | O_NONBLOCK);
-    fprintf(stderr, "Extpipe:%d\n", fd_extern);
+    int fd_extern = open(PIPE_PATH, O_RDWR | O_NONBLOCK);
 
     // epoll
     struct epoll_event event, events[MAX_EVENTS];
@@ -60,9 +58,6 @@ static void *create_pipe(void *arg){
     if (epoll_fd == -1) {
         perror("Failed to create epoll fd\n");
     }
-
-    int event_count;
-    char buf[11];
 
     event.data.fd = internal_pipe;
     if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, internal_pipe, &event) == -1) {
@@ -74,7 +69,9 @@ static void *create_pipe(void *arg){
         perror("Failed to add external pipe file descriptor to epoll\n");
     }
 
-    bool done = false;
+    int event_count;
+    char buf[READ_SIZE + 1];
+    uint8_t done = 0;
     size_t bytes_read = 0;
     while (!done) {
         event_count = epoll_wait(epoll_fd, events, MAX_EVENTS, -1);
@@ -82,20 +79,17 @@ static void *create_pipe(void *arg){
             perror("epoll_wait failed!\n");
             break;
         }
-        printf("%d ready events\n", event_count);
         for (int i = 0; i < event_count; i++) {
             if (events[i].data.fd == internal_pipe && events[i].events == EPOLLHUP) {
-                done = true;
+                done = 1;
                 printf("Parrent closed pipe, will now exit.\n");
                 break;
             }
 
-            printf("Reading file descriptor '%d' -- ", events[i].data.fd);
-            bytes_read = read(events[i].data.fd, buf, 10);
-            printf("Bytes read %d\n", bytes_read);
-            printf("Read: %s\n", buf);
+            bytes_read = read(events[i].data.fd, buf, READ_SIZE);
+            buf[bytes_read] = '\0';
+            printf("Got a new thread advice: %s\n", buf);
         }
-        break;
     }
 
     // clean up
@@ -125,9 +119,8 @@ void main(void) {
 
         // start listener thread
         listener_args.int_pipe_fd = internal_fds[0];
-
         pthread_create(&listener_id, NULL, create_pipe, &listener_args);
-        pthread_join(listener_id, NULL);
+        //pthread_join(listener_id, NULL);
     } else {
         printf("App does not use OMP!\n");
     }
