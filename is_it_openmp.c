@@ -2,10 +2,11 @@
 
 #include <stdio.h>
 
-// dlsym shit
+// dlsym & more
 #include <link.h>
 #include <string.h>
 #include <dlfcn.h>
+#include <stdlib.h>
 
 // named pipe
 #include <sys/stat.h>
@@ -43,7 +44,7 @@ static void *create_pipe(void *arg){
     fprintf(stderr, "Intpipe:%d\n", internal_pipe);
     // create named pipe for external com
     mkfifo(PIPE_PATH, 0666);
-    int fd_extern = open(PIPE_PATH, O_RDONLY);
+    int fd_extern = open(PIPE_PATH, O_RDONLY | O_NONBLOCK);
     fprintf(stderr, "Intpipe:%d\n", fd_extern);
     // epoll
     struct epoll_event event, events[MAX_EVENTS];
@@ -71,7 +72,7 @@ static void *create_pipe(void *arg){
 
     read(fd_extern, buf, 1);
     printf("Okay. We are gonna use %c threads.\n", buf[0]);
-    set_threads(buf[0] - '0');
+    set_threads(atoi(&buf[0]));
     // clean up
     close(fd_extern);
     close(epoll_fd);
