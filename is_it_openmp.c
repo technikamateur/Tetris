@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 
 // dlsym
 #include <link.h>
@@ -88,7 +89,8 @@ static void *create_pipe(void *arg){
 
             bytes_read = read(events[i].data.fd, buf, READ_SIZE);
             buf[bytes_read] = '\0';
-            printf("Got a new thread advice: %s\n", buf);
+            printf("Got a new thread advice: %d\n", atoi(buf));
+            set_threads(atoi(buf));
         }
     }
 
@@ -97,7 +99,6 @@ static void *create_pipe(void *arg){
     close(fd_extern);
     close(epoll_fd);
     unlink(PIPE_PATH);
-
     return NULL;
 }
 
@@ -110,6 +111,8 @@ void main(void) {
 
     /* Check for OMP support */
     dl_iterate_phdr(omp_checker, NULL);
+    // remove exisiting pipe in case of unclean shutdown
+    remove(PIPE_PATH);
 
     if (OMP_APP) {
         printf("App uses OMP!\n");
@@ -120,6 +123,7 @@ void main(void) {
         // start listener thread
         listener_args.int_pipe_fd = internal_fds[0];
         pthread_create(&listener_id, NULL, create_pipe, &listener_args);
+        //close(internal_fds[1]);
         //pthread_join(listener_id, NULL);
     } else {
         printf("App does not use OMP!\n");
