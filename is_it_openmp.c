@@ -25,6 +25,7 @@
 #define READ_SIZE 10
 static uint8_t OMP_APP = 0;
 static const char *PIPE_PATH = "test.pipe";
+static int internal_fds[2];
 static atomic_int requested_thread_num = 0;
 
 void (*gomp_parallel_enter)(void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) = NULL;
@@ -93,7 +94,6 @@ static void *create_pipe(void *arg){
         for (int i = 0; i < event_count; i++) {
             if (events[i].data.fd == internal_pipe && events[i].events == EPOLLHUP) {
                 done = 1;
-                printf("Parrent closed pipe, will now exit.\n");
                 break;
             }
 
@@ -105,6 +105,7 @@ static void *create_pipe(void *arg){
     }
 
     // clean up
+    printf("Main thread closed pipe. Exiting normally...\n");
     close(internal_pipe);
     close(fd_extern);
     close(epoll_fd);
@@ -113,6 +114,7 @@ static void *create_pipe(void *arg){
 }
 
 static int main(void) __attribute__((constructor));
+static void finalize(void) __attribute__((destructor));
 
 static pthread_t listener_id;
 static struct thread_args listener_args;
@@ -126,9 +128,7 @@ int main(void) {
 
     if (OMP_APP) {
         // pipe to child
-        int internal_fds[2];
         pipe(internal_fds);
-
         // start listener thread
         listener_args.int_pipe_fd = internal_fds[0];
         pthread_create(&listener_id, NULL, create_pipe, &listener_args);
@@ -141,8 +141,10 @@ int main(void) {
     return 0;
 }
 
-/*
- int __kmp_begin(void)
- int __kmpc_fork_call()
- void GOMP_parallel_start(void (*fn), void*)
- */
+static void finalize(void) {
+    if (OMP_APP) {
+        close(internal_fds[1]);
+        pthread_join(listener_id, NULL);
+    }
+    return;
+}
