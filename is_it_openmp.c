@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdatomic.h>
 
 // dlsym
 #include <link.h>
@@ -19,27 +20,36 @@
 // epoll
 #include <sys/epoll.h>
 
+
 #define MAX_EVENTS 2
 #define READ_SIZE 10
 static uint8_t OMP_APP = 0;
 static const char *PIPE_PATH = "test.pipe";
+static atomic_int requested_thread_num = 0;
+
+void (*gomp_parallel_enter)(void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) = NULL;
 
 struct thread_args {
     int int_pipe_fd;
 };
 
 static int omp_checker(struct dl_phdr_info *i, size_t size, void *data) {
-    if ((strstr(i->dlpi_name, "libomp") != NULL) || (strstr(i->dlpi_name, "libgomp") != NULL)) {
+    if (strstr(i->dlpi_name, "libomp") != NULL) {
         OMP_APP = 1;
+        printf("App uses OMP!\n");
+        return 1;
+    }
+    if (strstr(i->dlpi_name, "libgomp") != NULL) {
+        OMP_APP = 1;
+        printf("App uses GOMP!\n");
+        gomp_parallel_enter = dlsym(RTLD_NEXT, "GOMP_parallel");
         return 1;
     }
     return 0;
 }
 
-static void set_threads(int num){
-    void *(*omp_set_threads)(int) = NULL;
-    omp_set_threads = dlsym(RTLD_NEXT, "omp_set_num_threads");
-    omp_set_threads(num);
+void GOMP_parallel (void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) {
+    gomp_parallel_enter(fn, data, requested_thread_num, flags);
     return;
 }
 
@@ -90,7 +100,7 @@ static void *create_pipe(void *arg){
             bytes_read = read(events[i].data.fd, buf, READ_SIZE);
             buf[bytes_read] = '\0';
             printf("Got a new thread advice: %d\n", atoi(buf));
-            set_threads(atoi(buf));
+            requested_thread_num = atoi(buf);
         }
     }
 
@@ -102,12 +112,12 @@ static void *create_pipe(void *arg){
     return NULL;
 }
 
-static void main(void) __attribute__((constructor));
+static int main(void) __attribute__((constructor));
 
 static pthread_t listener_id;
 static struct thread_args listener_args;
 
-void main(void) {
+int main(void) {
 
     /* Check for OMP support */
     dl_iterate_phdr(omp_checker, NULL);
@@ -115,7 +125,6 @@ void main(void) {
     remove(PIPE_PATH);
 
     if (OMP_APP) {
-        printf("App uses OMP!\n");
         // pipe to child
         int internal_fds[2];
         pipe(internal_fds);
@@ -129,5 +138,11 @@ void main(void) {
         printf("App does not use OMP!\n");
     }
     printf("--------\n");
-    return;
+    return 0;
 }
+
+/*
+ int __kmp_begin(void)
+ int __kmpc_fork_call()
+ void GOMP_parallel_start(void (*fn), void*)
+ */
