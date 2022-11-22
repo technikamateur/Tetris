@@ -62,11 +62,10 @@ void GOMP_parallel (void (*fn) (void *), void *data, unsigned num_threads, unsig
 static void limit_cpus(unsigned cpu_limit) {
     cpu_set_t cpuset;
     CPU_ZERO(&cpuset);
-    CPU_SET(2, &cpuset);
-    if (sched_setaffinity(0, sizeof(cpu_set_t), &cpuset) == -1) {
+    CPU_SET(0, &cpuset);
+    if (sched_setaffinity(getpid(), sizeof(cpuset), &cpuset) == -1) {
         perror("Failed to set affinity\n");
     }
-    int get_affinity = sched_getaffinity(0, sizeof(cpu_set_t), &cpuset);
     return;
 }
 
