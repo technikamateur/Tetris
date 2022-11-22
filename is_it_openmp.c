@@ -20,13 +20,18 @@
 // epoll
 #include <sys/epoll.h>
 
+// cpu affinity
+#include <sched.h>
+
 
 #define MAX_EVENTS 2
 #define READ_SIZE 10
 static uint8_t OMP_APP = 0;
-static const char *PIPE_PATH = "test.pipe";
+static const char *THREAD_PIPE = "set_threads.pipe";
+static const char *CORE_PIPE = "set_cores.pipe";
 static int internal_fds[2];
-static atomic_int requested_thread_num = 0;
+_Atomic static unsigned requested_thread_num = 0;
+
 
 void (*gomp_parallel_enter)(void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) = NULL;
 
@@ -54,30 +59,48 @@ void GOMP_parallel (void (*fn) (void *), void *data, unsigned num_threads, unsig
     return;
 }
 
-static void *create_pipe(void *arg){
+static void limit_cpus(unsigned cpu_limit) {
+    cpu_set_t cpuset;
+    CPU_ZERO(&cpuset);
+    CPU_SET(2, &cpuset);
+    if (sched_setaffinity(0, sizeof(cpu_set_t), &cpuset) == -1) {
+        perror("Failed to set affinity\n");
+    }
+    int get_affinity = sched_getaffinity(0, sizeof(cpu_set_t), &cpuset);
+    return;
+}
+
+static void *listening(void *arg){
     // get thread args for internal pipe
     struct thread_args* targs = arg;
     int internal_pipe = targs->int_pipe_fd;
 
-    // create named pipe for external com
-    mkfifo(PIPE_PATH, 0666);
-    int fd_extern = open(PIPE_PATH, O_RDWR | O_NONBLOCK);
+    // create named pipe for thread & core com
+    mkfifo(THREAD_PIPE, 0666);
+    mkfifo(CORE_PIPE, 0666);
+    int fd_threads = open(THREAD_PIPE, O_RDWR | O_NONBLOCK);
+    int fd_cores = open(CORE_PIPE, O_RDWR | O_NONBLOCK);
 
     // epoll
     struct epoll_event event, events[MAX_EVENTS];
+    // listen on incomming data. Hangup is always watched.
     event.events = EPOLLIN;
     int epoll_fd = epoll_create1(0);
     if (epoll_fd == -1) {
         perror("Failed to create epoll fd\n");
     }
 
+    // add fd's to epoll
     event.data.fd = internal_pipe;
     if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, internal_pipe, &event) == -1) {
         perror("Failed to add internal pipe file descriptor to epoll\n");
     }
-
-    event.data.fd = fd_extern;
-    if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, fd_extern, &event) == -1) {
+    event.data.fd = fd_threads;
+    if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, fd_threads, &event) == -1) {
+        perror("Failed to add external pipe file descriptor to epoll\n");
+    }
+    event.data.fd = fd_cores;
+    if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, fd_cores, &event) == -1) {
         perror("Failed to add external pipe file descriptor to epoll\n");
     }
 
@@ -92,24 +115,37 @@ static void *create_pipe(void *arg){
             break;
         }
         for (int i = 0; i < event_count; i++) {
+            // internal pipe = message from parent
             if (events[i].data.fd == internal_pipe && events[i].events == EPOLLHUP) {
                 done = 1;
                 break;
             }
+            // new thread advice
+            if (events[i].data.fd == fd_threads) {
+                bytes_read = read(events[i].data.fd, buf, READ_SIZE);
+                buf[bytes_read] = '\0';
+                printf("Got a new thread advice: %d\n", atoi(buf));
+                requested_thread_num = atoi(buf);
+            }
+            // new core instruction
+            if (events[i].data.fd == fd_cores) {
+                bytes_read = read(events[i].data.fd, buf, READ_SIZE);
+                buf[bytes_read] = '\0';
+                printf("Got a new cores advice: %d\n", atoi(buf));
+                limit_cpus(0);
+            }
 
-            bytes_read = read(events[i].data.fd, buf, READ_SIZE);
-            buf[bytes_read] = '\0';
-            printf("Got a new thread advice: %d\n", atoi(buf));
-            requested_thread_num = atoi(buf);
         }
     }
 
     // clean up
     printf("Main thread closed pipe. Exiting normally...\n");
     close(internal_pipe);
-    close(fd_extern);
+    close(fd_threads);
+    close(fd_cores);
     close(epoll_fd);
-    unlink(PIPE_PATH);
+    unlink(THREAD_PIPE);
+    unlink(CORE_PIPE);
     return NULL;
 }
 
@@ -120,18 +156,18 @@ static pthread_t listener_id;
 static struct thread_args listener_args;
 
 int main(void) {
-
     /* Check for OMP support */
     dl_iterate_phdr(omp_checker, NULL);
     // remove exisiting pipe in case of unclean shutdown
-    remove(PIPE_PATH);
+    remove(THREAD_PIPE);
+    remove(CORE_PIPE);
 
     if (OMP_APP) {
         // pipe to child
         pipe(internal_fds);
         // start listener thread
         listener_args.int_pipe_fd = internal_fds[0];
-        pthread_create(&listener_id, NULL, create_pipe, &listener_args);
+        pthread_create(&listener_id, NULL, listening, &listener_args);
         //close(internal_fds[1]);
         //pthread_join(listener_id, NULL);
     } else {
