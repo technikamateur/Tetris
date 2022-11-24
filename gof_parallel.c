@@ -166,6 +166,7 @@ void calculate_next_gen(u_int8_t *state, u_int8_t *state_old) {
         int tid = omp_get_thread_num();
         if (tid == 0) {
             printf("We are using %d thread(s)!\n", omp_get_num_threads());
+            printf("Currently assigned cpus: %d\n", omp_get_num_places());
         }
     }
     return;
@@ -239,6 +240,7 @@ void argments(int argc, char *argv[]) {
 }
 
 int main(int argc, char *argv[]) {
+    sleep(5);
     // arguments
     argments(argc, argv);
     // welcome information

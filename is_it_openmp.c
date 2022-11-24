@@ -26,6 +26,7 @@
 
 #define MAX_EVENTS 2
 #define READ_SIZE 10
+
 static uint8_t OMP_APP = 0;
 static const char *THREAD_PIPE = "set_threads.pipe";
 static const char *CORE_PIPE = "set_cores.pipe";
@@ -34,6 +35,8 @@ _Atomic static unsigned requested_thread_num = 0;
 
 
 void (*gomp_parallel_enter)(void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) = NULL;
+int (*real_pthread_create)(pthread_t *restrict thread, const pthread_attr_t *restrict attr,
+                          void *(*start_routine)(void *), void *restrict arg) = NULL;
 
 struct thread_args {
     int int_pipe_fd;
@@ -57,6 +60,13 @@ static int omp_checker(struct dl_phdr_info *i, size_t size, void *data) {
 void GOMP_parallel (void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) {
     gomp_parallel_enter(fn, data, requested_thread_num, flags);
     return;
+}
+
+int pthread_create(pthread_t *restrict thread, const pthread_attr_t *restrict attr,
+                   void *(*start_routine)(void *), void *restrict arg) {
+    int err = real_pthread_create(thread, attr, start_routine, arg);
+    printf("TID %lu\n", thread);
+    return err;
 }
 
 static void limit_cpus(unsigned cpu_limit) {
@@ -155,6 +165,7 @@ static pthread_t listener_id;
 static struct thread_args listener_args;
 
 int main(void) {
+    real_pthread_create = dlsym(RTLD_NEXT,"pthread_create");
     /* Check for OMP support */
     dl_iterate_phdr(omp_checker, NULL);
     // remove exisiting pipe in case of unclean shutdown
