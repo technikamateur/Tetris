@@ -23,6 +23,7 @@
 // cpu affinity
 #include <sched.h>
 
+#include "ctmanage.h"
 
 #define MAX_EVENTS 2
 #define READ_SIZE 10
@@ -32,10 +33,8 @@ static const char *THREAD_PIPE = "set_threads.pipe";
 static const char *CORE_PIPE = "set_cores.pipe";
 static int internal_fds[2];
 _Atomic static unsigned requested_thread_num = 0;
-static pthread_t thread_array[1000];
-static int array_pos = 0;
 
-
+// function pointers
 void (*gomp_parallel_enter)(void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) = NULL;
 int (*real_pthread_create)(pthread_t *restrict thread, const pthread_attr_t *restrict attr,
                           void *(*start_routine)(void *), void *restrict arg) = NULL;
@@ -66,10 +65,10 @@ void GOMP_parallel (void (*fn) (void *), void *data, unsigned num_threads, unsig
 
 int pthread_create(pthread_t *restrict thread, const pthread_attr_t *restrict attr,
                    void *(*start_routine)(void *), void *restrict arg) {
-    int err = real_pthread_create(&thread_array[array_pos], attr, start_routine, arg);
-    thread = &thread_array[array_pos];
-    array_pos++;
-    printf("New thread spawned: %lu\n", thread_array[array_pos]);
+    int err = real_pthread_create(thread, attr, start_routine, arg);
+    if (OMP_APP) {
+        CTM_Add_Thread(*thread);
+    }
     return err;
 }
 
@@ -77,10 +76,11 @@ static void limit_cpus(unsigned cpu_limit) {
     cpu_set_t cpuset;
     CPU_ZERO(&cpuset);
     CPU_SET(0, &cpuset);
-    int i=0;
-    while(thread_array[i] != 0){
-        printf("ID fetched %lu\n", thread_array[i]);
-        if (pthread_setaffinity_np(thread_array[i], sizeof(cpuset), &cpuset) == -1) {
+    size_t i = 0;
+    pthread_t thread_handle;
+    while((thread_handle = CTM_Fetch_Thread()) != 0){
+        printf("ID fetched %lu\n", thread_handle);
+        if (pthread_setaffinity_np(thread_handle, sizeof(cpuset), &cpuset) == -1) {
             perror("Failed to set affinity\n");
         }
         i++;
@@ -150,7 +150,7 @@ static void *listening(void *arg){
                 bytes_read = read(events[i].data.fd, buf, READ_SIZE);
                 buf[bytes_read] = '\0';
                 printf("Got a new cores advice: %d\n", atoi(buf));
-                limit_cpus(0);
+                limit_cpus(atoi(buf));
             }
 
         }
@@ -182,16 +182,14 @@ int main(void) {
     remove(CORE_PIPE);
 
     if (OMP_APP) {
+        // overwrite pthread_create
         // pipe to child
         pipe(internal_fds);
         // add main thread to thread list
-        thread_array[array_pos] = pthread_self();
-        array_pos++;
+        CTM_Add_Thread(pthread_self());
         // start listener thread
         listener_args.int_pipe_fd = internal_fds[0];
         real_pthread_create(&listener_id, NULL, listening, &listener_args);
-        //close(internal_fds[1]);
-        //pthread_join(listener_id, NULL);
     } else {
         printf("App does not use OMP!\n");
     }
