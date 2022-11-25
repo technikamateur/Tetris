@@ -32,6 +32,8 @@ static const char *THREAD_PIPE = "set_threads.pipe";
 static const char *CORE_PIPE = "set_cores.pipe";
 static int internal_fds[2];
 _Atomic static unsigned requested_thread_num = 0;
+static pthread_t thread_array[1000];
+static int array_pos = 0;
 
 
 void (*gomp_parallel_enter)(void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) = NULL;
@@ -64,8 +66,10 @@ void GOMP_parallel (void (*fn) (void *), void *data, unsigned num_threads, unsig
 
 int pthread_create(pthread_t *restrict thread, const pthread_attr_t *restrict attr,
                    void *(*start_routine)(void *), void *restrict arg) {
-    int err = real_pthread_create(thread, attr, start_routine, arg);
-    printf("TID %lu\n", thread);
+    int err = real_pthread_create(&thread_array[array_pos], attr, start_routine, arg);
+    thread = &thread_array[array_pos];
+    array_pos++;
+    printf("New thread spawned: %lu\n", thread_array[array_pos]);
     return err;
 }
 
@@ -73,8 +77,13 @@ static void limit_cpus(unsigned cpu_limit) {
     cpu_set_t cpuset;
     CPU_ZERO(&cpuset);
     CPU_SET(0, &cpuset);
-    if (sched_setaffinity(getpid(), sizeof(cpuset), &cpuset) == -1) {
-        perror("Failed to set affinity\n");
+    int i=0;
+    while(thread_array[i] != 0){
+        printf("ID fetched %lu\n", thread_array[i]);
+        if (pthread_setaffinity_np(thread_array[i], sizeof(cpuset), &cpuset) == -1) {
+            perror("Failed to set affinity\n");
+        }
+        i++;
     }
     return;
 }
@@ -175,9 +184,12 @@ int main(void) {
     if (OMP_APP) {
         // pipe to child
         pipe(internal_fds);
+        // add main thread to thread list
+        thread_array[array_pos] = pthread_self();
+        array_pos++;
         // start listener thread
         listener_args.int_pipe_fd = internal_fds[0];
-        pthread_create(&listener_id, NULL, listening, &listener_args);
+        real_pthread_create(&listener_id, NULL, listening, &listener_args);
         //close(internal_fds[1]);
         //pthread_join(listener_id, NULL);
     } else {
