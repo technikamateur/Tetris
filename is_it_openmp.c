@@ -40,7 +40,6 @@ typedef struct ThreadInfo_s {
 } ThreadInfo;
 static size_t size = 2;
 static size_t next_free = 0;
-static size_t head = 0;
 static ThreadInfo *thread_array = NULL;
 
 // listener thread
@@ -56,6 +55,8 @@ struct thread_args {
 void (*gomp_parallel_enter)(void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) = NULL;
 int (*real_pthread_create)(pthread_t *restrict thread, const pthread_attr_t *restrict attr,
                           void *(*start_routine)(void *), void *restrict arg) = NULL;
+
+void (*real_pthread_exit)(void *retval) __attribute__((noreturn));
 
 static int omp_checker(struct dl_phdr_info *i, size_t size, void *data) {
     if (strstr(i->dlpi_name, "libomp") != NULL) {
@@ -77,8 +78,7 @@ void GOMP_parallel (void (*fn) (void *), void *data, unsigned /*num_threads*/, u
     return;
 }
 
-ThreadInfo *create_thread_struct() {
-    printf("New thread spawned.\n");
+ThreadInfo *add_thread_struct() {
     // insert in array
     if (thread_array == NULL) {
         thread_array = (ThreadInfo *) malloc(size * sizeof(ThreadInfo));
@@ -88,17 +88,16 @@ ThreadInfo *create_thread_struct() {
         size = 2 * size;
         thread_array = (ThreadInfo *) realloc(thread_array, size * sizeof(ThreadInfo));
     }
-    ThreadInfo thrd;
-    thread_array[next_free] = thrd;
+    ThreadInfo *retval = &thread_array[next_free];
     next_free++;
-    return &thread_array[next_free-1];
+    return retval;
 }
 
 void *thread_wrapper_func(void *arg) {
     ThreadInfo *thrd = arg;
     // stor tid
     thrd->tid = gettid();
-    printf("Thread with tid %d added.\n", thrd->tid);
+    printf("Thread with tid %d spawned.\n", thrd->tid);
     // start function
     thrd->func(thrd->arg);
     // function ended - cleanup
@@ -111,7 +110,7 @@ int pthread_create(pthread_t *restrict thread, const pthread_attr_t *restrict at
                    void *(*start_routine)(void *), void *restrict arg) {
     if (OMP_APP) {
         // creating thread structure
-        ThreadInfo *thrd = create_thread_struct();
+        ThreadInfo *thrd = add_thread_struct();
         // populating
         thrd->thread_handle = thread;
         thrd->func = start_routine;
@@ -124,25 +123,41 @@ int pthread_create(pthread_t *restrict thread, const pthread_attr_t *restrict at
     }
 }
 
+void pthread_exit(void *retval) {
+    pid_t tid = gettid();
+    printf("Thread with tid %d exited.\n", tid);
+    for (int i = 0; i < next_free; i++) {
+        if (thread_array[i].tid == tid) {
+            thread_array[i].dead = 1;
+            break;
+        }
+    }
+    real_pthread_exit(retval);
+}
+
 static void limit_cpus(unsigned cpu_limit) {
     unsigned i = 0;
+    size_t head = 0;
     cpu_set_t cpuset;
     CPU_ZERO(&cpuset);
     while (i < cpu_limit) {
-        printf("CPU assigned: %d\n", i);
         CPU_SET(i, &cpuset);
         i++;
     }
     while (head != next_free) {
         if (thread_array[head].dead) {
+            printf("Found a dead thread. Num: %d. Ignoring it.\n", head);
+            head++;
             continue;
         }
         if (sched_setaffinity(thread_array[head].tid, sizeof(cpuset), &cpuset) == -1) {
             printf("Failed to set affinity. Num: %d, TID: %d, Errno: %d\n", head, thread_array[head].tid, errno);
         }
+        if (thread_array[head].tid == 0) {
+            printf("Discovered a thread with tid %d. His num: %d. This seems to be strange.\n", thread_array[head].tid, head);
+        }
         head++;
     }
-    head = 0;
     return;
 }
 
@@ -234,6 +249,7 @@ static struct thread_args listener_args;
 
 int main(void) {
     real_pthread_create = dlsym(RTLD_NEXT,"pthread_create");
+    real_pthread_exit = dlsym(RTLD_NEXT,"pthread_exit");
     /* Check for OMP support */
     dl_iterate_phdr(omp_checker, NULL);
     // remove exisiting pipe in case of unclean shutdown
@@ -245,7 +261,7 @@ int main(void) {
         // pipe to child
         pipe(internal_fds);
         // add main thread to thread list
-        ThreadInfo *thrd = create_thread_struct();
+        ThreadInfo *thrd = add_thread_struct();
         // populating
         //thrd->thread_handle = pthread_self();
         thrd->tid = gettid();
