@@ -23,30 +23,44 @@
 // cpu affinity
 #include <sched.h>
 
-#include "ctmanage.h"
+#include <errno.h>
 
 #define MAX_EVENTS 2
 #define READ_SIZE 10
 
 static uint8_t OMP_APP = 0;
+
+// Setting and managing threads
+typedef struct ThreadInfo_s {
+    pthread_t* thread_handle;
+    pid_t tid;
+    void* (*func)(void*);
+    void* arg;
+    uint8_t dead;
+} ThreadInfo;
+static size_t size = 2;
+static size_t next_free = 0;
+static size_t head = 0;
+static ThreadInfo *thread_array = NULL;
+
+// listener thread
 static const char *THREAD_PIPE = "set_threads.pipe";
 static const char *CORE_PIPE = "set_cores.pipe";
 static int internal_fds[2];
 _Atomic static unsigned requested_thread_num = 0;
+struct thread_args {
+    int int_pipe_fd;
+};
 
 // function pointers
 void (*gomp_parallel_enter)(void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) = NULL;
 int (*real_pthread_create)(pthread_t *restrict thread, const pthread_attr_t *restrict attr,
                           void *(*start_routine)(void *), void *restrict arg) = NULL;
 
-struct thread_args {
-    int int_pipe_fd;
-};
-
 static int omp_checker(struct dl_phdr_info *i, size_t size, void *data) {
     if (strstr(i->dlpi_name, "libomp") != NULL) {
         OMP_APP = 1;
-        printf("App uses OMP!\n");
+        printf("App uses OMP!\nTHIS IS NOT TESTED!\n");
         return 1;
     }
     if (strstr(i->dlpi_name, "libgomp") != NULL) {
@@ -58,33 +72,77 @@ static int omp_checker(struct dl_phdr_info *i, size_t size, void *data) {
     return 0;
 }
 
-void GOMP_parallel (void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) {
+void GOMP_parallel (void (*fn) (void *), void *data, unsigned /*num_threads*/, unsigned int flags) {
     gomp_parallel_enter(fn, data, requested_thread_num, flags);
     return;
 }
 
+ThreadInfo *create_thread_struct() {
+    printf("New thread spawned.\n");
+    // insert in array
+    if (thread_array == NULL) {
+        thread_array = (ThreadInfo *) malloc(size * sizeof(ThreadInfo));
+    }
+    if (size == next_free) {
+        // we reached end of array -> realloc
+        size = 2 * size;
+        thread_array = (ThreadInfo *) realloc(thread_array, size * sizeof(ThreadInfo));
+    }
+    ThreadInfo thrd;
+    thread_array[next_free] = thrd;
+    next_free++;
+    return &thread_array[next_free-1];
+}
+
+void *thread_wrapper_func(void *arg) {
+    ThreadInfo *thrd = arg;
+    // stor tid
+    thrd->tid = gettid();
+    printf("Thread with tid %d added.\n", thrd->tid);
+    // start function
+    thrd->func(thrd->arg);
+    // function ended - cleanup
+    thrd->dead = 1;
+    printf("Thread with tid %d returned.\n", thrd->tid);
+    return NULL;
+}
+
 int pthread_create(pthread_t *restrict thread, const pthread_attr_t *restrict attr,
                    void *(*start_routine)(void *), void *restrict arg) {
-    int err = real_pthread_create(thread, attr, start_routine, arg);
     if (OMP_APP) {
-        CTM_Add_Thread(*thread);
+        // creating thread structure
+        ThreadInfo *thrd = create_thread_struct();
+        // populating
+        thrd->thread_handle = thread;
+        thrd->func = start_routine;
+        thrd->arg = arg;
+        thrd->dead = 0;
+        // use my function to control the pthread
+        return real_pthread_create(thread, attr, thread_wrapper_func, thrd);
+    } else {
+        return real_pthread_create(thread, attr, start_routine, arg);
     }
-    return err;
 }
 
 static void limit_cpus(unsigned cpu_limit) {
+    unsigned i = 0;
     cpu_set_t cpuset;
     CPU_ZERO(&cpuset);
-    CPU_SET(0, &cpuset);
-    size_t i = 0;
-    pthread_t thread_handle;
-    while((thread_handle = CTM_Fetch_Thread()) != 0){
-        printf("ID fetched %lu\n", thread_handle);
-        if (pthread_setaffinity_np(thread_handle, sizeof(cpuset), &cpuset) == -1) {
-            perror("Failed to set affinity\n");
-        }
+    while (i < cpu_limit) {
+        printf("CPU assigned: %d\n", i);
+        CPU_SET(i, &cpuset);
         i++;
     }
+    while (head != next_free) {
+        if (thread_array[head].dead) {
+            continue;
+        }
+        if (sched_setaffinity(thread_array[head].tid, sizeof(cpuset), &cpuset) == -1) {
+            printf("Failed to set affinity. Num: %d, TID: %d, Errno: %d\n", head, thread_array[head].tid, errno);
+        }
+        head++;
+    }
+    head = 0;
     return;
 }
 
@@ -158,6 +216,7 @@ static void *listening(void *arg){
 
     // clean up
     printf("Main thread closed pipe. Exiting normally...\n");
+    free(thread_array);
     close(internal_pipe);
     close(fd_threads);
     close(fd_cores);
@@ -186,7 +245,12 @@ int main(void) {
         // pipe to child
         pipe(internal_fds);
         // add main thread to thread list
-        CTM_Add_Thread(pthread_self());
+        ThreadInfo *thrd = create_thread_struct();
+        // populating
+        //thrd->thread_handle = pthread_self();
+        thrd->tid = gettid();
+        thrd->dead = 0;
+        printf("MAIN Thread with tid %d added.\n", thrd->tid);
         // start listener thread
         listener_args.int_pipe_fd = internal_fds[0];
         real_pthread_create(&listener_id, NULL, listening, &listener_args);
