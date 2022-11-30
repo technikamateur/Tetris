@@ -7,7 +7,7 @@ gof: gof_parallel.c Makefile
 	$(CC) -fopenmp $< -o $@
 
 is_it_openmp.so: is_it_openmp.c Makefile
-	$(CC) -shared -fPIC $< -o $@
+	$(CC) -fPIC -shared $< -o $@
 
 .PHONY: clean
 

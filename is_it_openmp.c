@@ -23,26 +23,46 @@
 // cpu affinity
 #include <sched.h>
 
+#include <errno.h>
 
 #define MAX_EVENTS 2
 #define READ_SIZE 10
+
 static uint8_t OMP_APP = 0;
+
+// Setting and managing threads
+typedef struct ThreadInfo_s {
+    pthread_t* thread_handle;
+    pid_t tid;
+    void* (*func)(void*);
+    void* arg;
+    uint8_t dead;
+    struct ThreadInfo_s *next;
+} ThreadInfo;
+static ThreadInfo *first = NULL;
+static ThreadInfo *head = NULL;
+pthread_mutex_t remove_mutex = PTHREAD_MUTEX_INITIALIZER;
+
+// listener thread
 static const char *THREAD_PIPE = "set_threads.pipe";
 static const char *CORE_PIPE = "set_cores.pipe";
 static int internal_fds[2];
 _Atomic static unsigned requested_thread_num = 0;
-
-
-void (*gomp_parallel_enter)(void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) = NULL;
-
 struct thread_args {
     int int_pipe_fd;
 };
 
+// function pointers
+void (*gomp_parallel_enter)(void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) = NULL;
+int (*real_pthread_create)(pthread_t *restrict thread, const pthread_attr_t *restrict attr,
+                          void *(*start_routine)(void *), void *restrict arg) = NULL;
+
+void (*real_pthread_exit)(void *retval) __attribute__((noreturn));
+
 static int omp_checker(struct dl_phdr_info *i, size_t size, void *data) {
     if (strstr(i->dlpi_name, "libomp") != NULL) {
         OMP_APP = 1;
-        printf("App uses OMP!\n");
+        printf("App uses OMP!\nTHIS IS NOT TESTED!\n");
         return 1;
     }
     if (strstr(i->dlpi_name, "libgomp") != NULL) {
@@ -54,17 +74,104 @@ static int omp_checker(struct dl_phdr_info *i, size_t size, void *data) {
     return 0;
 }
 
-void GOMP_parallel (void (*fn) (void *), void *data, unsigned num_threads, unsigned int flags) {
+void GOMP_parallel (void (*fn) (void *), void *data, unsigned /*num_threads*/, unsigned int flags) {
     gomp_parallel_enter(fn, data, requested_thread_num, flags);
     return;
 }
 
+void remove_by_tid(pid_t tid) {
+    // Grab a lock. It might be called by multiple threads
+    pthread_mutex_lock(&remove_mutex);
+    ThreadInfo *dead_thread = NULL;
+    // we don't need to check main thread
+    ThreadInfo *list_walker = first->next;
+    while (list_walker->next != NULL) {
+        if(list_walker->next->tid == tid) {
+            dead_thread = list_walker->next;
+            list_walker->next = dead_thread->next;
+            free(dead_thread);
+            break;
+        }
+        list_walker = list_walker->next;
+    }
+    if (dead_thread == NULL) {
+        printf("Could't find thread with tid %d. Don't worry - it's just a waste of memory.\n", tid);
+    }
+    // we must take care about the head
+    if (list_walker->next == NULL) {
+        head = list_walker;
+    }
+    pthread_mutex_unlock(&remove_mutex);
+    return;
+}
+
+void *thread_wrapper_func(void *arg) {
+    // might be called by multiple threads
+    ThreadInfo *thrd = arg;
+    // stor tid
+    thrd->tid = gettid();
+    printf("Thread with tid %d spawned.\n", thrd->tid);
+    // start function
+    thrd->func(thrd->arg);
+    // function ended - cleanup
+    thrd->dead = 1;
+    printf("Thread with tid %d returned.\n", thrd->tid);
+    remove_by_tid(thrd->tid);
+    return NULL;
+}
+
+int pthread_create(pthread_t *restrict thread, const pthread_attr_t *restrict attr,
+                   void *(*start_routine)(void *), void *restrict arg) {
+    if (OMP_APP) {
+        // creating thread structure
+        head->next = (ThreadInfo *) malloc(sizeof(ThreadInfo));
+        head = head->next;
+        head->thread_handle = thread;
+        head->func = start_routine;
+        head->arg = arg;
+        head->dead = 0;
+        head->next = NULL;
+        // use my function to control the pthread
+        return real_pthread_create(thread, attr, thread_wrapper_func, head);
+    } else {
+        return real_pthread_create(thread, attr, start_routine, arg);
+    }
+}
+
+void pthread_exit(void *retval) {
+    // might be called by multiple threads
+    pid_t tid = gettid();
+    printf("Thread with tid %d exited.\n", tid);
+    remove_by_tid(tid);
+    real_pthread_exit(retval);
+}
+
 static void limit_cpus(unsigned cpu_limit) {
+    unsigned i = 0;
+    ThreadInfo *list_walker = first;
+    // setting cpus
     cpu_set_t cpuset;
     CPU_ZERO(&cpuset);
-    CPU_SET(0, &cpuset);
-    if (sched_setaffinity(getpid(), sizeof(cpuset), &cpuset) == -1) {
-        perror("Failed to set affinity\n");
+    while (i < cpu_limit) {
+        CPU_SET(i, &cpuset);
+        i++;
+    }
+    i = 0;
+    while (list_walker != NULL) {
+        if (list_walker->dead) {
+            printf("Found a dead thread. Num: %d, TID: %d. Skipping it.\n", i, list_walker->tid);
+            list_walker = list_walker->next;
+            i++;
+            continue;
+        }
+        if (sched_setaffinity(list_walker->tid, sizeof(cpuset), &cpuset) == -1) {
+            printf("Failed to set affinity. Num: %d, TID: %d, Errno: %d\n", i, list_walker->tid, errno);
+        }
+        if (list_walker->tid == 0) {
+            printf("Discovered a thread with tid %d. His num: %d. This seems to be strange.\n", list_walker->tid, i);
+        }
+        list_walker = list_walker->next;
+        i++;
     }
     return;
 }
@@ -131,7 +238,7 @@ static void *listening(void *arg){
                 bytes_read = read(events[i].data.fd, buf, READ_SIZE);
                 buf[bytes_read] = '\0';
                 printf("Got a new cores advice: %d\n", atoi(buf));
-                limit_cpus(0);
+                limit_cpus(atoi(buf));
             }
 
         }
@@ -155,6 +262,8 @@ static pthread_t listener_id;
 static struct thread_args listener_args;
 
 int main(void) {
+    real_pthread_create = dlsym(RTLD_NEXT,"pthread_create");
+    real_pthread_exit = dlsym(RTLD_NEXT,"pthread_exit");
     /* Check for OMP support */
     dl_iterate_phdr(omp_checker, NULL);
     // remove exisiting pipe in case of unclean shutdown
@@ -162,13 +271,19 @@ int main(void) {
     remove(CORE_PIPE);
 
     if (OMP_APP) {
+        // overwrite pthread_create
         // pipe to child
         pipe(internal_fds);
+        // add main thread to thread list
+        first = (ThreadInfo *) malloc(sizeof(ThreadInfo));
+        head = first;
+        head->tid = gettid();
+        head->dead = 0;
+        head->next = 0;
+        printf("MAIN Thread with tid %d added.\n", head->tid);
         // start listener thread
         listener_args.int_pipe_fd = internal_fds[0];
-        pthread_create(&listener_id, NULL, listening, &listener_args);
-        //close(internal_fds[1]);
-        //pthread_join(listener_id, NULL);
+        real_pthread_create(&listener_id, NULL, listening, &listener_args);
     } else {
         printf("App does not use OMP!\n");
     }
@@ -180,6 +295,7 @@ static void finalize(void) {
     if (OMP_APP) {
         close(internal_fds[1]);
         pthread_join(listener_id, NULL);
+        free(first);
     }
     return;
 }
