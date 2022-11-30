@@ -37,10 +37,11 @@ typedef struct ThreadInfo_s {
     void* (*func)(void*);
     void* arg;
     uint8_t dead;
+    struct ThreadInfo_s *next;
 } ThreadInfo;
-static size_t size = 2;
-static size_t next_free = 0;
-static ThreadInfo *thread_array = NULL;
+static ThreadInfo *first = NULL;
+static ThreadInfo *head = NULL;
+pthread_mutex_t remove_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 // listener thread
 static const char *THREAD_PIPE = "set_threads.pipe";
@@ -78,22 +79,34 @@ void GOMP_parallel (void (*fn) (void *), void *data, unsigned /*num_threads*/, u
     return;
 }
 
-ThreadInfo *add_thread_struct() {
-    // insert in array
-    if (thread_array == NULL) {
-        thread_array = (ThreadInfo *) malloc(size * sizeof(ThreadInfo));
+void remove_by_tid(pid_t tid) {
+    // Grab a lock. It might be called by multiple threads
+    pthread_mutex_lock(&remove_mutex);
+    ThreadInfo *dead_thread = NULL;
+    // we don't need to check main thread
+    ThreadInfo *list_walker = first->next;
+    while (list_walker->next != NULL) {
+        if(list_walker->next->tid == tid) {
+            dead_thread = list_walker->next;
+            list_walker->next = dead_thread->next;
+            free(dead_thread);
+            break;
+        }
+        list_walker = list_walker->next;
     }
-    if (size == next_free) {
-        // we reached end of array -> realloc
-        size = 2 * size;
-        thread_array = (ThreadInfo *) realloc(thread_array, size * sizeof(ThreadInfo));
+    if (dead_thread == NULL) {
+        printf("Could't find thread with tid %d. Don't worry - it's just a waste of memory.\n", tid);
     }
-    ThreadInfo *retval = &thread_array[next_free];
-    next_free++;
-    return retval;
+    // we must take care about the head
+    if (list_walker->next == NULL) {
+        head = list_walker;
+    }
+    pthread_mutex_unlock(&remove_mutex);
+    return;
 }
 
 void *thread_wrapper_func(void *arg) {
+    // might be called by multiple threads
     ThreadInfo *thrd = arg;
     // stor tid
     thrd->tid = gettid();
@@ -103,6 +116,7 @@ void *thread_wrapper_func(void *arg) {
     // function ended - cleanup
     thrd->dead = 1;
     printf("Thread with tid %d returned.\n", thrd->tid);
+    remove_by_tid(thrd->tid);
     return NULL;
 }
 
@@ -110,53 +124,54 @@ int pthread_create(pthread_t *restrict thread, const pthread_attr_t *restrict at
                    void *(*start_routine)(void *), void *restrict arg) {
     if (OMP_APP) {
         // creating thread structure
-        ThreadInfo *thrd = add_thread_struct();
-        // populating
-        thrd->thread_handle = thread;
-        thrd->func = start_routine;
-        thrd->arg = arg;
-        thrd->dead = 0;
+        head->next = (ThreadInfo *) malloc(sizeof(ThreadInfo));
+        head = head->next;
+        head->thread_handle = thread;
+        head->func = start_routine;
+        head->arg = arg;
+        head->dead = 0;
+        head->next = NULL;
         // use my function to control the pthread
-        return real_pthread_create(thread, attr, thread_wrapper_func, thrd);
+        return real_pthread_create(thread, attr, thread_wrapper_func, head);
     } else {
         return real_pthread_create(thread, attr, start_routine, arg);
     }
 }
 
 void pthread_exit(void *retval) {
+    // might be called by multiple threads
     pid_t tid = gettid();
     printf("Thread with tid %d exited.\n", tid);
-    for (int i = 0; i < next_free; i++) {
-        if (thread_array[i].tid == tid) {
-            thread_array[i].dead = 1;
-            break;
-        }
-    }
+    remove_by_tid(tid);
     real_pthread_exit(retval);
 }
 
 static void limit_cpus(unsigned cpu_limit) {
     unsigned i = 0;
-    size_t head = 0;
+    ThreadInfo *list_walker = first;
+    // setting cpus
     cpu_set_t cpuset;
     CPU_ZERO(&cpuset);
     while (i < cpu_limit) {
         CPU_SET(i, &cpuset);
         i++;
     }
-    while (head != next_free) {
-        if (thread_array[head].dead) {
-            printf("Found a dead thread. Num: %d. Ignoring it.\n", head);
-            head++;
+    i = 0;
+    while (list_walker != NULL) {
+        if (list_walker->dead) {
+            printf("Found a dead thread. Num: %d, TID: %d. Skipping it.\n", i, list_walker->tid);
+            list_walker = list_walker->next;
+            i++;
             continue;
         }
-        if (sched_setaffinity(thread_array[head].tid, sizeof(cpuset), &cpuset) == -1) {
-            printf("Failed to set affinity. Num: %d, TID: %d, Errno: %d\n", head, thread_array[head].tid, errno);
+        if (sched_setaffinity(list_walker->tid, sizeof(cpuset), &cpuset) == -1) {
+            printf("Failed to set affinity. Num: %d, TID: %d, Errno: %d\n", i, list_walker->tid, errno);
         }
-        if (thread_array[head].tid == 0) {
-            printf("Discovered a thread with tid %d. His num: %d. This seems to be strange.\n", thread_array[head].tid, head);
+        if (list_walker->tid == 0) {
+            printf("Discovered a thread with tid %d. His num: %d. This seems to be strange.\n", list_walker->tid, i);
         }
-        head++;
+        list_walker = list_walker->next;
+        i++;
     }
     return;
 }
@@ -231,7 +246,6 @@ static void *listening(void *arg){
 
     // clean up
     printf("Main thread closed pipe. Exiting normally...\n");
-    free(thread_array);
     close(internal_pipe);
     close(fd_threads);
     close(fd_cores);
@@ -261,12 +275,12 @@ int main(void) {
         // pipe to child
         pipe(internal_fds);
         // add main thread to thread list
-        ThreadInfo *thrd = add_thread_struct();
-        // populating
-        //thrd->thread_handle = pthread_self();
-        thrd->tid = gettid();
-        thrd->dead = 0;
-        printf("MAIN Thread with tid %d added.\n", thrd->tid);
+        first = (ThreadInfo *) malloc(sizeof(ThreadInfo));
+        head = first;
+        head->tid = gettid();
+        head->dead = 0;
+        head->next = 0;
+        printf("MAIN Thread with tid %d added.\n", head->tid);
         // start listener thread
         listener_args.int_pipe_fd = internal_fds[0];
         real_pthread_create(&listener_id, NULL, listening, &listener_args);
@@ -281,6 +295,7 @@ static void finalize(void) {
     if (OMP_APP) {
         close(internal_fds[1]);
         pthread_join(listener_id, NULL);
+        free(first);
     }
     return;
 }

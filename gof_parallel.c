@@ -239,7 +239,6 @@ void argments(int argc, char *argv[]) {
 }
 
 int main(int argc, char *argv[]) {
-    sleep(5);
     // arguments
     argments(argc, argv);
     // welcome information
