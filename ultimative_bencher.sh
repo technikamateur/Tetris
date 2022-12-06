@@ -10,5 +10,5 @@ for bench in ${benchmarks[@]}; do
 done
 
 for f in ./bin/*.x; do
-    LD_PRELOAD=./is_it_openmp.so $f
+    /usr/bin/time -f %U,%S,%e -o $f.time perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>$f.txt
 done
