@@ -29,6 +29,7 @@
 #define READ_SIZE 10
 
 static uint8_t OMP_APP = 0;
+static uint8_t HALT_STOP = 0;
 
 // Setting and managing threads
 typedef struct ThreadInfo_s {
@@ -255,13 +256,14 @@ static void *listening(void *arg){
     return NULL;
 }
 
-static int main(void) __attribute__((constructor));
+static int startup(void) __attribute__((constructor));
 static void finalize(void) __attribute__((destructor));
 
 static pthread_t listener_id;
 static struct thread_args listener_args;
 
-int main(void) {
+int startup(void) {
+    // overwrite pthread_create and exit
     real_pthread_create = dlsym(RTLD_NEXT,"pthread_create");
     real_pthread_exit = dlsym(RTLD_NEXT,"pthread_exit");
     /* Check for OMP support */
@@ -271,7 +273,9 @@ int main(void) {
     remove(CORE_PIPE);
 
     if (OMP_APP) {
-        // overwrite pthread_create
+        if (getenv("WAIT_FOR_PIPE") != NULL) {
+            HALT_STOP = 1;
+        }
         // pipe to child
         pipe(internal_fds);
         // add main thread to thread list
