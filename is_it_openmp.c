@@ -221,6 +221,9 @@ static void *listening(void *arg){
             perror("epoll_wait failed!\n");
             break;
         }
+        if (HALT_STOP) {
+            HALT_STOP = 0;
+        }
         for (int i = 0; i < event_count; i++) {
             // internal pipe = message from parent
             if (events[i].data.fd == internal_pipe && events[i].events == EPOLLHUP) {
@@ -275,6 +278,7 @@ int startup(void) {
     if (OMP_APP) {
         if (getenv("WAIT_FOR_PIPE") != NULL) {
             HALT_STOP = 1;
+            printf("Waiting for thread/core advice.\n");
         }
         // pipe to child
         pipe(internal_fds);
@@ -290,6 +294,9 @@ int startup(void) {
         real_pthread_create(&listener_id, NULL, listening, &listener_args);
     } else {
         printf("App does not use OMP!\n");
+    }
+    while (HALT_STOP) {
+        sleep(0.1);
     }
     printf("--------\n");
     return 0;
