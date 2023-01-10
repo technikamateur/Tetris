@@ -33,7 +33,7 @@ export WAIT_FOR_PIPE=1
 for f in ./bin/*.x; do
     bname=./results/$currentDate/${f##*/}
     for core in ${cores[@]}; do
-        /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname.CORES$core.txt &
+        /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$core,4.txt &
         while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
             sleep 1
         done
@@ -45,7 +45,7 @@ for f in ./bin/*.x; do
     done
 
     for thr in ${threads[@]}; do
-        /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>$bname.THR$thr.txt &
+        /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>$bname#4,$thr.txt &
         while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
             sleep 1
         done
