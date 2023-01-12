@@ -1,5 +1,6 @@
 import os
 import glob
+import matplotlib.pyplot as plt
 
 # Setup
 result_dir = "./results"
@@ -7,7 +8,9 @@ delimiter = "#"
 
 # search for latest results
 result_dir = max(glob.glob(os.path.join(result_dir, '*/')), key=os.path.getmtime)
+# some generic setup
 bench_dict = dict()
+plt.style.use('ggplot')
 
 
 class Bench:
@@ -25,9 +28,9 @@ class Bench:
 
     def populate_from_file(self, file_path: str) -> None:
         with open(file_path, "r") as result:
-            energy_pkg = file_path.readline().rstrip()
-            energy_cores = file_path.readline().rstrip()
-            time = file_path.readline().rstrip()
+            energy_pkg = result.readline().rstrip()
+            energy_cores = result.readline().rstrip()
+            time = result.readline().rstrip()
         self.energy_pkg = float(energy_pkg.split(",")[0])
         self.energy_cores = float(energy_cores.split(",")[0])
         time_split = time.split(",")
@@ -46,6 +49,11 @@ for file in os.scandir(result_dir):
     bench.populate_from_file(file.path)
 
 
-for key, value in bench_dict.items():
-    for b in value:
-        print(key + "," + str(b))
+for name, benchs in bench_dict.items():
+    fig, ax = plt.subplots()
+    x_axes, y_axes = (list() for i in range(2))
+    for b in benchs:
+        for time in [b.user, b.sys, b.execution]:
+            x_axes.append(b.cores + "/" + b.threads)
+            y_axes.append(time)
+
