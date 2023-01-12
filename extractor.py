@@ -53,10 +53,10 @@ for name, benchs in bench_dict.items():
     fig, ax = plt.subplots()
     x_axes, y_user, y_sys, y_exe = (list() for i in range(4))
     for b in benchs:
-        x_axes.append(b.cores + "/" + b.threads)
+        x_axes.append(str(b.cores) + "/" + str(b.threads))
         y_user.append(b.user)
         y_sys.append(b.sys)
-        y_exe.append(b.exe)
+        y_exe.append(b.execution)
     ax.plot(x_axes, y_user, 'o-', label="user time")
     ax.plot(x_axes, y_sys, 'o-', label="sys time")
     ax.plot(x_axes, y_exe, 'o-', label="exe time")
