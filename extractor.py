@@ -10,7 +10,6 @@ delimiter = "#"
 result_dir = max(glob.glob(os.path.join(result_dir, '*/')), key=os.path.getmtime)
 # some generic setup
 bench_dict = dict()
-plt.style.use('ggplot')
 
 
 class Bench:
@@ -50,10 +49,16 @@ for file in os.scandir(result_dir):
 
 
 for name, benchs in bench_dict.items():
+    plt.style.use('ggplot')
     fig, ax = plt.subplots()
-    x_axes, y_axes = (list() for i in range(2))
+    x_axes, y_user, y_sys, y_exe = (list() for i in range(4))
     for b in benchs:
-        for time in [b.user, b.sys, b.execution]:
-            x_axes.append(b.cores + "/" + b.threads)
-            y_axes.append(time)
-
+        x_axes.append(b.cores + "/" + b.threads)
+        y_user.append(b.user)
+        y_sys.append(b.sys)
+        y_exe.append(b.exe)
+    ax.plot(x_axes, y_user, 'o-', label="user time")
+    ax.plot(x_axes, y_sys, 'o-', label="sys time")
+    ax.plot(x_axes, y_exe, 'o-', label="exe time")
+    fig.savefig("pics/{}.svg".format(key))
+    plt.close()
