@@ -4,6 +4,7 @@ benchmarks=("IS" "FT" "EP" "CG" "MG")
 classes=("B")
 cores=("4" "1")
 threads=("1")
+repetitions=3
 
 # compile if needed
 if [[ ! -d "bin" ]]; then
@@ -31,28 +32,30 @@ fi
 export WAIT_FOR_PIPE=1
 
 for f in ./bin/*.x; do
-    bname=./results/$currentDate/${f##*/}
-    for core in ${cores[@]}; do
-        /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$core,4.txt &
-        while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
-            sleep 1
-        done
-        echo $core > set_cores.pipe
+    for i in {1..$repetitions}; do
+        bname=./results/$currentDate/${f##*/}
+        for core in ${cores[@]}; do
+            /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$core,4.txt &
+            while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
+                sleep 1
+            done
+            echo $core > set_cores.pipe
 
-        while [ -p set_cores.pipe -a -p set_threads.pipe ]; do
-            sleep 1
+            while [ -p set_cores.pipe -a -p set_threads.pipe ]; do
+                sleep 1
+            done
         done
-    done
 
-    for thr in ${threads[@]}; do
-        /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>$bname#4,$thr.txt &
-        while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
-            sleep 1
-        done
-        echo $thr > set_threads.pipe
+        for thr in ${threads[@]}; do
+            /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>$bname#4,$thr.txt &
+            while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
+                sleep 1
+            done
+            echo $thr > set_threads.pipe
 
-        while [ -p set_cores.pipe -a -p set_threads.pipe ]; do
-            sleep 1
+            while [ -p set_cores.pipe -a -p set_threads.pipe ]; do
+                sleep 1
+            done
         done
     done
 done
