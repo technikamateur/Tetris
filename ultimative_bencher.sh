@@ -1,10 +1,9 @@
 #!/bin/bash
 
 benchmarks=("IS" "FT" "EP" "CG" "MG")
-classes=("B")
+classes=("A")
 cores=("4" "1")
 threads=("1")
-repetitions=3
 
 # compile if needed
 if [[ ! -d "bin" ]]; then
@@ -32,7 +31,7 @@ fi
 export WAIT_FOR_PIPE=1
 
 for f in ./bin/*.x; do
-    for i in {1..$repetitions}; do
+    for i in {1..3}; do
         bname=./results/$currentDate/${f##*/}
         for core in ${cores[@]}; do
             /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$core,4.txt &
@@ -47,7 +46,7 @@ for f in ./bin/*.x; do
         done
 
         for thr in ${threads[@]}; do
-            /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>$bname#4,$thr.txt &
+            /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#4,$thr.txt &
             while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
                 sleep 1
             done
