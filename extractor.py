@@ -1,6 +1,7 @@
 import os
 import glob
 import matplotlib.pyplot as plt
+from statistics import fmean
 
 # Setup
 result_dir = "./results"
@@ -45,6 +46,8 @@ class Bench:
         return
 
 
+cnt = 0
+
 for file in os.scandir(result_dir):
     fname = os.path.splitext(file.name)[0]  # remove file extension
     key, constellation = fname.split(delimiter)
@@ -52,23 +55,33 @@ for file in os.scandir(result_dir):
     bench = Bench(int(cores), int(threads))
     bench_dict.setdefault(key, []).append(bench)
     bench.populate_from_file(file.path)
+    cnt += 1
+
+print("Found {} result files.".format(cnt))
 
 
 for name, benchs in bench_dict.items():
-    print("Benchmark {}".format(name))
+    benchs.sort(key=lambda b: (b.cores, b.threads), reverse=True)
+    print("Generating plot for {}".format(name))
     plt.style.use('ggplot')
     fig, ax = plt.subplots()
-    x_axes, y_user, y_sys, y_exe = (list() for i in range(4))
+    twin = ax.twinx()
+    x_axes, y_user, y_sys, y_exe, y_e_pkg, y_e_core = (list() for i in range(6))
     for b in benchs:
         x_axes.append(str(b.cores) + "/" + str(b.threads))
-        y_user.append(b.user[0])
-        y_sys.append(b.sys[0])
-        y_exe.append(b.execution[0])
+        y_user.append(fmean(b.user))
+        y_sys.append(fmean(b.sys))
+        y_exe.append(fmean(b.execution))
+        y_e_pkg.append(fmean(b.energy_pkg))
+        y_e_core.append(fmean(b.energy_cores))
     ax.set_ylabel("time in seconds")
-    ax.set_xlabel("Cores/Threads")
-    ax.plot(x_axes, y_user, 'o-', label="user time")
-    ax.plot(x_axes, y_sys, 'o-', label="sys time")
-    ax.plot(x_axes, y_exe, 'o-', label="exe time")
-    plt.legend()
+    ax.set_xlabel("cores/threads")
+    twin.set_ylabel("energy in joules")
+    l1, = ax.plot(x_axes, y_user, 'o-', label="user time")
+    l2, = ax.plot(x_axes, y_sys, 'o-', label="sys time")
+    l3, = ax.plot(x_axes, y_exe, 'o-', label="exe time")
+    l4, = twin.plot(x_axes, y_e_core, 'D-', label="energy cores", color="C3")
+    l5, = twin.plot(x_axes, y_e_pkg, 'D-', label="energy package", color="C4")
+    ax.legend(handles=[l1,l2,l3,l4,l5])
     fig.savefig("pics/{}.svg".format(name))
     plt.close()
