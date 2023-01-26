@@ -2,6 +2,7 @@ import os
 import glob
 import matplotlib.pyplot as plt
 from statistics import fmean
+import numpy as np
 
 # Setup
 result_dir = "./results"
@@ -57,15 +58,12 @@ for file in os.scandir(result_dir):
     bench.populate_from_file(file.path)
     cnt += 1
 
-print("Found {} result files.".format(cnt))
+print("Found {} result files with {} unique benchmarks.".format(cnt, len(bench_dict.items())))
 
 
 for name, benchs in bench_dict.items():
     benchs.sort(key=lambda b: (b.cores, b.threads), reverse=True)
     print("Generating plot for {}".format(name))
-    plt.style.use('ggplot')
-    fig, ax = plt.subplots()
-    twin = ax.twinx()
     x_axes, y_user, y_sys, y_exe, y_e_pkg, y_e_core = (list() for i in range(6))
     for b in benchs:
         x_axes.append(str(b.cores) + "/" + str(b.threads))
@@ -74,14 +72,24 @@ for name, benchs in bench_dict.items():
         y_exe.append(fmean(b.execution))
         y_e_pkg.append(fmean(b.energy_pkg))
         y_e_core.append(fmean(b.energy_cores))
+
+    plt.style.use('ggplot')
+    fig, ax = plt.subplots()
+
     ax.set_ylabel("time in seconds")
     ax.set_xlabel("cores/threads")
-    twin.set_ylabel("energy in joules")
     l1, = ax.plot(x_axes, y_user, 'o-', label="user time")
     l2, = ax.plot(x_axes, y_sys, 'o-', label="sys time")
     l3, = ax.plot(x_axes, y_exe, 'o-', label="exe time")
+
+    twin = ax.twinx()
+    twin.grid(None)
+    twin.set_ylabel("energy in joules")
+    # C3 = 3rd color in current palette
     l4, = twin.plot(x_axes, y_e_core, 'D-', label="energy cores", color="C3")
     l5, = twin.plot(x_axes, y_e_pkg, 'D-', label="energy package", color="C4")
-    ax.legend(handles=[l1,l2,l3,l4,l5])
+
+    plt.legend(loc='best', facecolor='white', fancybox=True, framealpha=0.7, handles=[l1,l2,l3,l4,l5])
+
     fig.savefig("pics/{}.svg".format(name))
     plt.close()
