@@ -62,7 +62,7 @@ print("Found {} result files with {} unique benchmarks.".format(cnt, len(bench_d
 
 
 for name, benchs in bench_dict.items():
-    benchs.sort(key=lambda b: (b.cores, b.threads), reverse=True)
+    benchs.sort(key=lambda b: (b.cores+b.threads, b.cores), reverse=True)
     print("Generating plot for {}".format(name))
     x_axes, y_user, y_sys, y_exe, y_e_pkg, y_e_core = (list() for i in range(6))
     for b in benchs:
@@ -91,5 +91,6 @@ for name, benchs in bench_dict.items():
 
     plt.legend(loc='best', facecolor='white', fancybox=True, framealpha=0.7, handles=[l1,l2,l3,l4,l5])
 
-    fig.savefig("pics/{}.svg".format(name))
+    plt.savefig("pics/{}.png".format(name), dpi=300)
+    #fig.savefig("pics/{}.svg".format(name))
     plt.close()

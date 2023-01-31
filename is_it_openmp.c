@@ -124,6 +124,8 @@ void *thread_wrapper_func(void *arg) {
 int pthread_create(pthread_t *restrict thread, const pthread_attr_t *restrict attr,
                    void *(*start_routine)(void *), void *restrict arg) {
     if (OMP_APP) {
+        // Grab a lock. It might be called by multiple threads
+        pthread_mutex_lock(&remove_mutex);
         // creating thread structure
         head->next = (ThreadInfo *) malloc(sizeof(ThreadInfo));
         head = head->next;
@@ -132,6 +134,7 @@ int pthread_create(pthread_t *restrict thread, const pthread_attr_t *restrict at
         head->arg = arg;
         head->dead = 0;
         head->next = NULL;
+        pthread_mutex_unlock(&remove_mutex);
         // use my function to control the pthread
         return real_pthread_create(thread, attr, thread_wrapper_func, head);
     } else {

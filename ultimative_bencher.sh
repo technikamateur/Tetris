@@ -1,9 +1,13 @@
 #!/bin/bash
 
+### Adjust the following
 benchmarks=("IS" "FT" "EP" "CG" "MG")
-classes=("A")
-cores=("4" "1")
-threads=("1")
+classes=("A" "B" "C")
+cores=("8" "4" "2" "1")
+threads=("4" "2" "1")
+max_thread=8
+rounds=10
+###
 
 # compile if needed
 if [[ ! -d "bin" ]]; then
@@ -19,6 +23,14 @@ if [[ ! -d "results" ]]; then
     mkdir results
 fi
 
+if [[ -p set_cores.pipe ]]; then
+    rm set_cores.pipe
+fi
+
+if [[ -p set_threads.pipe ]]; then
+    rm set_threads.pipe
+fi
+
 currentDate=`date +"%Y-%m-%d-%H-%M-%S"`
 mkdir ./results/$currentDate
 
@@ -31,10 +43,10 @@ fi
 export WAIT_FOR_PIPE=1
 
 for f in ./bin/*.x; do
-    for i in {1..3}; do
+    for (( i=1; i=$rounds; i++ )); do
         bname=./results/$currentDate/${f##*/}
         for core in ${cores[@]}; do
-            /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$core,4.txt &
+            /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$core,$max_thread.txt &
             while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
                 sleep 1
             done
@@ -46,7 +58,7 @@ for f in ./bin/*.x; do
         done
 
         for thr in ${threads[@]}; do
-            /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#4,$thr.txt &
+            /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$max_thread,$thr.txt &
             while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
                 sleep 1
             done
