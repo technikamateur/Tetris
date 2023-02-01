@@ -1,19 +1,18 @@
-import os
+import os, sys
 import glob
 import matplotlib.pyplot as plt
 from statistics import fmean
 import numpy as np
+import argparse
+from pathlib import Path
+import shutil
+
 
 # Setup
 result_dir = "./results"
 delimiter = "#"
-
 # search for latest results
 result_dir = max(glob.glob(os.path.join(result_dir, '*/')), key=os.path.getmtime)
-# some generic setup
-bench_dict = dict()
-# PANDAS?!
-#https://matplotlib.org/3.4.3/gallery/ticks_and_spines/multiple_yaxis_with_spines.html
 
 class Bench:
     def __init__(self, cores: int, threads: int):
@@ -46,51 +45,71 @@ class Bench:
                 line = result.readline().rstrip()
         return
 
+def main():
+    # check Python version
+    MIN_PYTHON = (3, 5)
+    if sys.version_info < MIN_PYTHON:
+        sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
 
-cnt = 0
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-o', '--output', required=True, choices=['png', 'svg'],  help='Do you want png or svg?')
+    parser.add_argument('--clean', action='store_true', help='Set this flag if you want to clean up before running.')
+    args = parser.parse_args()
 
-for file in os.scandir(result_dir):
-    fname = os.path.splitext(file.name)[0]  # remove file extension
-    key, constellation = fname.split(delimiter)
-    cores, threads = constellation.split(",")
-    bench = Bench(int(cores), int(threads))
-    bench_dict.setdefault(key, []).append(bench)
-    bench.populate_from_file(file.path)
-    cnt += 1
+    if args.clean:
+        shutil.rmtree('pics')
 
-print("Found {} result files with {} unique benchmarks.".format(cnt, len(bench_dict.items())))
+    cnt = 0
+    bench_dict = dict()
+    Path('pics').mkdir(parents=True, exist_ok=True)
+
+    for file in os.scandir(result_dir):
+        fname = os.path.splitext(file.name)[0]  # remove file extension
+        key, constellation = fname.split(delimiter)
+        cores, threads = constellation.split(",")
+        bench = Bench(int(cores), int(threads))
+        bench_dict.setdefault(key, []).append(bench)
+        bench.populate_from_file(file.path)
+        cnt += 1
+
+    print("Found {} result files with {} unique benchmarks.".format(cnt, len(bench_dict.items())))
 
 
-for name, benchs in bench_dict.items():
-    benchs.sort(key=lambda b: (b.cores+b.threads, b.cores), reverse=True)
-    print("Generating plot for {}".format(name))
-    x_axes, y_user, y_sys, y_exe, y_e_pkg, y_e_core = (list() for i in range(6))
-    for b in benchs:
-        x_axes.append(str(b.cores) + "/" + str(b.threads))
-        y_user.append(fmean(b.user))
-        y_sys.append(fmean(b.sys))
-        y_exe.append(fmean(b.execution))
-        y_e_pkg.append(fmean(b.energy_pkg))
-        y_e_core.append(fmean(b.energy_cores))
+    for name, benchs in bench_dict.items():
+        benchs.sort(key=lambda b: (b.cores+b.threads, b.cores, -b.threads), reverse=True)
+        print("Generating plot for {}".format(name))
+        x_axes, y_user, y_sys, y_exe, y_e_pkg, y_e_core = (list() for i in range(6))
+        for b in benchs:
+            x_axes.append(str(b.cores) + "/" + str(b.threads))
+            y_user.append(fmean(b.user))
+            y_sys.append(fmean(b.sys))
+            y_exe.append(fmean(b.execution))
+            y_e_pkg.append(fmean(b.energy_pkg))
+            y_e_core.append(fmean(b.energy_cores))
 
-    plt.style.use('ggplot')
-    fig, ax = plt.subplots()
+        plt.style.use('ggplot')
+        fig, ax = plt.subplots()
 
-    ax.set_ylabel("time in seconds")
-    ax.set_xlabel("cores/threads")
-    l1, = ax.plot(x_axes, y_user, 'o-', label="user time")
-    l2, = ax.plot(x_axes, y_sys, 'o-', label="sys time")
-    l3, = ax.plot(x_axes, y_exe, 'o-', label="exe time")
+        ax.set_ylabel("time in seconds")
+        ax.set_xlabel("cores/threads")
+        l1, = ax.plot(x_axes, y_user, 'o-', label="user time")
+        l2, = ax.plot(x_axes, y_sys, 'o-', label="sys time")
+        l3, = ax.plot(x_axes, y_exe, 'o-', label="exe time")
 
-    twin = ax.twinx()
-    twin.grid(None)
-    twin.set_ylabel("energy in joules")
-    # C3 = 3rd color in current palette
-    l4, = twin.plot(x_axes, y_e_core, 'D-', label="energy cores", color="C3")
-    l5, = twin.plot(x_axes, y_e_pkg, 'D-', label="energy package", color="C4")
+        twin = ax.twinx()
+        twin.grid(None)
+        twin.set_ylabel("energy in joules")
+        # C3 = 3rd color in current palette
+        l4, = twin.plot(x_axes, y_e_core, 'D-', label="energy cores", color="C3")
+        l5, = twin.plot(x_axes, y_e_pkg, 'D-', label="energy package", color="C4")
 
-    plt.legend(loc='best', facecolor='white', fancybox=True, framealpha=0.7, handles=[l1,l2,l3,l4,l5])
+        plt.legend(loc='best', facecolor='white', fancybox=True, framealpha=0.7, handles=[l1,l2,l3,l4,l5])
 
-    plt.savefig("pics/{}.png".format(name), dpi=300)
-    #fig.savefig("pics/{}.svg".format(name))
-    plt.close()
+        if args.output == 'png':
+            plt.savefig("pics/{}.png".format(name), dpi=300)
+        else:
+            fig.savefig("pics/{}.svg".format(name))
+        plt.close()
+
+if __name__ == "__main__":
+   main()
