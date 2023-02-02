@@ -6,7 +6,6 @@ classes=("A" "B" "C")
 cores=("8" "4" "2" "1")
 threads=("4" "2" "1")
 max_thread=8
-rounds=10
 ###
 
 # compile if needed
@@ -44,7 +43,7 @@ export WAIT_FOR_PIPE=1
 
 for f in ./bin/*.x; do
     bname=./results/$currentDate/${f##*/}
-    for (( i=1; i=$rounds; i++ )); do
+    for i in {1..5}; do
         #modify cores - max threads
         for core in ${cores[@]}; do
             /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$core,$max_thread.txt &
