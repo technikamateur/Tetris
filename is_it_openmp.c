@@ -224,9 +224,6 @@ static void *listening(void *arg){
             perror("epoll_wait failed!\n");
             break;
         }
-        if (HALT_STOP) {
-            HALT_STOP = 0;
-        }
         for (int i = 0; i < event_count; i++) {
             // internal pipe = message from parent
             if (events[i].data.fd == internal_pipe && events[i].events == EPOLLHUP) {
@@ -246,6 +243,9 @@ static void *listening(void *arg){
                 buf[bytes_read] = '\0';
                 printf("Got a new cores advice: %d\n", atoi(buf));
                 limit_cpus(atoi(buf));
+            }
+            if (HALT_STOP) {
+                HALT_STOP--;
             }
 
         }
@@ -279,8 +279,9 @@ int startup(void) {
     remove(CORE_PIPE);
 
     if (OMP_APP) {
-        if (getenv("WAIT_FOR_PIPE") != NULL) {
-            HALT_STOP = 1;
+        char *wfp = getenv("WAIT_FOR_PIPE");
+        if (wfp != NULL) {
+            HALT_STOP = atoi(wfp);
             printf("Waiting for thread/core advice.\n");
         }
         // pipe to child
@@ -298,7 +299,7 @@ int startup(void) {
     } else {
         printf("App does not use OMP!\n");
     }
-    while (HALT_STOP) {
+    while (HALT_STOP > 0) {
         sleep(0.1);
     }
     printf("--------\n");

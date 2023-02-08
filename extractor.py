@@ -1,5 +1,6 @@
 import os, sys
 import glob
+import matplotlib
 import matplotlib.pyplot as plt
 from statistics import fmean
 import numpy as np
@@ -92,12 +93,10 @@ def heatmap(data, row_labels, col_labels, ax=None,
     ax.set_yticks(np.arange(data.shape[0]), labels=row_labels)
 
     # Let the horizontal axes labeling appear on top.
-    ax.tick_params(top=True, bottom=False,
-                   labeltop=True, labelbottom=False)
+    #ax.tick_params(top=True, bottom=False, labeltop=True, labelbottom=False)
 
     # Rotate the tick labels and set their alignment.
-    plt.setp(ax.get_xticklabels(), rotation=-30, ha="right",
-             rotation_mode="anchor")
+    #plt.setp(ax.get_xticklabels(), rotation=-30, ha="right", rotation_mode="anchor")
 
     # Turn spines off and create white grid.
     ax.spines[:].set_visible(False)
@@ -172,27 +171,50 @@ def annotate_heatmap(im, data=None, valfmt="{x:.2f}",
 
 def heat_map():
     y_ax = sorted(thread_list, reverse=True)
-    x_ax = sorted(core_list, reverse=True)
-    energy = list()
+    x_ax = sorted(core_list)
     for name, benchs in bench_dict.items():
         benchs.sort(key=lambda b: (b.threads, -b.cores), reverse=True)
         print("Generating heat map for {}".format(name))
 
         energy = [benchs[i:i+len(x_ax)] for i in range(0, len(benchs), len(x_ax))]
+        exec_time = [benchs[i:i+len(x_ax)] for i in range(0, len(benchs), len(x_ax))]
+        lol = [benchs[i:i+len(x_ax)] for i in range(0, len(benchs), len(x_ax))]
         for i in range(len(energy)):
             for j in range(len(energy[i])):
                 energy[i][j] = fmean(energy[i][j].energy_pkg)
+                exec_time[i][j] = fmean(exec_time[i][j].execution)
+                lol[i][j] = "C"+str(lol[i][j].cores) + " " + "T"+str(lol[i][j].threads)
+
+        print(lol)
 
         plt.style.use('ggplot')
         fig, ax = plt.subplots()
+        ax.set_ylabel("threads")
+        ax.set_xlabel("cores")
+        ax.set_title("Package Energy")
+        ax.grid(None)
 
-        im, cbar = heatmap(energy, y_ax, x_ax, ax=ax,
-                   cmap="YlGn", cbarlabel="{}".format(name))
+        im, cbar = heatmap(np.array(energy), y_ax, x_ax, ax=ax,
+                cmap="YlGn", cbarlabel="{}".format(name))
         texts = annotate_heatmap(im, valfmt="{x:.1f} J")
 
-        plt.savefig("pics/energy{}.png".format(name), dpi=300)
+        plt.savefig("pics/energy_{}.png".format(name), dpi=300)
+        plt.close()
 
-def line_plots():
+        plt.style.use('ggplot')
+        fig, ax = plt.subplots()
+        ax.set_ylabel("threads")
+        ax.set_xlabel("cores")
+        ax.set_title("Execution Time")
+
+        im, cbar = heatmap(np.array(exec_time), y_ax, x_ax, ax=ax,
+                cmap="YlGn", cbarlabel="{}".format(name))
+        texts = annotate_heatmap(im, valfmt="{x:.1f} s")
+
+        plt.savefig("pics/exectime_{}.png".format(name), dpi=300)
+        plt.close()
+
+def line_plots(output: str):
     for name, benchs in bench_dict.items():
         benchs.sort(key=lambda b: (b.cores+b.threads, b.cores, -b.threads), reverse=True)
         print("Generating plot for {}".format(name))
@@ -223,7 +245,7 @@ def line_plots():
 
         plt.legend(loc='best', facecolor='white', fancybox=True, framealpha=0.7, handles=[l1,l2,l3,l4,l5])
 
-        if args.output == 'png':
+        if output == 'png':
             plt.savefig("pics/{}.png".format(name), dpi=300)
         else:
             fig.savefig("pics/{}.svg".format(name))
@@ -259,7 +281,7 @@ def main():
         cnt += 1
 
     print("Found {} result files with {} unique benchmarks.".format(cnt, len(bench_dict.items())))
-    #line_plots()
+    line_plots(args.output)
     heat_map()
     return
 
