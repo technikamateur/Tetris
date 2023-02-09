@@ -105,7 +105,7 @@ if [[ ! -d "bin" ]]; then
 else
     if [[ $expected_files -ne $counted_files ]]; then
         echo -e "${YELLOW}Warning:${NC} You specified $expected_files benchmarks in $me, but I found only $counted_files."
-        read -p "Shall I do that for you? [Y/n] " yn
+        read -p "Shall I compile that for you? [Y/n] " yn
         if [[ $yn =~ ^[Nn]$ ]]; then
             echo "Okay. Bye Bye."
             exit 2
