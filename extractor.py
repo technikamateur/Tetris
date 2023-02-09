@@ -206,6 +206,7 @@ def heat_map():
         ax.set_ylabel("threads")
         ax.set_xlabel("cores")
         ax.set_title("Execution Time")
+        ax.grid(None)
 
         im, cbar = heatmap(np.array(exec_time), y_ax, x_ax, ax=ax,
                 cmap="YlGn", cbarlabel="{}".format(name))
@@ -270,6 +271,8 @@ def main():
     cnt = 0
 
     for file in os.scandir(result_dir):
+        if ".log" in file.name:
+            continue
         fname = os.path.splitext(file.name)[0]  # remove file extension
         key, constellation = fname.split(delimiter)
         cores, threads = constellation.split(",")
