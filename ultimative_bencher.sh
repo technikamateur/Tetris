@@ -53,7 +53,7 @@ for f in ./bin/*.x; do
     for i in {1..5}; do
         for core in ${cores[@]}; do
             for thr in ${threads[@]}; do
-                /usr/bin/time -f %U,%S,%e perf stat --field-separator , -e energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$core,$thr.txt | tee -a $bname.log &
+                perf stat --field-separator , -e duration_time,energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$core,$thr.txt | tee -a $bname.log &
                 while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
                     sleep 1
                 done

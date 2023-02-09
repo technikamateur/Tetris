@@ -169,7 +169,7 @@ def annotate_heatmap(im, data=None, valfmt="{x:.2f}",
 ###
 
 
-def heat_map():
+def my_heat_map(output: str):
     y_ax = sorted(thread_list, reverse=True)
     x_ax = sorted(core_list)
     for name, benchs in bench_dict.items():
@@ -191,11 +191,11 @@ def heat_map():
         fig, ax = plt.subplots()
         ax.set_ylabel("threads")
         ax.set_xlabel("cores")
-        ax.set_title("Package Energy")
+        ax.set_title("Package Energy {}".format(name))
         ax.grid(None)
 
         im, cbar = heatmap(np.array(energy), y_ax, x_ax, ax=ax,
-                cmap="YlGn", cbarlabel="{}".format(name))
+                cmap="YlGn", cbarlabel="Joules")
         texts = annotate_heatmap(im, valfmt="{x:.1f} J")
 
         plt.savefig("pics/energy_{}.png".format(name), dpi=300)
@@ -205,11 +205,11 @@ def heat_map():
         fig, ax = plt.subplots()
         ax.set_ylabel("threads")
         ax.set_xlabel("cores")
-        ax.set_title("Execution Time")
+        ax.set_title("Execution Time {}".format(name))
         ax.grid(None)
 
         im, cbar = heatmap(np.array(exec_time), y_ax, x_ax, ax=ax,
-                cmap="YlGn", cbarlabel="{}".format(name))
+                cmap="YlGn", cbarlabel="seconds")
         texts = annotate_heatmap(im, valfmt="{x:.1f} s")
 
         plt.savefig("pics/exectime_{}.png".format(name), dpi=300)
@@ -285,7 +285,7 @@ def main():
 
     print("Found {} result files with {} unique benchmarks.".format(cnt, len(bench_dict.items())))
     line_plots(args.output)
-    heat_map()
+    my_heat_map(args.output)
     return
 
 if __name__ == "__main__":
