@@ -50,9 +50,9 @@ function half_bench() {
                 continue
             fi
             # measure exec time
-            /usr/bin/time -f %e $f 2> /tmp/exec_time
+            /usr/bin/time -f %e env LD_PRELOAD=./is_it_openmp.so $f 2> /tmp/exec_time
             while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
-                sleep 1
+                sleep 0.1
             done
             echo $core > set_cores.pipe
             echo $core > set_threads.pipe
@@ -61,8 +61,8 @@ function half_bench() {
             done
             # calculate half
             duration=$(</tmp/exec_time)
-            sleep_duration=$(bc -l <<<"scale=1; ${duration}/2")
-            echo "#${sleep_duration}" > $bname#$core,$thr.txt
+            sleep_duration=$(bc -l <<<"scale=1; $duration/2")
+            echo \#$sleep_duration > $bname#$core,$thr.txt
             # bench and switch threads after half of time
             for i in {1..5}; do
                 perf stat --field-separator , -e duration_time,energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$core,$thr.txt | tee -a $bname.log &

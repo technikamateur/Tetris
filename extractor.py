@@ -25,9 +25,7 @@ class Bench:
         self.cores = cores
         self.energy_pkg = list()
         self.energy_cores = list()
-        self.user = list()
-        self.sys = list()
-        self.execution = list()
+        self.time = list()
 
     def __str__(self):
         return f"{self.cores} Cores, {self.threads} Threads"
@@ -36,16 +34,12 @@ class Bench:
         with open(file_path, "r") as result:
             line = result.readline().rstrip()
             while line:
-                energy_pkg = line
+                time = line
+                energy_pkg = result.readline().rstrip()
                 energy_cores = result.readline().rstrip()
-                time = result.readline().rstrip()
                 self.energy_pkg.append(float(energy_pkg.split(",")[0]))
                 self.energy_cores.append(float(energy_cores.split(",")[0]))
-                time_split = time.split(",")
-                self.user.append(float(time_split[0]))
-                self.sys.append(float(time_split[1]))
-                self.execution.append(float(time_split[2]))
-
+                self.time.append(float("{:.1f}".format(float(time.split(",")[0]) * (10**-9))))
                 # is there more? -> repetitions
                 line = result.readline().rstrip()
         return
@@ -182,7 +176,7 @@ def my_heat_map(output: str):
         for i in range(len(energy)):
             for j in range(len(energy[i])):
                 energy[i][j] = fmean(energy[i][j].energy_pkg)
-                exec_time[i][j] = fmean(exec_time[i][j].execution)
+                exec_time[i][j] = fmean(exec_time[i][j].time)
                 lol[i][j] = "C"+str(lol[i][j].cores) + " " + "T"+str(lol[i][j].threads)
 
         print(lol)
@@ -198,7 +192,7 @@ def my_heat_map(output: str):
                 cmap="YlGn", cbarlabel="Joules")
         texts = annotate_heatmap(im, valfmt="{x:.1f} J")
 
-        plt.savefig("pics/energy_{}.png".format(name), dpi=300)
+        plt.savefig("pics/energy/energy_{}.png".format(name), dpi=300)
         plt.close()
 
         plt.style.use('ggplot')
@@ -212,7 +206,7 @@ def my_heat_map(output: str):
                 cmap="YlGn", cbarlabel="seconds")
         texts = annotate_heatmap(im, valfmt="{x:.1f} s")
 
-        plt.savefig("pics/exectime_{}.png".format(name), dpi=300)
+        plt.savefig("pics/exec_time/exectime_{}.png".format(name), dpi=300)
         plt.close()
 
 def line_plots(output: str):
@@ -268,6 +262,8 @@ def main():
         shutil.rmtree('pics')
 
     Path('pics').mkdir(parents=True, exist_ok=True)
+    Path('pics/energy').mkdir(parents=True, exist_ok=True)
+    Path('pics/exec_time').mkdir(parents=True, exist_ok=True)
     cnt = 0
 
     for file in os.scandir(result_dir):
@@ -284,7 +280,7 @@ def main():
         cnt += 1
 
     print("Found {} result files with {} unique benchmarks.".format(cnt, len(bench_dict.items())))
-    line_plots(args.output)
+    #line_plots(args.output)
     my_heat_map(args.output)
     return
 
