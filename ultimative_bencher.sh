@@ -50,7 +50,7 @@ function half_bench() {
                 continue
             fi
             # measure exec time
-            /usr/bin/time -f %e env LD_PRELOAD=./is_it_openmp.so $f 2> /tmp/exec_time
+            /usr/bin/time -f %e env LD_PRELOAD=./is_it_openmp.so $f 2> /tmp/exec_time &
             while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
                 sleep 0.1
             done
