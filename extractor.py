@@ -165,8 +165,44 @@ def annotate_heatmap(im, data=None, valfmt="{x:.2f}",
     return texts
 ###
 
+def generate_energy(x_ax: list, y_ax: list, data_array: list, bench_name: str, folder: str, output: str):
+    plt.style.use('ggplot')
+    fig, ax = plt.subplots()
+    ax.set_ylabel("threads")
+    ax.set_xlabel("cores")
+    ax.set_title("Package Energy {}".format(bench_name))
+    ax.grid(None)
 
-def my_heat_map(output: str):
+    im, cbar = heatmap(np.array(data_array), y_ax, x_ax, ax=ax,
+                cmap="YlGn", cbarlabel="Joules")
+    texts = annotate_heatmap(im, valfmt="{x:.1f} J")
+    if output == 'png':
+        plt.savefig("pics/{}/{}_{}.png".format(folder, folder, bench_name), dpi=300)
+    else:
+        plt.savefig("pics/{}/{}_{}.svg".format(folder, folder, bench_name))
+    plt.close()
+    return
+
+def generate_time(x_ax: list, y_ax: list, data_array: list, bench_name: str, folder: str, output: str):
+    plt.style.use('ggplot')
+    fig, ax = plt.subplots()
+    ax.set_ylabel("threads")
+    ax.set_xlabel("cores")
+    ax.set_title("Execution Time {}".format(bench_name))
+    ax.grid(None)
+
+    im, cbar = heatmap(np.array(data_array), y_ax, x_ax, ax=ax,
+            cmap="YlGn", cbarlabel="seconds")
+    texts = annotate_heatmap(im, valfmt="{x:.1f} s")
+    if output == 'png':
+        plt.savefig("pics/{}/{}_{}.png".format(folder, folder, bench_name), dpi=300)
+    else:
+        plt.savefig("pics/{}/{}_{}.svg".format(folder, folder, bench_name))
+    plt.close()
+    return
+
+
+def full_heat_map(output: str):
     y_ax = sorted(thread_list, reverse=True)
     x_ax = sorted(core_list)
     for name, benchs in bench_dict.items():
@@ -183,38 +219,30 @@ def my_heat_map(output: str):
                 lol[i][j] = "C"+str(lol[i][j].cores) + " " + "T"+str(lol[i][j].threads)
 
         print(lol)
+        generate_energy(x_ax, y_ax, energy, name, "energy", output)
+        generate_time(x_ax, y_ax, exec_time, name, "exec_time", output)
 
-        plt.style.use('ggplot')
-        fig, ax = plt.subplots()
-        ax.set_ylabel("threads")
-        ax.set_xlabel("cores")
-        ax.set_title("Package Energy {}".format(name))
-        ax.grid(None)
 
-        im, cbar = heatmap(np.array(energy), y_ax, x_ax, ax=ax,
-                cmap="YlGn", cbarlabel="Joules")
-        texts = annotate_heatmap(im, valfmt="{x:.1f} J")
-        if output == 'png':
-            plt.savefig("pics/energy/energy_{}.png".format(name), dpi=300)
-        else:
-            plt.savefig("pics/energy/energy_{}.svg".format(name))
-        plt.close()
-
-        plt.style.use('ggplot')
-        fig, ax = plt.subplots()
-        ax.set_ylabel("threads")
-        ax.set_xlabel("cores")
-        ax.set_title("Execution Time {}".format(name))
-        ax.grid(None)
-
-        im, cbar = heatmap(np.array(exec_time), y_ax, x_ax, ax=ax,
-                cmap="YlGn", cbarlabel="seconds")
-        texts = annotate_heatmap(im, valfmt="{x:.1f} s")
-        if output == 'png':
-            plt.savefig("pics/exec_time/exectime_{}.png".format(name), dpi=300)
-        else:
-            plt.savefig("pics/exec_time/exectime_{}.svg".format(name))
-        plt.close()
+def half_heat_map(output: str):
+    for name, benchs in half_bench_dict.items():
+        print("Generating half heat map for {}".format(name))
+        full_benchs = bench_dict.get(name)
+        for half_bench in benchs:
+            selection = list()
+            for b in full_benchs:
+                if (b.threads == half_bench.threads and (b.cores == half_bench.cores or b.cores == half_bench.threads)):
+                    selection.append(b)
+            selection.sort(key=lambda b: b.cores, reverse=True)
+            selection.insert(1, half_bench)
+            if len(selection) < 3:
+                print("Something with the half benchs went wrong. Could not find matching full benchs.")
+                return
+            y_ax = [half_bench.threads]
+            x_ax = [half_bench.threads, "half", half_bench.cores]
+            energy = [[fmean(i.energy_pkg) for i in selection]]
+            time = [[fmean(i.time) for i in selection]]
+            generate_energy(x_ax, y_ax, energy, name, "energy_half", output)
+            generate_time(x_ax, y_ax, time, name, "exec_time_half", output)
 
 def line_plots(output: str):
     for name, benchs in bench_dict.items():
@@ -271,6 +299,8 @@ def main():
     Path('pics').mkdir(parents=True, exist_ok=True)
     Path('pics/energy').mkdir(parents=True, exist_ok=True)
     Path('pics/exec_time').mkdir(parents=True, exist_ok=True)
+    Path('pics/energy_half').mkdir(parents=True, exist_ok=True)
+    Path('pics/exec_time_half').mkdir(parents=True, exist_ok=True)
     full = half = 0
 
     for file in os.scandir(result_dir):
@@ -293,13 +323,11 @@ def main():
 
     print("Found {} result files with {} unique benchmarks.".format(full+half, len(bench_dict.items())))
     if half > 0:
-        print("This includes {} result files of half benchmarks. Analyzing...\n".format(half))
-        for name, benchs in half_bench_dict.items():
-            break
-            full_benchs = bench_dict.get(name)
+        print("This includes {} result files of half benchmarks.\n".format(half))
+        half_heat_map(args.output)
 
     #line_plots(args.output)
-    my_heat_map(args.output)
+    full_heat_map(args.output)
     return
 
 if __name__ == "__main__":
