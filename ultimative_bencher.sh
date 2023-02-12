@@ -42,11 +42,11 @@ function normal_bench() {
 
 function half_bench() {
     export WAIT_FOR_PIPE=2
-    thr="1"
+    core="1"
     for f in ./bin/*.x; do
         bname=./results/$currentDate/${f##*/}_half
-        for core in ${cores[@]}; do
-            if [[ $core -eq "1" ]]; then
+        for thr in ${threads[@]}; do
+            if [[ $thr -eq "1" ]]; then
                 continue
             fi
             # measure exec time
@@ -54,8 +54,8 @@ function half_bench() {
             while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
                 sleep 0.1
             done
-            echo $core > set_cores.pipe
-            echo $core > set_threads.pipe
+            echo $thr > set_cores.pipe
+            echo $thr > set_threads.pipe
             while [ -p set_cores.pipe -a -p set_threads.pipe ]; do
                 sleep 1
             done
@@ -69,8 +69,8 @@ function half_bench() {
                 while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
                     sleep 0.1
                 done
-                echo $core > set_cores.pipe
-                echo $core > set_threads.pipe
+                echo $thr > set_cores.pipe
+                echo $thr > set_threads.pipe
                 sleep $sleep_duration
                 echo $core > set_cores.pipe
                 echo $thr > set_threads.pipe

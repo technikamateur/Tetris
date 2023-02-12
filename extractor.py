@@ -16,6 +16,7 @@ delimiter = "#"
 result_dir = max(glob.glob(os.path.join(result_dir, '*/')), key=os.path.getmtime)
 ### do not touch
 bench_dict = dict()
+half_bench_dict = dict()
 thread_list = set()
 core_list = set()
 
@@ -33,6 +34,8 @@ class Bench:
     def populate_from_file(self, file_path: str) -> None:
         with open(file_path, "r") as result:
             line = result.readline().rstrip()
+            while line.startswith('#'):
+                line = result.readline().rstrip()
             while line:
                 time = line
                 energy_pkg = result.readline().rstrip()
@@ -191,8 +194,10 @@ def my_heat_map(output: str):
         im, cbar = heatmap(np.array(energy), y_ax, x_ax, ax=ax,
                 cmap="YlGn", cbarlabel="Joules")
         texts = annotate_heatmap(im, valfmt="{x:.1f} J")
-
-        plt.savefig("pics/energy/energy_{}.png".format(name), dpi=300)
+        if output == 'png':
+            plt.savefig("pics/energy/energy_{}.png".format(name), dpi=300)
+        else:
+            plt.savefig("pics/energy/energy_{}.svg".format(name))
         plt.close()
 
         plt.style.use('ggplot')
@@ -205,8 +210,10 @@ def my_heat_map(output: str):
         im, cbar = heatmap(np.array(exec_time), y_ax, x_ax, ax=ax,
                 cmap="YlGn", cbarlabel="seconds")
         texts = annotate_heatmap(im, valfmt="{x:.1f} s")
-
-        plt.savefig("pics/exec_time/exectime_{}.png".format(name), dpi=300)
+        if output == 'png':
+            plt.savefig("pics/exec_time/exectime_{}.png".format(name), dpi=300)
+        else:
+            plt.savefig("pics/exec_time/exectime_{}.svg".format(name))
         plt.close()
 
 def line_plots(output: str):
@@ -264,7 +271,7 @@ def main():
     Path('pics').mkdir(parents=True, exist_ok=True)
     Path('pics/energy').mkdir(parents=True, exist_ok=True)
     Path('pics/exec_time').mkdir(parents=True, exist_ok=True)
-    cnt = 0
+    full = half = 0
 
     for file in os.scandir(result_dir):
         if ".log" in file.name:
@@ -273,13 +280,24 @@ def main():
         key, constellation = fname.split(delimiter)
         cores, threads = constellation.split(",")
         bench = Bench(int(cores), int(threads))
-        bench_dict.setdefault(key, []).append(bench)
         bench.populate_from_file(file.path)
-        thread_list.add(int(threads))
-        core_list.add(int(cores))
-        cnt += 1
+        if "_half" in key:
+            key = key[:-5]
+            half_bench_dict.setdefault(key, []).append(bench)
+            half += 1
+        else:
+            bench_dict.setdefault(key, []).append(bench)
+            thread_list.add(int(threads))
+            core_list.add(int(cores))
+            full += 1
 
-    print("Found {} result files with {} unique benchmarks.".format(cnt, len(bench_dict.items())))
+    print("Found {} result files with {} unique benchmarks.".format(full+half, len(bench_dict.items())))
+    if half > 0:
+        print("This includes {} result files of half benchmarks. Analyzing...\n".format(half))
+        for name, benchs in half_bench_dict.items():
+            break
+            full_benchs = bench_dict.get(name)
+
     #line_plots(args.output)
     my_heat_map(args.output)
     return
