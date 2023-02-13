@@ -1,5 +1,4 @@
-import os, sys
-import glob
+import os, sys, glob
 import matplotlib
 import matplotlib.pyplot as plt
 from statistics import fmean
@@ -7,11 +6,27 @@ import numpy as np
 import argparse
 from pathlib import Path
 import shutil
+from enum import Enum, auto
+from threading import Thread
+from colorama import init as colorama_init
+from colorama import Fore
+from colorama import Style
 
 
 # Setup
 result_dir = "./results"
 delimiter = "#"
+# Don't add a trailing slash to yout paths
+pictures = {
+        'pics': './pics',
+        'full_energy': './pics/energy',
+        'full_time': './pics/exec_time',
+        'half_energy': './pics/energy_half',
+        'half_time': './pics/exec_time_half'
+
+}
+### Setup Done
+
 # search for latest results
 result_dir = max(glob.glob(os.path.join(result_dir, '*/')), key=os.path.getmtime)
 ### do not touch
@@ -19,6 +34,11 @@ bench_dict = dict()
 half_bench_dict = dict()
 thread_list = set()
 core_list = set()
+file_output = None
+
+class Output(Enum):
+    SVG = auto()
+    PNG = auto()
 
 class Bench:
     def __init__(self, cores: int, threads: int):
@@ -28,7 +48,7 @@ class Bench:
         self.energy_cores = list()
         self.time = list()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.cores} Cores, {self.threads} Threads"
 
     def populate_from_file(self, file_path: str) -> None:
@@ -165,44 +185,33 @@ def annotate_heatmap(im, data=None, valfmt="{x:.2f}",
     return texts
 ###
 
-def generate_energy(x_ax: list, y_ax: list, data_array: list, bench_name: str, folder: str, output: str):
+def generate_full(x_ax: list, y_ax: list, data_array: list, bench_name: str, folder: str, fname: str) -> None:
     plt.style.use('ggplot')
     fig, ax = plt.subplots()
-    ax.set_ylabel("threads")
-    ax.set_xlabel("cores")
-    ax.set_title("Package Energy {}".format(bench_name))
+    ax.set_ylabel("Threads")
+    ax.set_xlabel("Cores")
     ax.grid(None)
-
-    im, cbar = heatmap(np.array(data_array), y_ax, x_ax, ax=ax,
-                cmap="YlGn", cbarlabel="Joules")
-    texts = annotate_heatmap(im, valfmt="{x:.1f} J")
-    if output == 'png':
-        plt.savefig("pics/{}/{}_{}.png".format(folder, folder, bench_name), dpi=300)
+    if "energy" in fname:
+        ax.set_title("Package Energy {}".format(bench_name))
+        im, cbar = heatmap(np.array(data_array), y_ax, x_ax, ax=ax,
+                    cmap="YlGn", cbarlabel="Joules")
+        texts = annotate_heatmap(im, valfmt="{x:.1f} J")
+    elif "time" in fname:
+        ax.set_title("Execution Time {}".format(bench_name))
+        im, cbar = heatmap(np.array(data_array), y_ax, x_ax, ax=ax,
+                cmap="YlGn", cbarlabel="seconds")
+        texts = annotate_heatmap(im, valfmt="{x:.1f} s")
     else:
-        plt.savefig("pics/{}/{}_{}.svg".format(folder, folder, bench_name))
-    plt.close()
-    return
-
-def generate_time(x_ax: list, y_ax: list, data_array: list, bench_name: str, folder: str, output: str):
-    plt.style.use('ggplot')
-    fig, ax = plt.subplots()
-    ax.set_ylabel("threads")
-    ax.set_xlabel("cores")
-    ax.set_title("Execution Time {}".format(bench_name))
-    ax.grid(None)
-
-    im, cbar = heatmap(np.array(data_array), y_ax, x_ax, ax=ax,
-            cmap="YlGn", cbarlabel="seconds")
-    texts = annotate_heatmap(im, valfmt="{x:.1f} s")
-    if output == 'png':
-        plt.savefig("pics/{}/{}_{}.png".format(folder, folder, bench_name), dpi=300)
+        sys.exit(f"{Fore.RED}fname must contain energy or time. Exiting now.\n{Style.RESET_ALL}")
+    if file_output.name == 'PNG':
+        plt.savefig("{}/{}_{}.png".format(folder, fname, bench_name), dpi=300)
     else:
-        plt.savefig("pics/{}/{}_{}.svg".format(folder, folder, bench_name))
+        plt.savefig("{}/{}_{}.svg".format(folder, fname, bench_name))
     plt.close()
     return
 
 
-def full_heat_map(output: str):
+def full_heat_map():
     y_ax = sorted(thread_list, reverse=True)
     x_ax = sorted(core_list)
     for name, benchs in bench_dict.items():
@@ -219,11 +228,17 @@ def full_heat_map(output: str):
                 lol[i][j] = "C"+str(lol[i][j].cores) + " " + "T"+str(lol[i][j].threads)
 
         print(lol)
-        generate_energy(x_ax, y_ax, energy, name, "energy", output)
-        generate_time(x_ax, y_ax, exec_time, name, "exec_time", output)
+        t1 = Thread(target=generate_full, args=(x_ax, y_ax, energy, name, pictures.get("full_energy"), "energy"))
+        t2 = Thread(target=generate_full, args=(x_ax, y_ax, exec_time, name, pictures.get("full_time"), "exec_time"))
+        #generate_full(x_ax, y_ax, energy, name, pictures.get("full_energy"), "energy")
+        #generate_full(x_ax, y_ax, exec_time, name, pictures.get("full_time"), "exec_time")
+        t1.start()
+        t2.start()
+        t1.join()
+        t2.join()
 
 
-def half_heat_map(output: str):
+def half_heat_map():
     for name, benchs in half_bench_dict.items():
         print("Generating half heat map for {}".format(name))
         full_benchs = bench_dict.get(name)
@@ -234,17 +249,23 @@ def half_heat_map(output: str):
                     selection.append(b)
             selection.sort(key=lambda b: b.cores, reverse=True)
             selection.insert(1, half_bench)
-            if len(selection) < 3:
-                print("Something with the half benchs went wrong. Could not find matching full benchs.")
+            if len(selection) != 3:
+                print(f"{Fore.RED}Something with the half benchs went wrong. Could not find matching full benchs.{Style.RESET_ALL}")
                 return
             y_ax = [half_bench.threads]
             x_ax = [half_bench.threads, "half", half_bench.cores]
             energy = [[fmean(i.energy_pkg) for i in selection]]
-            time = [[fmean(i.time) for i in selection]]
-            generate_energy(x_ax, y_ax, energy, name, "energy_half", output)
-            generate_time(x_ax, y_ax, time, name, "exec_time_half", output)
+            exec_time = [[fmean(i.time) for i in selection]]
+            t1 = Thread(target=generate_full, args=(x_ax, y_ax, energy, name, pictures.get("half_energy"), "energy"))
+            t2 = Thread(target=generate_full, args=(x_ax, y_ax, exec_time, name, pictures.get("half_time"), "exec_time"))
+            #generate_full(x_ax, y_ax, energy, name, pictures.get("half_energy"), "energy")
+            #generate_full(x_ax, y_ax, exec_time, name, pictures.get("half_time"), "exec_time")
+            t1.start()
+            t2.start()
+            t1.join()
+            t2.join()
 
-def line_plots(output: str):
+
     for name, benchs in bench_dict.items():
         benchs.sort(key=lambda b: (b.cores+b.threads, b.cores, -b.threads), reverse=True)
         print("Generating plot for {}".format(name))
@@ -283,8 +304,9 @@ def line_plots(output: str):
 
 
 def main():
+    colorama_init()
     # check Python version
-    MIN_PYTHON = (3, 5)
+    MIN_PYTHON = (3, 6) #enum auto
     if sys.version_info < MIN_PYTHON:
         sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
 
@@ -293,14 +315,18 @@ def main():
     parser.add_argument('--clean', action='store_true', help='Set this flag if you want to clean up before running.')
     args = parser.parse_args()
 
-    if args.clean:
-        shutil.rmtree('pics')
+    global file_output
+    if args.output == 'png':
+        file_output = Output.PNG
+    else:
+        file_output = Output.SVG
 
-    Path('pics').mkdir(parents=True, exist_ok=True)
-    Path('pics/energy').mkdir(parents=True, exist_ok=True)
-    Path('pics/exec_time').mkdir(parents=True, exist_ok=True)
-    Path('pics/energy_half').mkdir(parents=True, exist_ok=True)
-    Path('pics/exec_time_half').mkdir(parents=True, exist_ok=True)
+    if args.clean and os.path.exists(pictures.get('pics')):
+        shutil.rmtree(pictures.get('pics'))
+
+    for folder in pictures.values():
+        Path(folder).mkdir(parents=True, exist_ok=True)
+
     full = half = 0
 
     for file in os.scandir(result_dir):
@@ -321,13 +347,12 @@ def main():
             core_list.add(int(cores))
             full += 1
 
-    print("Found {} result files with {} unique benchmarks.".format(full+half, len(bench_dict.items())))
+    print(f"{Fore.YELLOW}Found {full+half} result files with {len(bench_dict.items())} unique benchmarks.{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}This includes {half} result files of half benchmarks.{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}Using 2 threads to speed up generation.\n{Style.RESET_ALL}")
+    full_heat_map()
     if half > 0:
-        print("This includes {} result files of half benchmarks.\n".format(half))
-        half_heat_map(args.output)
-
-    #line_plots(args.output)
-    full_heat_map(args.output)
+        half_heat_map()
     return
 
 if __name__ == "__main__":
