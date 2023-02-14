@@ -66,6 +66,14 @@ class Bench:
                 line = result.readline().rstrip()
         return
 
+
+class HalfBench(Bench):
+    def __init__(self, cores: int, threads: int, target_cores: int, target_threads: int):
+        self.target_cores = target_cores
+        self.target_threads = target_threads
+        super().__init__(cores, threads)
+
+
 ### https://matplotlib.org/stable/gallery/images_contours_and_fields/image_annotated_heatmap.html
 def heatmap(data, row_labels, col_labels, ax=None,
             cbar_kw=None, cbarlabel="", **kwargs):
@@ -279,15 +287,20 @@ def main():
         if ".log" in file.name:
             continue
         fname = os.path.splitext(file.name)[0]  # remove file extension
-        key, constellation = fname.split(delimiter)
-        cores, threads = constellation.split(",")
-        bench = Bench(int(cores), int(threads))
-        bench.populate_from_file(file.path)
-        if "_half" in key:
+        if "_half" in fname:
+            key, constellation, target = fname.split(delimiter)
             key = key[:-5]
+            cores, threads = constellation.split(",")
+            target_c, target_t = target.split(",")
+            bench = HalfBench(int(cores), int(threads), int(target_c), int(target_t))
+            bench.populate_from_file(file.path)
             half_bench_dict.setdefault(key, []).append(bench)
             half += 1
         else:
+            key, constellation = fname.split(delimiter)
+            cores, threads = constellation.split(",")
+            bench = Bench(int(cores), int(threads))
+            bench.populate_from_file(file.path)
             bench_dict.setdefault(key, []).append(bench)
             thread_list.add(int(threads))
             core_list.add(int(cores))
