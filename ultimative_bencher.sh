@@ -61,7 +61,10 @@ function half_bench() {
         sleep_duration=$(bc -l <<<"scale=1; $duration/2")
 
         for thr in ${threads[@]}; do
-            # bench and switch threads after half of time
+            # switch threads after half of time
+            if [[ $thr -eq $default_c ]]; then
+                continue
+            fi
             for i in {1..5}; do
                 perf stat --field-separator , -e duration_time,energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$default_c,$default_t#$thr,$thr.txt | tee -a $bname.log &
                 while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
