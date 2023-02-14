@@ -24,7 +24,7 @@ function normal_bench() {
                 for thr in ${threads[@]}; do
                     perf stat --field-separator , -e duration_time,energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$core,$thr.txt | tee -a $bname.log &
                     while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
-                        sleep 0.1
+                        sleep 0.05
                     done
 
                     echo $core > set_cores.pipe
@@ -42,38 +42,50 @@ function normal_bench() {
 
 function half_bench() {
     export WAIT_FOR_PIPE=2
-    core="1"
+    default_c="8"
+    default_t="8"
     for f in ./bin/*.x; do
         bname=./results/$currentDate/${f##*/}_half
+        # measure exec time of 8/8
+        /usr/bin/time -f %e env LD_PRELOAD=./is_it_openmp.so $f 2> /tmp/exec_time &
+        while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
+            sleep 0.1
+        done
+        echo $default_c > set_cores.pipe
+        echo $default_t > set_threads.pipe
+        while [ -p set_cores.pipe -a -p set_threads.pipe ]; do
+            sleep 1
+        done
+        # calculate half
+        duration=$(</tmp/exec_time)
+        sleep_duration=$(bc -l <<<"scale=1; $duration/2")
+
         for thr in ${threads[@]}; do
-            if [[ $thr -eq "1" ]]; then
-                continue
-            fi
-            # measure exec time
-            /usr/bin/time -f %e env LD_PRELOAD=./is_it_openmp.so $f 2> /tmp/exec_time &
-            while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
-                sleep 0.1
-            done
-            echo $thr > set_cores.pipe
-            echo $thr > set_threads.pipe
-            while [ -p set_cores.pipe -a -p set_threads.pipe ]; do
-                sleep 1
-            done
-            # calculate half
-            duration=$(</tmp/exec_time)
-            sleep_duration=$(bc -l <<<"scale=1; $duration/2")
-            echo "#$sleep_duration" > $bname#$core,$thr.txt
             # bench and switch threads after half of time
             for i in {1..5}; do
-                perf stat --field-separator , -e duration_time,energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$core,$thr.txt | tee -a $bname.log &
+                perf stat --field-separator , -e duration_time,energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$default_c,$default_t#$thr,$thr.txt | tee -a $bname.log &
                 while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
-                    sleep 0.1
+                    sleep 0.05
                 done
+                echo $default_c > set_cores.pipe
+                echo $default_t > set_threads.pipe
+                sleep $sleep_duration
                 echo $thr > set_cores.pipe
                 echo $thr > set_threads.pipe
+
+                while [ -p set_cores.pipe -a -p set_threads.pipe ]; do
+                    sleep 1
+                done
+
+                perf stat --field-separator , -e duration_time,energy-pkg,energy-cores env LD_PRELOAD=./is_it_openmp.so $f 2>>$bname#$default_c,$default_t#$thr,$default_t.txt | tee -a $bname.log &
+                while [ ! -p set_cores.pipe -a ! -p set_threads.pipe ]; do
+                    sleep 0.05
+                done
+                echo $default_c > set_cores.pipe
+                echo $default_t > set_threads.pipe
                 sleep $sleep_duration
-                echo $core > set_cores.pipe
-                echo $thr > set_threads.pipe
+                echo $thr > set_cores.pipe
+                echo $default_t > set_threads.pipe
 
                 while [ -p set_cores.pipe -a -p set_threads.pipe ]; do
                     sleep 1
