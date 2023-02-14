@@ -228,14 +228,14 @@ def full_heat_map():
                 lol[i][j] = "C"+str(lol[i][j].cores) + " " + "T"+str(lol[i][j].threads)
 
         print(lol)
-        t1 = Thread(target=generate_full, args=(x_ax, y_ax, energy, name, pictures.get("full_energy"), "energy"))
-        t2 = Thread(target=generate_full, args=(x_ax, y_ax, exec_time, name, pictures.get("full_time"), "exec_time"))
-        #generate_full(x_ax, y_ax, energy, name, pictures.get("full_energy"), "energy")
-        #generate_full(x_ax, y_ax, exec_time, name, pictures.get("full_time"), "exec_time")
-        t1.start()
-        t2.start()
-        t1.join()
-        t2.join()
+        #t1 = Thread(target=generate_full, args=(x_ax, y_ax, energy, name, pictures.get("full_energy"), "energy"))
+        #t2 = Thread(target=generate_full, args=(x_ax, y_ax, exec_time, name, pictures.get("full_time"), "exec_time"))
+        generate_full(x_ax, y_ax, energy, name, pictures.get("full_energy"), "energy")
+        generate_full(x_ax, y_ax, exec_time, name, pictures.get("full_time"), "exec_time")
+        #t1.start()
+        #t2.start()
+        #t1.join()
+        #t2.join()
 
 
 def half_heat_map():
@@ -256,51 +256,14 @@ def half_heat_map():
             x_ax = [half_bench.threads, "half", half_bench.cores]
             energy = [[fmean(i.energy_pkg) for i in selection]]
             exec_time = [[fmean(i.time) for i in selection]]
-            t1 = Thread(target=generate_full, args=(x_ax, y_ax, energy, name, pictures.get("half_energy"), "energy"))
-            t2 = Thread(target=generate_full, args=(x_ax, y_ax, exec_time, name, pictures.get("half_time"), "exec_time"))
-            #generate_full(x_ax, y_ax, energy, name, pictures.get("half_energy"), "energy")
-            #generate_full(x_ax, y_ax, exec_time, name, pictures.get("half_time"), "exec_time")
-            t1.start()
-            t2.start()
-            t1.join()
-            t2.join()
-
-
-    for name, benchs in bench_dict.items():
-        benchs.sort(key=lambda b: (b.cores+b.threads, b.cores, -b.threads), reverse=True)
-        print("Generating plot for {}".format(name))
-        x_axes, y_user, y_sys, y_exe, y_e_pkg, y_e_core = (list() for i in range(6))
-        for b in benchs:
-            x_axes.append(str(b.cores) + "/" + str(b.threads))
-            y_user.append(fmean(b.user))
-            y_sys.append(fmean(b.sys))
-            y_exe.append(fmean(b.execution))
-            y_e_pkg.append(fmean(b.energy_pkg))
-            y_e_core.append(fmean(b.energy_cores))
-
-        plt.style.use('ggplot')
-        fig, ax = plt.subplots()
-
-        ax.set_ylabel("time in seconds")
-        ax.set_xlabel("cores/threads")
-        l1, = ax.plot(x_axes, y_user, 'o-', label="user time")
-        l2, = ax.plot(x_axes, y_sys, 'o-', label="sys time")
-        l3, = ax.plot(x_axes, y_exe, 'o-', label="exe time")
-
-        twin = ax.twinx()
-        twin.grid(None)
-        twin.set_ylabel("energy in joules")
-        # C3 = 3rd color in current palette
-        l4, = twin.plot(x_axes, y_e_core, 'D-', label="energy cores", color="C3")
-        l5, = twin.plot(x_axes, y_e_pkg, 'D-', label="energy package", color="C4")
-
-        plt.legend(loc='best', facecolor='white', fancybox=True, framealpha=0.7, handles=[l1,l2,l3,l4,l5])
-
-        if output == 'png':
-            plt.savefig("pics/{}.png".format(name), dpi=300)
-        else:
-            fig.savefig("pics/{}.svg".format(name))
-        plt.close()
+            #t1 = Thread(target=generate_full, args=(x_ax, y_ax, energy, name, pictures.get("half_energy"), "energy"))
+            #t2 = Thread(target=generate_full, args=(x_ax, y_ax, exec_time, name, pictures.get("half_time"), "exec_time"))
+            generate_full(x_ax, y_ax, energy, name, pictures.get("half_energy"), "energy")
+            generate_full(x_ax, y_ax, exec_time, name, pictures.get("half_time"), "exec_time")
+            #t1.start()
+            #t2.start()
+            #t1.join()
+            #t2.join()
 
 
 def main():
