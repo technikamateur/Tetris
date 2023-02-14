@@ -7,7 +7,6 @@ import argparse
 from pathlib import Path
 import shutil
 from enum import Enum, auto
-from threading import Thread
 from colorama import init as colorama_init
 from colorama import Fore
 from colorama import Style
@@ -220,22 +219,12 @@ def full_heat_map():
 
         energy = [benchs[i:i+len(x_ax)] for i in range(0, len(benchs), len(x_ax))]
         exec_time = [benchs[i:i+len(x_ax)] for i in range(0, len(benchs), len(x_ax))]
-        lol = [benchs[i:i+len(x_ax)] for i in range(0, len(benchs), len(x_ax))]
         for i in range(len(energy)):
             for j in range(len(energy[i])):
                 energy[i][j] = fmean(energy[i][j].energy_pkg)
                 exec_time[i][j] = fmean(exec_time[i][j].time)
-                lol[i][j] = "C"+str(lol[i][j].cores) + " " + "T"+str(lol[i][j].threads)
-
-        print(lol)
-        #t1 = Thread(target=generate_full, args=(x_ax, y_ax, energy, name, pictures.get("full_energy"), "energy"))
-        #t2 = Thread(target=generate_full, args=(x_ax, y_ax, exec_time, name, pictures.get("full_time"), "exec_time"))
         generate_full(x_ax, y_ax, energy, name, pictures.get("full_energy"), "energy")
         generate_full(x_ax, y_ax, exec_time, name, pictures.get("full_time"), "exec_time")
-        #t1.start()
-        #t2.start()
-        #t1.join()
-        #t2.join()
 
 
 def half_heat_map():
@@ -256,14 +245,8 @@ def half_heat_map():
             x_ax = [half_bench.threads, "half", half_bench.cores]
             energy = [[fmean(i.energy_pkg) for i in selection]]
             exec_time = [[fmean(i.time) for i in selection]]
-            #t1 = Thread(target=generate_full, args=(x_ax, y_ax, energy, name, pictures.get("half_energy"), "energy"))
-            #t2 = Thread(target=generate_full, args=(x_ax, y_ax, exec_time, name, pictures.get("half_time"), "exec_time"))
             generate_full(x_ax, y_ax, energy, name, pictures.get("half_energy"), "energy")
             generate_full(x_ax, y_ax, exec_time, name, pictures.get("half_time"), "exec_time")
-            #t1.start()
-            #t2.start()
-            #t1.join()
-            #t2.join()
 
 
 def main():
@@ -310,11 +293,12 @@ def main():
             core_list.add(int(cores))
             full += 1
 
-    print(f"{Fore.YELLOW}Found {full+half} result files with {len(bench_dict.items())} unique benchmarks.{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}Found {full+half} result files with {len(bench_dict.keys())} unique benchmarks.{Style.RESET_ALL}")
     print(f"{Fore.YELLOW}This includes {half} result files of half benchmarks.{Style.RESET_ALL}")
-    print(f"{Fore.YELLOW}Using 2 threads to speed up generation.\n{Style.RESET_ALL}")
+    print(f"\n{Fore.BLUE}Generating full heat maps.{Style.RESET_ALL}")
     full_heat_map()
     if half > 0:
+        print(f"\n{Fore.BLUE}Generating half heat maps.{Style.RESET_ALL}")
         half_heat_map()
     return
 
