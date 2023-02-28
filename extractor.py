@@ -210,10 +210,42 @@ def generate_full(x_ax: list, y_ax: list, data_array: list, bench_name: str, fol
         texts = annotate_heatmap(im, valfmt="{x:.1f} s")
     else:
         sys.exit(f"{Fore.RED}fname must contain energy or time. Exiting now.\n{Style.RESET_ALL}")
+    fig.tight_layout()
     if file_output.name == 'PNG':
         plt.savefig("{}/{}_{}.png".format(folder, fname, bench_name), dpi=300)
     else:
         plt.savefig("{}/{}_{}.svg".format(folder, fname, bench_name))
+    plt.close()
+    return
+
+def generate_bars(x_ax: list, y_ax: str, vals: dict, title: str, file_out: str) -> None:
+    plt.style.use('ggplot')
+    species = ("Adelie", "Chinstrap", "Gentoo")
+    penguin_means = {
+        'Bill Depth': (18.35, 18.43, 14.98),
+        'Bill Length': (38.79, 48.83, 47.50),
+        'Flipper Length': (189.95, 195.82, 217.19),
+    }
+
+    x = np.arange(len(x_ax))  # the label locations
+    width = 0.25  # the width of the bars
+    multiplier = 0
+
+    fig, ax = plt.subplots(constrained_layout=True)
+
+    for attribute, measurement in vals.items():
+        offset = width * multiplier
+        rects = ax.bar(x + offset, measurement, width, label=attribute)
+        ax.bar_label(rects, padding=3)
+        multiplier += 1
+
+    # Add some text for labels, title and custom x-axis tick labels, etc.
+    ax.set_ylabel(y_ax)
+    ax.set_title(title)
+    ax.set_xticks(x + width, x_ax)
+    ax.legend(loc='upper left', ncols=3)
+    ax.set_ylim(0, 250)
+    plt.savefig(file_out)
     plt.close()
     return
 
@@ -236,25 +268,40 @@ def full_heat_map():
 
 
 def half_heat_map():
-    for name, benchs in half_bench_dict.items():
+    sources = set()
+    for benchs in half_bench_dict.values():
+        for hb in benchs: # hb = half_bench
+            sources.add((hb.cores, hb.threads))
+    print(f"Found sources: {sources}")
+    for name, hbenchs in half_bench_dict.items():
         print("Generating half heat map for {}".format(name))
-        full_benchs = bench_dict.get(name)
-        for half_bench in benchs:
+        fbenchs = bench_dict.get(name)
+        for source in sources:
+            title = f"From {source[0]} Cores / {source[1]} Threads to"
+            vals = {'Full Source': None, 'Half': None, 'Full Target': None}
+            x_ax = list()
+            for hb in [e for e in hbenchs if e.cores == source[0] and e.threads == source[1]]:
+
+
+    return
+
+''' OLD SHIT
             selection = list()
             for b in full_benchs:
-                if (b.threads == half_bench.threads and (b.cores == half_bench.cores or b.cores == half_bench.threads)):
+                if ((b.threads == half_bench.threads and b.cores == half_bench.cores) or (b.threads == half_bench.target_threads and b.cores == half_bench.target_cores)):
                     selection.append(b)
             selection.sort(key=lambda b: b.cores, reverse=True)
             selection.insert(1, half_bench)
             if len(selection) != 3:
-                print(f"{Fore.RED}Something with the half benchs went wrong. Could not find matching full benchs.{Style.RESET_ALL}")
+                print(f"{Fore.RED}Something with the half benchs went wrong. Exspected 3 benchs, but found {len(selection)} in list.{Style.RESET_ALL}")
                 return
-            y_ax = [half_bench.threads]
+            y_ax = [f"From T{half_bench.threads} C{half_bench.cores} to T{half_bench.target_threads} C{half_bench.target_cores}"]
             x_ax = [half_bench.threads, "half", half_bench.cores]
             energy = [[fmean(i.energy_pkg) for i in selection]]
             exec_time = [[fmean(i.time) for i in selection]]
             generate_full(x_ax, y_ax, energy, name, pictures.get("half_energy"), "energy")
             generate_full(x_ax, y_ax, exec_time, name, pictures.get("half_time"), "exec_time")
+'''
 
 
 def main():
@@ -309,7 +356,7 @@ def main():
     print(f"{Fore.YELLOW}Found {full+half} result files with {len(bench_dict.keys())} unique benchmarks.{Style.RESET_ALL}")
     print(f"{Fore.YELLOW}This includes {half} result files of half benchmarks.{Style.RESET_ALL}")
     print(f"\n{Fore.BLUE}Generating full heat maps.{Style.RESET_ALL}")
-    full_heat_map()
+    #full_heat_map()
     if half > 0:
         print(f"\n{Fore.BLUE}Generating half heat maps.{Style.RESET_ALL}")
         half_heat_map()
