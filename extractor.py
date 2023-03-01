@@ -245,7 +245,10 @@ def generate_bars(x_ax: list, y_ax: str, vals: dict, title: str, file_out: str) 
     ax.set_xticks(x + width, x_ax)
     ax.legend(loc='upper left', ncols=3)
     ax.set_ylim(0, 250)
-    plt.savefig(file_out)
+    if file_output.name == 'PNG':
+        plt.savefig(f"{file_out}.png", dpi=300)
+    else:
+        plt.savefig(f"{file_out}.svg")
     plt.close()
     return
 
@@ -277,20 +280,27 @@ def half_heat_map():
         print("Generating half heat map for {}".format(name))
         fbenchs = bench_dict.get(name)
         for source in sources: # one diagram for every source (and bench of course)
-            title = f"From {source[0]} Cores / {source[1]} Threads to"
-            vals = {'Full Source': list(), 'Half': list(), 'Full Target': list()}
+            title = f"from {source[0]}C / {source[1]}T to"
+            vals_energy = {'Full Source': list(), 'Half': list(), 'Full Target': list()}
+            vals_time = {'Full Source': list(), 'Half': list(), 'Full Target': list()}
             x_ax = list()
             for hb in [e for e in hbenchs if e.cores == source[0] and e.threads == source[1]]:
                 for fb in fbenchs:
                     if (fb.threads == hb.threads and fb.cores == hb.cores):
-                        vals['Full Source'].append(fb)
+                        vals_energy['Full Source'].append(fmean(fb.energy_pkg))
+                        vals_time['Full Source'].append(fmean(fb.time))
                     elif (fb.threads == hb.target_threads and fb.cores == hb.target_cores):
-                        vals['Full Target'].append(fb)
-                vals['Half'].append(hb)
+                        vals_energy['Full Target'].append(fmean(fb.energy_pkg))
+                        vals_time['Full Target'].append(fmean(fb.time))
+                vals_energy['Half'].append(fmean(hb.energy_pkg))
+                vals_time['Half'].append(fmean(hb.time))
+                x_ax.append(f"{hb.target_cores}C / {hb.target_threads}T")
             # internal Check
-            if ((len(vals.get('Full Source')) != len(vals.get('Half'))) or (len(vals.get('Full Target')) != len(vals.get('Half')))):
+            if ((len(vals_energy.get('Full Source')) != len(vals_energy.get('Half'))) or (len(vals_energy.get('Full Target')) != len(vals_energy.get('Half')))):
                 print(f"{Fore.RED}Something with the half benchs went wrong. The length of the vals does not match. Therefore I cant create your plots.{Style.RESET_ALL}")
                 return
+            generate_bars(x_ax, "Energy [Joules]", vals_energy, f"Package Energy {name} {title}", f"{pictures.get('half_energy')}/{name}_{source[0]}C{source[1]}T")
+            generate_bars(x_ax, "Time [s]", vals_time, f"Exe Time {name} {title}", f"{pictures.get('half_time')}/{name}_{source[0]}C{source[1]}T")
 
     return
 
