@@ -59,7 +59,7 @@ class Bench:
                 time = line
                 energy_pkg = result.readline().rstrip()
                 energy_cores = result.readline().rstrip()
-                self.energy_pkg.append(float(energy_pkg.split(",")[0]))
+                self.energy_pkg.append(float(energy_pkg.split(",")[0])) # cuts of everything behind ,
                 self.energy_cores.append(float(energy_cores.split(",")[0]))
                 self.time.append(float("{:.1f}".format(float(time.split(",")[0]) * (10**-9))))
                 # is there more? -> repetitions
@@ -220,12 +220,11 @@ def generate_full(x_ax: list, y_ax: list, data_array: list, bench_name: str, fol
 
 def generate_bars(x_ax: list, y_ax: str, vals: dict, title: str, file_out: str) -> None:
     plt.style.use('ggplot')
-    species = ("Adelie", "Chinstrap", "Gentoo")
-    penguin_means = {
-        'Bill Depth': (18.35, 18.43, 14.98),
-        'Bill Length': (38.79, 48.83, 47.50),
-        'Flipper Length': (189.95, 195.82, 217.19),
-    }
+    max_ylim = [max(elem) for elem in vals.values()] # max from each sublist
+    max_ylim = round(1.2 * max(max_ylim)) # global max
+
+    if len(vals.keys()) != 3:
+        sys.exit(f"{Fore.RED}You are trying to plot something diffrent than 3 bars. This will not work.{Style.RESET_ALL}")
 
     x = np.arange(len(x_ax))  # the label locations
     width = 0.25  # the width of the bars
@@ -244,7 +243,7 @@ def generate_bars(x_ax: list, y_ax: str, vals: dict, title: str, file_out: str) 
     ax.set_title(title)
     ax.set_xticks(x + width, x_ax)
     ax.legend(loc='upper left', ncols=3)
-    ax.set_ylim(0, 250)
+    ax.set_ylim(0, max_ylim)
     if file_output.name == 'PNG':
         plt.savefig(f"{file_out}.png", dpi=300)
     else:
@@ -284,14 +283,16 @@ def half_heat_map():
             vals_energy = {'Full Source': list(), 'Half': list(), 'Full Target': list()}
             vals_time = {'Full Source': list(), 'Half': list(), 'Full Target': list()}
             x_ax = list()
-            for hb in [e for e in hbenchs if e.cores == source[0] and e.threads == source[1]]:
+            presearched_full = [fb for fb in fbenchs if fb.cores == source[0] and fb.threads == source[1]][0]
+            search_array = [e for e in hbenchs if e.cores == source[0] and e.threads == source[1]]
+            search_array.sort(key=lambda b: (b.target_cores, b.target_threads), reverse=True)
+            for hb in search_array:
                 for fb in fbenchs:
-                    if (fb.threads == hb.threads and fb.cores == hb.cores):
-                        vals_energy['Full Source'].append(fmean(fb.energy_pkg))
-                        vals_time['Full Source'].append(fmean(fb.time))
-                    elif (fb.threads == hb.target_threads and fb.cores == hb.target_cores):
+                    if (fb.threads == hb.target_threads and fb.cores == hb.target_cores):
                         vals_energy['Full Target'].append(fmean(fb.energy_pkg))
                         vals_time['Full Target'].append(fmean(fb.time))
+                vals_energy['Full Source'].append(fmean(presearched_full.energy_pkg))
+                vals_time['Full Source'].append(fmean(presearched_full.time))
                 vals_energy['Half'].append(fmean(hb.energy_pkg))
                 vals_time['Half'].append(fmean(hb.time))
                 x_ax.append(f"{hb.target_cores}C / {hb.target_threads}T")
@@ -331,7 +332,8 @@ def main():
         sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-o', '--output', required=True, choices=['png', 'svg'],  help='Do you want png or svg?')
+    parser.add_argument('-o', '--output', required=True, choices=['png', 'svg'],  help='Select output format.')
+    parser.add_argument('-g', '--generate', required=True, choices=['half', 'full', 'all'],  help='Select what you would like to generate.')
     parser.add_argument('--clean', action='store_true', help='Set this flag if you want to clean up before running.')
     args = parser.parse_args()
 
@@ -374,11 +376,16 @@ def main():
 
     print(f"{Fore.YELLOW}Found {full+half} result files with {len(bench_dict.keys())} unique benchmarks.{Style.RESET_ALL}")
     print(f"{Fore.YELLOW}This includes {half} result files of half benchmarks.{Style.RESET_ALL}")
-    print(f"\n{Fore.BLUE}Generating full heat maps.{Style.RESET_ALL}")
-    #full_heat_map()
-    if half > 0:
+    if args.generate != 'half':
+        print(f"\n{Fore.BLUE}Generating full heat maps.{Style.RESET_ALL}")
+        full_heat_map()
+    else:
+        print(f"\n{Fore.BLUE}Skipping full heat maps because of your choice.{Style.RESET_ALL}")
+    if half > 0 and args.generate != 'full':
         print(f"\n{Fore.BLUE}Generating half heat maps.{Style.RESET_ALL}")
         half_heat_map()
+    else:
+        print(f"\n{Fore.BLUE}Skipping half heat maps because of your choice or there was no half bench.{Style.RESET_ALL}")
     return
 
 if __name__ == "__main__":
