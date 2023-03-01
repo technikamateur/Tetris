@@ -276,12 +276,21 @@ def half_heat_map():
     for name, hbenchs in half_bench_dict.items():
         print("Generating half heat map for {}".format(name))
         fbenchs = bench_dict.get(name)
-        for source in sources:
+        for source in sources: # one diagram for every source (and bench of course)
             title = f"From {source[0]} Cores / {source[1]} Threads to"
-            vals = {'Full Source': None, 'Half': None, 'Full Target': None}
+            vals = {'Full Source': list(), 'Half': list(), 'Full Target': list()}
             x_ax = list()
             for hb in [e for e in hbenchs if e.cores == source[0] and e.threads == source[1]]:
-
+                for fb in fbenchs:
+                    if (fb.threads == hb.threads and fb.cores == hb.cores):
+                        vals['Full Source'].append(fb)
+                    elif (fb.threads == hb.target_threads and fb.cores == hb.target_cores):
+                        vals['Full Target'].append(fb)
+                vals['Half'].append(hb)
+            # internal Check
+            if ((len(vals.get('Full Source')) != len(vals.get('Half'))) or (len(vals.get('Full Target')) != len(vals.get('Half')))):
+                print(f"{Fore.RED}Something with the half benchs went wrong. The length of the vals does not match. Therefore I cant create your plots.{Style.RESET_ALL}")
+                return
 
     return
 
