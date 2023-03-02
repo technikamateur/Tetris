@@ -11,19 +11,11 @@ from colorama import init as colorama_init
 from colorama import Fore
 from colorama import Style
 
-
 # Setup
 result_dir = "./results"
 delimiter = "#"
 # Don't add a trailing slash to yout paths
-pictures = {
-        'pics': './pics',
-        'full_energy': './pics/energy',
-        'full_time': './pics/exec_time',
-        'half_energy': './pics/energy_half',
-        'half_time': './pics/exec_time_half'
-
-}
+pictures = {'pics': './pics', 'full_energy': './pics/energy', 'full_time': './pics/exec_time', 'half_energy': './pics/energy_half', 'half_time': './pics/exec_time_half'}
 ### Setup Done
 
 # search for latest results
@@ -35,11 +27,14 @@ thread_list = set()
 core_list = set()
 file_output = None
 
+
 class Output(Enum):
     SVG = auto()
     PNG = auto()
 
+
 class Bench:
+
     def __init__(self, cores: int, threads: int):
         self.threads = threads
         self.cores = cores
@@ -59,7 +54,7 @@ class Bench:
                 time = line
                 energy_pkg = result.readline().rstrip()
                 energy_cores = result.readline().rstrip()
-                self.energy_pkg.append(float(energy_pkg.split(",")[0])) # cuts of everything behind ,
+                self.energy_pkg.append(float(energy_pkg.split(",")[0]))  # cuts of everything behind ,
                 self.energy_cores.append(float(energy_cores.split(",")[0]))
                 self.time.append(float("{:.1f}".format(float(time.split(",")[0]) * (10**-9))))
                 # is there more? -> repetitions
@@ -68,6 +63,7 @@ class Bench:
 
 
 class HalfBench(Bench):
+
     def __init__(self, cores: int, threads: int, target_cores: int, target_threads: int):
         self.target_cores = target_cores
         self.target_threads = target_threads
@@ -75,8 +71,7 @@ class HalfBench(Bench):
 
 
 ### https://matplotlib.org/stable/gallery/images_contours_and_fields/image_annotated_heatmap.html
-def heatmap(data, row_labels, col_labels, ax=None,
-            cbar_kw=None, cbarlabel="", **kwargs):
+def heatmap(data, row_labels, col_labels, ax=None, cbar_kw=None, cbarlabel="", **kwargs):
     """
     Create a heatmap from a numpy array and two lists of labels.
 
@@ -125,17 +120,15 @@ def heatmap(data, row_labels, col_labels, ax=None,
     # Turn spines off and create white grid.
     ax.spines[:].set_visible(False)
 
-    ax.set_xticks(np.arange(data.shape[1]+1)-.5, minor=True)
-    ax.set_yticks(np.arange(data.shape[0]+1)-.5, minor=True)
+    ax.set_xticks(np.arange(data.shape[1] + 1) - .5, minor=True)
+    ax.set_yticks(np.arange(data.shape[0] + 1) - .5, minor=True)
     ax.grid(which="minor", color="w", linestyle='-', linewidth=3)
     ax.tick_params(which="minor", bottom=False, left=False)
 
     return im, cbar
 
 
-def annotate_heatmap(im, data=None, valfmt="{x:.2f}",
-                     textcolors=("black", "white"),
-                     threshold=None, **textkw):
+def annotate_heatmap(im, data=None, valfmt="{x:.2f}", textcolors=("black", "white"), threshold=None, **textkw):
     """
     A function to annotate a heatmap.
 
@@ -168,12 +161,11 @@ def annotate_heatmap(im, data=None, valfmt="{x:.2f}",
     if threshold is not None:
         threshold = im.norm(threshold)
     else:
-        threshold = im.norm(data.max())/2.
+        threshold = im.norm(data.max()) / 2.
 
     # Set default alignment to center, but allow it to be
     # overwritten by textkw.
-    kw = dict(horizontalalignment="center",
-              verticalalignment="center")
+    kw = dict(horizontalalignment="center", verticalalignment="center")
     kw.update(textkw)
 
     # Get the formatter in case a string is supplied
@@ -190,38 +182,39 @@ def annotate_heatmap(im, data=None, valfmt="{x:.2f}",
             texts.append(text)
 
     return texts
+
+
 ###
 
-def generate_full(x_ax: list, y_ax: list, data_array: list, bench_name: str, folder: str, fname: str) -> None:
+
+def generate_heatmap(x_ax: list, y_ax: list, data_array: list, title: str, file_out: str) -> None:
     plt.style.use('ggplot')
     fig, ax = plt.subplots()
     ax.set_ylabel("Threads")
     ax.set_xlabel("Cores")
     ax.grid(None)
-    if "energy" in fname:
-        ax.set_title("Package Energy {}".format(bench_name))
-        im, cbar = heatmap(np.array(data_array), y_ax, x_ax, ax=ax,
-                    cmap="YlGn", cbarlabel="Joules")
+    ax.set_title(f"{title}")
+    if "energy" in title.casefold():
+        im, cbar = heatmap(np.array(data_array), y_ax, x_ax, ax=ax, cmap="YlGn", cbarlabel="Joules")
         texts = annotate_heatmap(im, valfmt="{x:.1f} J")
-    elif "time" in fname:
-        ax.set_title("Execution Time {}".format(bench_name))
-        im, cbar = heatmap(np.array(data_array), y_ax, x_ax, ax=ax,
-                cmap="YlGn", cbarlabel="seconds")
+    elif "time" in title.casefold():
+        im, cbar = heatmap(np.array(data_array), y_ax, x_ax, ax=ax, cmap="YlGn", cbarlabel="seconds")
         texts = annotate_heatmap(im, valfmt="{x:.1f} s")
     else:
-        sys.exit(f"{Fore.RED}fname must contain energy or time. Exiting now.\n{Style.RESET_ALL}")
+        sys.exit(f"{Fore.RED}title must contain energy or time. Exiting now.\n{Style.RESET_ALL}")
     fig.tight_layout()
     if file_output.name == 'PNG':
-        plt.savefig("{}/{}_{}.png".format(folder, fname, bench_name), dpi=300)
+        plt.savefig(f"{file_out}.png", dpi=300)
     else:
-        plt.savefig("{}/{}_{}.svg".format(folder, fname, bench_name))
+        plt.savefig(f"{file_out}.svg")
     plt.close()
     return
 
+
 def generate_bars(x_ax: list, y_ax: str, vals: dict, title: str, file_out: str) -> None:
     plt.style.use('ggplot')
-    max_ylim = [max(elem) for elem in vals.values()] # max from each sublist
-    max_ylim = round(1.2 * max(max_ylim)) # global max
+    max_ylim = [max(elem) for elem in vals.values()]  # max from each sublist
+    max_ylim = round(1.2 * max(max_ylim))  # global max
 
     if len(vals.keys()) != 3:
         sys.exit(f"{Fore.RED}You are trying to plot something diffrent than 3 bars. This will not work.{Style.RESET_ALL}")
@@ -259,26 +252,26 @@ def full_heat_map():
         benchs.sort(key=lambda b: (b.threads, -b.cores), reverse=True)
         print("Generating heat map for {}".format(name))
 
-        energy = [benchs[i:i+len(x_ax)] for i in range(0, len(benchs), len(x_ax))]
-        exec_time = [benchs[i:i+len(x_ax)] for i in range(0, len(benchs), len(x_ax))]
+        energy = [benchs[i:i + len(x_ax)] for i in range(0, len(benchs), len(x_ax))]
+        exec_time = [benchs[i:i + len(x_ax)] for i in range(0, len(benchs), len(x_ax))]
         for i in range(len(energy)):
             for j in range(len(energy[i])):
                 energy[i][j] = fmean(energy[i][j].energy_pkg)
                 exec_time[i][j] = fmean(exec_time[i][j].time)
-        generate_full(x_ax, y_ax, energy, name, pictures.get("full_energy"), "energy")
-        generate_full(x_ax, y_ax, exec_time, name, pictures.get("full_time"), "exec_time")
+        generate_heatmap(x_ax, y_ax, energy, f"Package Energy {name}", f"{pictures.get('full_energy')}/{name}")
+        generate_heatmap(x_ax, y_ax, exec_time, f"Exe Time {name}", f"{pictures.get('full_time')}/{name}")
 
 
 def half_heat_map():
     sources = set()
     for benchs in half_bench_dict.values():
-        for hb in benchs: # hb = half_bench
+        for hb in benchs:  # hb = half_bench
             sources.add((hb.cores, hb.threads))
     print(f"Found sources: {sources}")
     for name, hbenchs in half_bench_dict.items():
         print("Generating half heat map for {}".format(name))
         fbenchs = bench_dict.get(name)
-        for source in sources: # one diagram for every source (and bench of course)
+        for source in sources:  # one diagram for every source (and bench of course)
             title = f"from {source[0]}C / {source[1]}T to"
             vals_energy = {'Full Source': list(), 'Half': list(), 'Full Target': list()}
             vals_time = {'Full Source': list(), 'Half': list(), 'Full Target': list()}
@@ -305,6 +298,7 @@ def half_heat_map():
 
     return
 
+
 ''' OLD SHIT
             selection = list()
             for b in full_benchs:
@@ -327,13 +321,13 @@ def half_heat_map():
 def main():
     colorama_init()
     # check Python version
-    MIN_PYTHON = (3, 6) #enum auto
+    MIN_PYTHON = (3, 6)  #enum auto
     if sys.version_info < MIN_PYTHON:
         sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-o', '--output', required=True, choices=['png', 'svg'],  help='Select output format.')
-    parser.add_argument('-g', '--generate', required=True, choices=['half', 'full', 'all'],  help='Select what you would like to generate.')
+    parser.add_argument('-o', '--output', required=True, choices=['png', 'svg'], help='Select output format.')
+    parser.add_argument('-g', '--generate', required=True, choices=['half', 'full', 'all'], help='Select what you would like to generate.')
     parser.add_argument('--clean', action='store_true', help='Set this flag if you want to clean up before running.')
     args = parser.parse_args()
 
@@ -388,5 +382,6 @@ def main():
         print(f"\n{Fore.BLUE}Skipping half heat maps because of your choice or there was no half bench.{Style.RESET_ALL}")
     return
 
+
 if __name__ == "__main__":
-   main()
+    main()
