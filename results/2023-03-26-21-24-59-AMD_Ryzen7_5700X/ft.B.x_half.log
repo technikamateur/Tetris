@@ -1,0 +1,3630 @@
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80350 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80353 spawned.
+Thread with tid 80354 spawned.
+Thread with tid 80355 spawned.
+Thread with tid 80356 spawned.
+Thread with tid 80357 spawned.
+Thread with tid 80358 spawned.
+Thread with tid 80359 spawned.
+Thread with tid 80360 spawned.
+Thread with tid 80361 spawned.
+Thread with tid 80362 spawned.
+Thread with tid 80363 spawned.
+Thread with tid 80364 spawned.
+Thread with tid 80365 spawned.
+Thread with tid 80366 spawned.
+Thread with tid 80367 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 8
+Got a new thread advice: 8
+Thread with tid 80361 returned.
+Thread with tid 80363 returned.
+Thread with tid 80362 returned.
+Thread with tid 80364 returned.
+Thread with tid 80365 returned.
+Thread with tid 80367 returned.
+Thread with tid 80366 returned.
+Thread with tid 80360 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     5.54
+ Total threads   =                        8
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 16620.56
+ Mop/s/thread    =                  2077.57
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80381 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80384 spawned.
+Thread with tid 80385 spawned.
+Thread with tid 80386 spawned.
+Thread with tid 80387 spawned.
+Thread with tid 80388 spawned.
+Thread with tid 80389 spawned.
+Thread with tid 80390 spawned.
+Thread with tid 80391 spawned.
+Thread with tid 80392 spawned.
+Thread with tid 80393 spawned.
+Thread with tid 80394 spawned.
+Thread with tid 80395 spawned.
+Thread with tid 80396 spawned.
+Thread with tid 80398 spawned.
+Thread with tid 80397 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 8
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     6.13
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                 15013.26
+ Mop/s/thread    =                   938.33
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80415 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80418 spawned.
+Thread with tid 80419 spawned.
+Thread with tid 80420 spawned.
+Thread with tid 80421 spawned.
+Thread with tid 80423 spawned.
+Thread with tid 80422 spawned.
+Thread with tid 80424 spawned.
+Thread with tid 80425 spawned.
+Thread with tid 80426 spawned.
+Thread with tid 80427 spawned.
+Thread with tid 80428 spawned.
+Thread with tid 80429 spawned.
+Thread with tid 80430 spawned.
+Thread with tid 80431 spawned.
+Thread with tid 80432 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 8
+Got a new thread advice: 8
+Thread with tid 80428 returned.
+Thread with tid 80425 returned.
+Thread with tid 80432 returned.
+Thread with tid 80426 returned.
+Thread with tid 80431 returned.
+Thread with tid 80430 returned.
+Thread with tid 80427 returned.
+Thread with tid 80429 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     5.53
+ Total threads   =                        8
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 16643.07
+ Mop/s/thread    =                  2080.38
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80447 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80450 spawned.
+Thread with tid 80451 spawned.
+Thread with tid 80452 spawned.
+Thread with tid 80453 spawned.
+Thread with tid 80454 spawned.
+Thread with tid 80455 spawned.
+Thread with tid 80456 spawned.
+Thread with tid 80457 spawned.
+Thread with tid 80458 spawned.
+Thread with tid 80459 spawned.
+Thread with tid 80460 spawned.
+Thread with tid 80461 spawned.
+Thread with tid 80462 spawned.
+Thread with tid 80463 spawned.
+Thread with tid 80464 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 8
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     6.12
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                 15050.42
+ Mop/s/thread    =                   940.65
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80483 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80489 spawned.
+Thread with tid 80486 spawned.
+Thread with tid 80487 spawned.
+Thread with tid 80488 spawned.
+Thread with tid 80490 spawned.
+Thread with tid 80491 spawned.
+Thread with tid 80492 spawned.
+Thread with tid 80493 spawned.
+Thread with tid 80494 spawned.
+Thread with tid 80495 spawned.
+Thread with tid 80496 spawned.
+Thread with tid 80497 spawned.
+Thread with tid 80498 spawned.
+Thread with tid 80499 spawned.
+Thread with tid 80500 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 8
+Got a new thread advice: 8
+Thread with tid 80494 returned.
+Thread with tid 80495 returned.
+Thread with tid 80496 returned.
+Thread with tid 80500 returned.
+Thread with tid 80498 returned.
+Thread with tid 80497 returned.
+Thread with tid 80499 returned.
+Thread with tid 80493 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     5.54
+ Total threads   =                        8
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 16629.27
+ Mop/s/thread    =                  2078.66
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80515 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80518 spawned.
+Thread with tid 80519 spawned.
+Thread with tid 80520 spawned.
+Thread with tid 80521 spawned.
+Thread with tid 80522 spawned.
+Thread with tid 80523 spawned.
+Thread with tid 80524 spawned.
+Thread with tid 80525 spawned.
+Thread with tid 80526 spawned.
+Thread with tid 80527 spawned.
+Thread with tid 80528 spawned.
+Thread with tid 80529 spawned.
+Thread with tid 80530 spawned.
+Thread with tid 80531 spawned.
+Thread with tid 80532 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 8
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     6.08
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                 15130.20
+ Mop/s/thread    =                   945.64
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80550 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80553 spawned.
+Thread with tid 80554 spawned.
+Thread with tid 80555 spawned.
+Thread with tid 80556 spawned.
+Thread with tid 80557 spawned.
+Thread with tid 80558 spawned.
+Thread with tid 80559 spawned.
+Thread with tid 80560 spawned.
+Thread with tid 80561 spawned.
+Thread with tid 80562 spawned.
+Thread with tid 80563 spawned.
+Thread with tid 80564 spawned.
+Thread with tid 80565 spawned.
+Thread with tid 80566 spawned.
+Thread with tid 80567 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 8
+Got a new thread advice: 8
+Thread with tid 80566 returned.
+Thread with tid 80567 returned.
+Thread with tid 80560 returned.
+Thread with tid 80562 returned.
+Thread with tid 80561 returned.
+Thread with tid 80565 returned.
+Thread with tid 80563 returned.
+Thread with tid 80564 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     5.52
+ Total threads   =                        8
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 16673.64
+ Mop/s/thread    =                  2084.20
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80582 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80585 spawned.
+Thread with tid 80586 spawned.
+Thread with tid 80587 spawned.
+Thread with tid 80588 spawned.
+Thread with tid 80589 spawned.
+Thread with tid 80590 spawned.
+Thread with tid 80591 spawned.
+Thread with tid 80592 spawned.
+Thread with tid 80593 spawned.
+Thread with tid 80594 spawned.
+Thread with tid 80595 spawned.
+Thread with tid 80596 spawned.
+Thread with tid 80597 spawned.
+Thread with tid 80598 spawned.
+Thread with tid 80599 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 8
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     6.10
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                 15086.49
+ Mop/s/thread    =                   942.91
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80617 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80623 spawned.
+Thread with tid 80624 spawned.
+Thread with tid 80620 spawned.
+Thread with tid 80630 spawned.
+Thread with tid 80621 spawned.
+Thread with tid 80622 spawned.
+Thread with tid 80628 spawned.
+Thread with tid 80631 spawned.
+Thread with tid 80629 spawned.
+Thread with tid 80627 spawned.
+Thread with tid 80632 spawned.
+Thread with tid 80626 spawned.
+Thread with tid 80633 spawned.
+Thread with tid 80625 spawned.
+Thread with tid 80634 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 8
+Got a new thread advice: 8
+Thread with tid 80627 returned.
+Thread with tid 80629 returned.
+Thread with tid 80628 returned.
+Thread with tid 80632 returned.
+Thread with tid 80631 returned.
+Thread with tid 80633 returned.
+Thread with tid 80630 returned.
+Thread with tid 80634 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     5.54
+ Total threads   =                        8
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 16628.61
+ Mop/s/thread    =                  2078.58
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80651 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80654 spawned.
+Thread with tid 80655 spawned.
+Thread with tid 80656 spawned.
+Thread with tid 80657 spawned.
+Thread with tid 80658 spawned.
+Thread with tid 80659 spawned.
+Thread with tid 80660 spawned.
+Thread with tid 80661 spawned.
+Thread with tid 80662 spawned.
+Thread with tid 80663 spawned.
+Thread with tid 80664 spawned.
+Thread with tid 80665 spawned.
+Thread with tid 80666 spawned.
+Thread with tid 80667 spawned.
+Thread with tid 80668 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 8
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     6.08
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                 15144.21
+ Mop/s/thread    =                   946.51
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80687 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80690 spawned.
+Thread with tid 80691 spawned.
+Thread with tid 80692 spawned.
+Thread with tid 80693 spawned.
+Thread with tid 80694 spawned.
+Thread with tid 80695 spawned.
+Thread with tid 80696 spawned.
+Thread with tid 80697 spawned.
+Thread with tid 80698 spawned.
+Thread with tid 80699 spawned.
+Thread with tid 80700 spawned.
+Thread with tid 80701 spawned.
+Thread with tid 80702 spawned.
+Thread with tid 80703 spawned.
+Thread with tid 80704 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 4
+Got a new thread advice: 4
+Thread with tid 80697 returned.
+Thread with tid 80695 returned.
+Thread with tid 80700 returned.
+Thread with tid 80703 returned.
+Thread with tid 80701 returned.
+Thread with tid 80694 returned.
+Thread with tid 80698 returned.
+Thread with tid 80702 returned.
+Thread with tid 80699 returned.
+Thread with tid 80693 returned.
+Thread with tid 80696 returned.
+Thread with tid 80704 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     5.88
+ Total threads   =                        4
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 15667.15
+ Mop/s/thread    =                  3916.79
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80722 added.
+--------
+Got a new cores advice: 16
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80725 spawned.
+Thread with tid 80727 spawned.
+Thread with tid 80728 spawned.
+Thread with tid 80726 spawned.
+Thread with tid 80729 spawned.
+Thread with tid 80730 spawned.
+Thread with tid 80731 spawned.
+Thread with tid 80732 spawned.
+Thread with tid 80733 spawned.
+Thread with tid 80734 spawned.
+Thread with tid 80735 spawned.
+Thread with tid 80736 spawned.
+Thread with tid 80737 spawned.
+Thread with tid 80738 spawned.
+Thread with tid 80739 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 4
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     7.26
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                 12676.80
+ Mop/s/thread    =                   792.30
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80759 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80762 spawned.
+Thread with tid 80763 spawned.
+Thread with tid 80764 spawned.
+Thread with tid 80765 spawned.
+Thread with tid 80766 spawned.
+Thread with tid 80767 spawned.
+Thread with tid 80768 spawned.
+Thread with tid 80769 spawned.
+Thread with tid 80770 spawned.
+Thread with tid 80771 spawned.
+Thread with tid 80772 spawned.
+Thread with tid 80773 spawned.
+Thread with tid 80774 spawned.
+Thread with tid 80775 spawned.
+Thread with tid 80776 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 4
+Got a new thread advice: 4
+Thread with tid 80773 returned.
+Thread with tid 80765 returned.
+Thread with tid 80776 returned.
+Thread with tid 80775 returned.
+Thread with tid 80772 returned.
+Thread with tid 80771 returned.
+Thread with tid 80774 returned.
+Thread with tid 80768 returned.
+Thread with tid 80769 returned.
+Thread with tid 80766 returned.
+Thread with tid 80767 returned.
+Thread with tid 80770 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     5.85
+ Total threads   =                        4
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 15742.00
+ Mop/s/thread    =                  3935.50
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80795 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80800 spawned.
+Thread with tid 80798 spawned.
+Thread with tid 80801 spawned.
+Thread with tid 80799 spawned.
+Thread with tid 80802 spawned.
+Thread with tid 80803 spawned.
+Thread with tid 80804 spawned.
+Thread with tid 80805 spawned.
+Thread with tid 80806 spawned.
+Thread with tid 80807 spawned.
+Thread with tid 80808 spawned.
+Thread with tid 80809 spawned.
+Thread with tid 80810 spawned.
+Thread with tid 80811 spawned.
+Thread with tid 80812 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 4
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     7.28
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                 12647.87
+ Mop/s/thread    =                   790.49
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80832 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80835 spawned.
+Thread with tid 80836 spawned.
+Thread with tid 80837 spawned.
+Thread with tid 80838 spawned.
+Thread with tid 80839 spawned.
+Thread with tid 80841 spawned.
+Thread with tid 80840 spawned.
+Thread with tid 80842 spawned.
+Thread with tid 80843 spawned.
+Thread with tid 80844 spawned.
+Thread with tid 80845 spawned.
+Thread with tid 80846 spawned.
+Thread with tid 80847 spawned.
+Thread with tid 80848 spawned.
+Thread with tid 80849 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 4
+Got a new thread advice: 4
+Thread with tid 80838 returned.
+Thread with tid 80844 returned.
+Thread with tid 80846 returned.
+Thread with tid 80842 returned.
+Thread with tid 80841 returned.
+Thread with tid 80843 returned.
+Thread with tid 80849 returned.
+Thread with tid 80839 returned.
+Thread with tid 80845 returned.
+Thread with tid 80840 returned.
+Thread with tid 80847 returned.
+Thread with tid 80848 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     5.88
+ Total threads   =                        4
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 15665.68
+ Mop/s/thread    =                  3916.42
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80868 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80873 spawned.
+Thread with tid 80874 spawned.
+Thread with tid 80876 spawned.
+Thread with tid 80877 spawned.
+Thread with tid 80878 spawned.
+Thread with tid 80875 spawned.
+Thread with tid 80880 spawned.
+Thread with tid 80872 spawned.
+Thread with tid 80879 spawned.
+Thread with tid 80881 spawned.
+Thread with tid 80871 spawned.
+Thread with tid 80882 spawned.
+Thread with tid 80883 spawned.
+Thread with tid 80884 spawned.
+Thread with tid 80885 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 4
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     7.28
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                 12636.28
+ Mop/s/thread    =                   789.77
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80905 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80908 spawned.
+Thread with tid 80909 spawned.
+Thread with tid 80910 spawned.
+Thread with tid 80911 spawned.
+Thread with tid 80912 spawned.
+Thread with tid 80914 spawned.
+Thread with tid 80913 spawned.
+Thread with tid 80915 spawned.
+Thread with tid 80916 spawned.
+Thread with tid 80917 spawned.
+Thread with tid 80918 spawned.
+Thread with tid 80919 spawned.
+Thread with tid 80920 spawned.
+Thread with tid 80921 spawned.
+Thread with tid 80922 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 4
+Got a new thread advice: 4
+Thread with tid 80918 returned.
+Thread with tid 80915 returned.
+Thread with tid 80919 returned.
+Thread with tid 80914 returned.
+Thread with tid 80920 returned.
+Thread with tid 80911 returned.
+Thread with tid 80921 returned.
+Thread with tid 80917 returned.
+Thread with tid 80913 returned.
+Thread with tid 80912 returned.
+Thread with tid 80922 returned.
+Thread with tid 80916 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     5.89
+ Total threads   =                        4
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 15633.21
+ Mop/s/thread    =                  3908.30
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80941 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80944 spawned.
+Thread with tid 80945 spawned.
+Thread with tid 80946 spawned.
+Thread with tid 80947 spawned.
+Thread with tid 80948 spawned.
+Thread with tid 80949 spawned.
+Thread with tid 80950 spawned.
+Thread with tid 80951 spawned.
+Thread with tid 80952 spawned.
+Thread with tid 80953 spawned.
+Thread with tid 80954 spawned.
+Thread with tid 80955 spawned.
+Thread with tid 80956 spawned.
+Thread with tid 80957 spawned.
+Thread with tid 80958 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 4
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     7.33
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                 12565.61
+ Mop/s/thread    =                   785.35
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 80978 added.
+--------
+Got a new cores advice: 16
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 80981 spawned.
+Thread with tid 80982 spawned.
+Thread with tid 80983 spawned.
+Thread with tid 80984 spawned.
+Thread with tid 80985 spawned.
+Thread with tid 80986 spawned.
+Thread with tid 80987 spawned.
+Thread with tid 80988 spawned.
+Thread with tid 80989 spawned.
+Thread with tid 80990 spawned.
+Thread with tid 80991 spawned.
+Thread with tid 80992 spawned.
+Thread with tid 80993 spawned.
+Thread with tid 80994 spawned.
+Thread with tid 80995 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 4
+Got a new thread advice: 4
+Thread with tid 80987 returned.
+Thread with tid 80984 returned.
+Thread with tid 80995 returned.
+Thread with tid 80990 returned.
+Thread with tid 80986 returned.
+Thread with tid 80992 returned.
+Thread with tid 80993 returned.
+Thread with tid 80988 returned.
+Thread with tid 80991 returned.
+Thread with tid 80989 returned.
+Thread with tid 80994 returned.
+Thread with tid 80985 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     5.88
+ Total threads   =                        4
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 15667.75
+ Mop/s/thread    =                  3916.94
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81014 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81017 spawned.
+Thread with tid 81018 spawned.
+Thread with tid 81019 spawned.
+Thread with tid 81020 spawned.
+Thread with tid 81021 spawned.
+Thread with tid 81022 spawned.
+Thread with tid 81023 spawned.
+Thread with tid 81024 spawned.
+Thread with tid 81025 spawned.
+Thread with tid 81026 spawned.
+Thread with tid 81027 spawned.
+Thread with tid 81028 spawned.
+Thread with tid 81029 spawned.
+Thread with tid 81030 spawned.
+Thread with tid 81031 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 4
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     7.27
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                 12665.88
+ Mop/s/thread    =                   791.62
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81050 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81053 spawned.
+Thread with tid 81054 spawned.
+Thread with tid 81055 spawned.
+Thread with tid 81056 spawned.
+Thread with tid 81057 spawned.
+Thread with tid 81058 spawned.
+Thread with tid 81059 spawned.
+Thread with tid 81060 spawned.
+Thread with tid 81061 spawned.
+Thread with tid 81062 spawned.
+Thread with tid 81063 spawned.
+Thread with tid 81064 spawned.
+Thread with tid 81065 spawned.
+Thread with tid 81066 spawned.
+Thread with tid 81067 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 2
+Got a new thread advice: 2
+Thread with tid 81059 returned.
+Thread with tid 81062 returned.
+Thread with tid 81061 returned.
+Thread with tid 81064 returned.
+Thread with tid 81058 returned.
+Thread with tid 81067 returned.
+Thread with tid 81054 returned.
+Thread with tid 81060 returned.
+Thread with tid 81056 returned.
+Thread with tid 81065 returned.
+Thread with tid 81063 returned.
+Thread with tid 81057 returned.
+Thread with tid 81055 returned.
+Thread with tid 81066 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     7.35
+ Total threads   =                        2
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 12530.41
+ Mop/s/thread    =                  6265.21
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81087 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81090 spawned.
+Thread with tid 81091 spawned.
+Thread with tid 81092 spawned.
+Thread with tid 81093 spawned.
+Thread with tid 81094 spawned.
+Thread with tid 81095 spawned.
+Thread with tid 81096 spawned.
+Thread with tid 81097 spawned.
+Thread with tid 81098 spawned.
+Thread with tid 81099 spawned.
+Thread with tid 81100 spawned.
+Thread with tid 81101 spawned.
+Thread with tid 81102 spawned.
+Thread with tid 81103 spawned.
+Thread with tid 81104 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 2
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    10.02
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  9189.54
+ Mop/s/thread    =                   574.35
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81132 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81136 spawned.
+Thread with tid 81137 spawned.
+Thread with tid 81138 spawned.
+Thread with tid 81139 spawned.
+Thread with tid 81140 spawned.
+Thread with tid 81141 spawned.
+Thread with tid 81142 spawned.
+Thread with tid 81143 spawned.
+Thread with tid 81144 spawned.
+Thread with tid 81145 spawned.
+Thread with tid 81146 spawned.
+Thread with tid 81147 spawned.
+Thread with tid 81148 spawned.
+Thread with tid 81149 spawned.
+Thread with tid 81150 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 2
+Got a new thread advice: 2
+Thread with tid 81139 returned.
+Thread with tid 81146 returned.
+Thread with tid 81149 returned.
+Thread with tid 81148 returned.
+Thread with tid 81142 returned.
+Thread with tid 81138 returned.
+Thread with tid 81145 returned.
+Thread with tid 81140 returned.
+Thread with tid 81141 returned.
+Thread with tid 81144 returned.
+Thread with tid 81150 returned.
+Thread with tid 81147 returned.
+Thread with tid 81137 returned.
+Thread with tid 81143 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     7.26
+ Total threads   =                        2
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 12687.77
+ Mop/s/thread    =                  6343.89
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81168 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81171 spawned.
+Thread with tid 81172 spawned.
+Thread with tid 81174 spawned.
+Thread with tid 81173 spawned.
+Thread with tid 81175 spawned.
+Thread with tid 81176 spawned.
+Thread with tid 81177 spawned.
+Thread with tid 81178 spawned.
+Thread with tid 81179 spawned.
+Thread with tid 81180 spawned.
+Thread with tid 81181 spawned.
+Thread with tid 81182 spawned.
+Thread with tid 81183 spawned.
+Thread with tid 81184 spawned.
+Thread with tid 81185 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 2
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    10.07
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  9138.63
+ Mop/s/thread    =                   571.16
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81213 added.
+--------
+Got a new cores advice: 16
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81217 spawned.
+Thread with tid 81218 spawned.
+Thread with tid 81219 spawned.
+Thread with tid 81220 spawned.
+Thread with tid 81221 spawned.
+Thread with tid 81222 spawned.
+Thread with tid 81223 spawned.
+Thread with tid 81224 spawned.
+Thread with tid 81225 spawned.
+Thread with tid 81226 spawned.
+Thread with tid 81227 spawned.
+Thread with tid 81228 spawned.
+Thread with tid 81229 spawned.
+Thread with tid 81230 spawned.
+Thread with tid 81231 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 2
+Got a new thread advice: 2
+Thread with tid 81229 returned.
+Thread with tid 81228 returned.
+Thread with tid 81218 returned.
+Thread with tid 81231 returned.
+Thread with tid 81223 returned.
+Thread with tid 81219 returned.
+Thread with tid 81220 returned.
+Thread with tid 81221 returned.
+Thread with tid 81227 returned.
+Thread with tid 81225 returned.
+Thread with tid 81230 returned.
+Thread with tid 81226 returned.
+Thread with tid 81224 returned.
+Thread with tid 81222 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     7.31
+ Total threads   =                        2
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 12596.70
+ Mop/s/thread    =                  6298.35
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81250 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81253 spawned.
+Thread with tid 81254 spawned.
+Thread with tid 81255 spawned.
+Thread with tid 81256 spawned.
+Thread with tid 81257 spawned.
+Thread with tid 81258 spawned.
+Thread with tid 81259 spawned.
+Thread with tid 81260 spawned.
+Thread with tid 81261 spawned.
+Thread with tid 81262 spawned.
+Thread with tid 81263 spawned.
+Thread with tid 81264 spawned.
+Thread with tid 81265 spawned.
+Thread with tid 81266 spawned.
+Thread with tid 81267 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 2
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    10.16
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  9063.73
+ Mop/s/thread    =                   566.48
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81294 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81297 spawned.
+Thread with tid 81299 spawned.
+Thread with tid 81298 spawned.
+Thread with tid 81300 spawned.
+Thread with tid 81301 spawned.
+Thread with tid 81302 spawned.
+Thread with tid 81303 spawned.
+Thread with tid 81304 spawned.
+Thread with tid 81305 spawned.
+Thread with tid 81306 spawned.
+Thread with tid 81307 spawned.
+Thread with tid 81308 spawned.
+Thread with tid 81309 spawned.
+Thread with tid 81310 spawned.
+Thread with tid 81311 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 2
+Got a new thread advice: 2
+Thread with tid 81308 returned.
+Thread with tid 81304 returned.
+Thread with tid 81300 returned.
+Thread with tid 81310 returned.
+Thread with tid 81298 returned.
+Thread with tid 81306 returned.
+Thread with tid 81302 returned.
+Thread with tid 81309 returned.
+Thread with tid 81299 returned.
+Thread with tid 81305 returned.
+Thread with tid 81307 returned.
+Thread with tid 81311 returned.
+Thread with tid 81301 returned.
+Thread with tid 81303 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     7.33
+ Total threads   =                        2
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 12561.11
+ Mop/s/thread    =                  6280.56
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81331 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81334 spawned.
+Thread with tid 81335 spawned.
+Thread with tid 81336 spawned.
+Thread with tid 81337 spawned.
+Thread with tid 81338 spawned.
+Thread with tid 81339 spawned.
+Thread with tid 81340 spawned.
+Thread with tid 81341 spawned.
+Thread with tid 81342 spawned.
+Thread with tid 81343 spawned.
+Thread with tid 81344 spawned.
+Thread with tid 81345 spawned.
+Thread with tid 81346 spawned.
+Thread with tid 81347 spawned.
+Thread with tid 81348 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 2
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    10.02
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  9187.83
+ Mop/s/thread    =                   574.24
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81377 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81380 spawned.
+Thread with tid 81382 spawned.
+Thread with tid 81381 spawned.
+Thread with tid 81383 spawned.
+Thread with tid 81384 spawned.
+Thread with tid 81385 spawned.
+Thread with tid 81386 spawned.
+Thread with tid 81388 spawned.
+Thread with tid 81387 spawned.
+Thread with tid 81389 spawned.
+Thread with tid 81390 spawned.
+Thread with tid 81391 spawned.
+Thread with tid 81392 spawned.
+Thread with tid 81393 spawned.
+Thread with tid 81394 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 2
+Got a new thread advice: 2
+Thread with tid 81393 returned.
+Thread with tid 81394 returned.
+Thread with tid 81391 returned.
+Thread with tid 81389 returned.
+Thread with tid 81385 returned.
+Thread with tid 81383 returned.
+Thread with tid 81386 returned.
+Thread with tid 81381 returned.
+Thread with tid 81387 returned.
+Thread with tid 81382 returned.
+Thread with tid 81384 returned.
+Thread with tid 81388 returned.
+Thread with tid 81390 returned.
+Thread with tid 81392 returned.
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     7.30
+ Total threads   =                        2
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 12607.09
+ Mop/s/thread    =                  6303.55
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81413 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81416 spawned.
+Thread with tid 81417 spawned.
+Thread with tid 81418 spawned.
+Thread with tid 81419 spawned.
+Thread with tid 81421 spawned.
+Thread with tid 81420 spawned.
+Thread with tid 81422 spawned.
+Thread with tid 81423 spawned.
+Thread with tid 81424 spawned.
+Thread with tid 81425 spawned.
+Thread with tid 81426 spawned.
+Thread with tid 81427 spawned.
+Thread with tid 81428 spawned.
+Thread with tid 81429 spawned.
+Thread with tid 81430 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 2
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    10.19
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  9033.68
+ Mop/s/thread    =                   564.60
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81457 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81461 spawned.
+Thread with tid 81462 spawned.
+Thread with tid 81463 spawned.
+Thread with tid 81465 spawned.
+Thread with tid 81460 spawned.
+Thread with tid 81467 spawned.
+Thread with tid 81464 spawned.
+Thread with tid 81466 spawned.
+Thread with tid 81468 spawned.
+Thread with tid 81469 spawned.
+Thread with tid 81470 spawned.
+Thread with tid 81471 spawned.
+Thread with tid 81472 spawned.
+Thread with tid 81473 spawned.
+Thread with tid 81474 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 1
+Got a new thread advice: 1
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    10.85
+ Total threads   =                        1
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                  8486.85
+ Mop/s/thread    =                  8486.85
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81502 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81506 spawned.
+Thread with tid 81507 spawned.
+Thread with tid 81508 spawned.
+Thread with tid 81513 spawned.
+Thread with tid 81514 spawned.
+Thread with tid 81515 spawned.
+Thread with tid 81511 spawned.
+Thread with tid 81516 spawned.
+Thread with tid 81512 spawned.
+Thread with tid 81510 spawned.
+Thread with tid 81518 spawned.
+Thread with tid 81517 spawned.
+Thread with tid 81519 spawned.
+Thread with tid 81505 spawned.
+Thread with tid 81509 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 1
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    17.21
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  5349.45
+ Mop/s/thread    =                   334.34
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81554 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81557 spawned.
+Thread with tid 81559 spawned.
+Thread with tid 81558 spawned.
+Thread with tid 81560 spawned.
+Thread with tid 81561 spawned.
+Thread with tid 81562 spawned.
+Thread with tid 81563 spawned.
+Thread with tid 81564 spawned.
+Thread with tid 81565 spawned.
+Thread with tid 81566 spawned.
+Thread with tid 81567 spawned.
+Thread with tid 81568 spawned.
+Thread with tid 81569 spawned.
+Thread with tid 81570 spawned.
+Thread with tid 81571 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 1
+Got a new thread advice: 1
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    10.76
+ Total threads   =                        1
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                  8557.83
+ Mop/s/thread    =                  8557.83
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81596 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81599 spawned.
+Thread with tid 81600 spawned.
+Thread with tid 81601 spawned.
+Thread with tid 81602 spawned.
+Thread with tid 81604 spawned.
+Thread with tid 81603 spawned.
+Thread with tid 81605 spawned.
+Thread with tid 81606 spawned.
+Thread with tid 81607 spawned.
+Thread with tid 81608 spawned.
+Thread with tid 81609 spawned.
+Thread with tid 81610 spawned.
+Thread with tid 81611 spawned.
+Thread with tid 81612 spawned.
+Thread with tid 81613 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 1
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    17.10
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  5384.67
+ Mop/s/thread    =                   336.54
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81649 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81652 spawned.
+Thread with tid 81654 spawned.
+Thread with tid 81653 spawned.
+Thread with tid 81655 spawned.
+Thread with tid 81656 spawned.
+Thread with tid 81657 spawned.
+Thread with tid 81658 spawned.
+Thread with tid 81659 spawned.
+Thread with tid 81660 spawned.
+Thread with tid 81661 spawned.
+Thread with tid 81662 spawned.
+Thread with tid 81663 spawned.
+Thread with tid 81664 spawned.
+Thread with tid 81665 spawned.
+Thread with tid 81666 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 1
+Got a new thread advice: 1
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    10.74
+ Total threads   =                        1
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                  8572.60
+ Mop/s/thread    =                  8572.60
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81692 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81695 spawned.
+Thread with tid 81696 spawned.
+Thread with tid 81697 spawned.
+Thread with tid 81698 spawned.
+Thread with tid 81699 spawned.
+Thread with tid 81700 spawned.
+Thread with tid 81701 spawned.
+Thread with tid 81702 spawned.
+Thread with tid 81703 spawned.
+Thread with tid 81704 spawned.
+Thread with tid 81705 spawned.
+Thread with tid 81706 spawned.
+Thread with tid 81707 spawned.
+Thread with tid 81708 spawned.
+Thread with tid 81709 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 1
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    17.24
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  5338.46
+ Mop/s/thread    =                   333.65
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81745 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81748 spawned.
+Thread with tid 81749 spawned.
+Thread with tid 81750 spawned.
+Thread with tid 81751 spawned.
+Thread with tid 81752 spawned.
+Thread with tid 81753 spawned.
+Thread with tid 81754 spawned.
+Thread with tid 81755 spawned.
+Thread with tid 81756 spawned.
+Thread with tid 81757 spawned.
+Thread with tid 81758 spawned.
+Thread with tid 81759 spawned.
+Thread with tid 81760 spawned.
+Thread with tid 81761 spawned.
+Thread with tid 81762 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 1
+Got a new thread advice: 1
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    10.77
+ Total threads   =                        1
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                  8550.67
+ Mop/s/thread    =                  8550.67
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81788 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81792 spawned.
+Thread with tid 81793 spawned.
+Thread with tid 81791 spawned.
+Thread with tid 81794 spawned.
+Thread with tid 81795 spawned.
+Thread with tid 81796 spawned.
+Thread with tid 81797 spawned.
+Thread with tid 81798 spawned.
+Thread with tid 81799 spawned.
+Thread with tid 81800 spawned.
+Thread with tid 81801 spawned.
+Thread with tid 81802 spawned.
+Thread with tid 81803 spawned.
+Thread with tid 81804 spawned.
+Thread with tid 81805 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 1
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    16.97
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  5425.41
+ Mop/s/thread    =                   339.09
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81840 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81845 spawned.
+Thread with tid 81846 spawned.
+Thread with tid 81848 spawned.
+Thread with tid 81850 spawned.
+Thread with tid 81853 spawned.
+Thread with tid 81854 spawned.
+Thread with tid 81855 spawned.
+Thread with tid 81849 spawned.
+Thread with tid 81852 spawned.
+Thread with tid 81851 spawned.
+Thread with tid 81844 spawned.
+Thread with tid 81856 spawned.
+Thread with tid 81843 spawned.
+Thread with tid 81847 spawned.
+Thread with tid 81857 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 1
+Got a new thread advice: 1
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    10.90
+ Total threads   =                        1
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                  8447.69
+ Mop/s/thread    =                  8447.69
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 81882 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - FT Benchmark
+
+ Size                :  512x 256x 256
+ Iterations                  :     20
+ Number of available threads :     16
+
+Thread with tid 81885 spawned.
+Thread with tid 81886 spawned.
+Thread with tid 81887 spawned.
+Thread with tid 81888 spawned.
+Thread with tid 81889 spawned.
+Thread with tid 81890 spawned.
+Thread with tid 81891 spawned.
+Thread with tid 81892 spawned.
+Thread with tid 81893 spawned.
+Thread with tid 81894 spawned.
+Thread with tid 81895 spawned.
+Thread with tid 81896 spawned.
+Thread with tid 81897 spawned.
+Thread with tid 81898 spawned.
+Thread with tid 81899 spawned.
+ T =    1     Checksum =    5.177643571579D+02    5.077803458597D+02
+ T =    2     Checksum =    5.154521291263D+02    5.088249431599D+02
+ T =    3     Checksum =    5.146409228650D+02    5.096208912659D+02
+ T =    4     Checksum =    5.142378756213D+02    5.101023387619D+02
+ T =    5     Checksum =    5.139626667737D+02    5.103976610618D+02
+ T =    6     Checksum =    5.137423460082D+02    5.105948019802D+02
+ T =    7     Checksum =    5.135547056878D+02    5.107404165783D+02
+ T =    8     Checksum =    5.133910925467D+02    5.108576573661D+02
+Got a new cores advice: 1
+Got a new thread advice: 16
+ T =    9     Checksum =    5.132470705390D+02    5.109577278523D+02
+ T =   10     Checksum =    5.131197729984D+02    5.110460304483D+02
+ T =   11     Checksum =    5.130070319283D+02    5.111252433800D+02
+ T =   12     Checksum =    5.129070537032D+02    5.111968077719D+02
+ T =   13     Checksum =    5.128182883503D+02    5.112616233064D+02
+ T =   14     Checksum =    5.127393733383D+02    5.113203605551D+02
+ T =   15     Checksum =    5.126691062021D+02    5.113735928093D+02
+ T =   16     Checksum =    5.126064276005D+02    5.114218460548D+02
+ T =   17     Checksum =    5.125504076570D+02    5.114656139760D+02
+ T =   18     Checksum =    5.125002331721D+02    5.115053595966D+02
+ T =   19     Checksum =    5.124551951846D+02    5.115415130407D+02
+ T =   20     Checksum =    5.124146770029D+02    5.115744692211D+02
+ Result verification successful
+ class = B
+
+
+ FT Benchmark Completed.
+ Class           =                        B
+ Size            =            512x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    17.27
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  5330.86
+ Mop/s/thread    =                   333.18
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...

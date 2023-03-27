@@ -48,18 +48,22 @@ class Bench:
     def populate_from_file(self, file_path: str) -> None:
         with open(file_path, "r") as result:
             line = result.readline().rstrip()
-            while line.startswith('#'):
-                line = result.readline().rstrip()
             while line:
-                time = line
-                energy_pkg = result.readline().rstrip()
-                energy_cores = result.readline().rstrip()
-                self.energy_pkg.append(float(energy_pkg.split(",")[0]))  # cuts of everything behind ,
-                self.energy_cores.append(float(energy_cores.split(",")[0]))
-                self.time.append(float("{:.1f}".format(float(time.split(",")[0]) * (10**-9))))
+                if line.startswith('#'):
+                    line = result.readline().rstrip()
+                    continue
+                if 'duration_time' in line:
+                    self.time.append(float("{:.1f}".format(float(line.split(",")[0]) * (10**-9))))
+                elif 'energy-pkg' in line:
+                    self.energy_pkg.append(float(line.split(",")[0]))  # cuts of everything behind ,
+                elif 'energy-cores' in line:
+                    self.energy_cores.append(float(line.split(",")[0]))
+                else:
+                    print(f"{Fore.YELLOW}Found unknown line: {line}.{Style.RESET_ALL}")
                 # is there more? -> repetitions
                 line = result.readline().rstrip()
         return
+
 
 
 class HalfBench(Bench):

@@ -1,0 +1,2190 @@
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340034 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340036 spawned.
+Thread with tid 340038 spawned.
+Thread with tid 340039 spawned.
+Thread with tid 340040 spawned.
+Thread with tid 340041 spawned.
+Thread with tid 340042 spawned.
+Thread with tid 340043 spawned.
+
+   iteration
+        1
+Got a new cores advice: 4
+Got a new thread advice: 4
+        2
+Thread with tid 340041 returned.
+Thread with tid 340043 returned.
+Thread with tid 340042 returned.
+Thread with tid 340040 returned.
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Thread with tid 340046 spawned.
+Thread with tid 340048 spawned.
+Thread with tid 340049 spawned.
+Thread with tid 340047 spawned.
+Thread with tid 340048 returned.
+Thread with tid 340047 returned.
+Thread with tid 340049 returned.
+Thread with tid 340046 returned.
+Full_verify: number of keys out of sort: 66928786
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     2.01
+ Total threads   =                        4
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   669.21
+ Mop/s/thread    =                   167.30
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340053 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340056 spawned.
+Thread with tid 340057 spawned.
+Thread with tid 340058 spawned.
+Thread with tid 340059 spawned.
+Thread with tid 340060 spawned.
+Thread with tid 340061 spawned.
+Thread with tid 340062 spawned.
+
+   iteration
+        1
+Got a new cores advice: 4
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     1.96
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   686.16
+ Mop/s/thread    =                    85.77
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340069 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340072 spawned.
+Thread with tid 340073 spawned.
+Thread with tid 340074 spawned.
+Thread with tid 340075 spawned.
+Thread with tid 340076 spawned.
+Thread with tid 340077 spawned.
+Thread with tid 340078 spawned.
+
+   iteration
+        1
+Got a new cores advice: 4
+Got a new thread advice: 4
+        2
+Thread with tid 340076 returned.
+Thread with tid 340078 returned.
+Thread with tid 340075 returned.
+Thread with tid 340077 returned.
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Thread with tid 340081 spawned.
+Thread with tid 340083 spawned.
+Thread with tid 340082 spawned.
+Thread with tid 340084 spawned.
+Thread with tid 340082 returned.
+Thread with tid 340083 returned.
+Thread with tid 340084 returned.
+Thread with tid 340081 returned.
+Full_verify: number of keys out of sort: 66721259
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     1.98
+ Total threads   =                        4
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   677.84
+ Mop/s/thread    =                   169.46
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340088 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340090 spawned.
+Thread with tid 340092 spawned.
+Thread with tid 340093 spawned.
+Thread with tid 340094 spawned.
+Thread with tid 340095 spawned.
+Thread with tid 340096 spawned.
+Thread with tid 340097 spawned.
+Got a new cores advice: 4
+Got a new thread advice: 8
+
+   iteration
+        1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     1.98
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   678.66
+ Mop/s/thread    =                    84.83
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340104 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340107 spawned.
+Thread with tid 340108 spawned.
+Thread with tid 340109 spawned.
+Thread with tid 340110 spawned.
+Thread with tid 340111 spawned.
+Thread with tid 340112 spawned.
+Thread with tid 340113 spawned.
+
+   iteration
+        1
+Got a new cores advice: 4
+Got a new thread advice: 4
+        2
+Thread with tid 340110 returned.
+Thread with tid 340113 returned.
+Thread with tid 340111 returned.
+Thread with tid 340112 returned.
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Thread with tid 340119 spawned.
+Thread with tid 340117 spawned.
+Thread with tid 340118 spawned.
+Thread with tid 340116 spawned.
+Thread with tid 340118 returned.
+Thread with tid 340119 returned.
+Thread with tid 340117 returned.
+Thread with tid 340116 returned.
+Full_verify: number of keys out of sort: 66714148
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     2.00
+ Total threads   =                        4
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   671.80
+ Mop/s/thread    =                   167.95
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340123 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340126 spawned.
+Thread with tid 340127 spawned.
+Thread with tid 340128 spawned.
+Thread with tid 340129 spawned.
+Thread with tid 340130 spawned.
+Thread with tid 340131 spawned.
+Thread with tid 340132 spawned.
+
+   iteration
+        1
+Got a new cores advice: 4
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     2.00
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   671.08
+ Mop/s/thread    =                    83.89
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340139 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340141 spawned.
+Thread with tid 340143 spawned.
+Thread with tid 340144 spawned.
+Thread with tid 340145 spawned.
+Thread with tid 340146 spawned.
+Thread with tid 340147 spawned.
+Thread with tid 340148 spawned.
+
+   iteration
+        1
+Got a new cores advice: 4
+Got a new thread advice: 4
+        2
+Thread with tid 340146 returned.
+Thread with tid 340147 returned.
+Thread with tid 340145 returned.
+Thread with tid 340148 returned.
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Thread with tid 340152 spawned.
+Thread with tid 340153 spawned.
+Thread with tid 340154 spawned.
+Thread with tid 340151 spawned.
+Thread with tid 340151 returned.
+Thread with tid 340153 returned.
+Thread with tid 340154 returned.
+Thread with tid 340152 returned.
+Full_verify: number of keys out of sort: 66928959
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     1.97
+ Total threads   =                        4
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   680.71
+ Mop/s/thread    =                   170.18
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340158 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340161 spawned.
+Thread with tid 340162 spawned.
+Thread with tid 340163 spawned.
+Thread with tid 340164 spawned.
+Thread with tid 340165 spawned.
+Thread with tid 340166 spawned.
+Thread with tid 340167 spawned.
+
+   iteration
+        1
+Got a new cores advice: 4
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     1.96
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   686.08
+ Mop/s/thread    =                    85.76
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340174 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340176 spawned.
+Thread with tid 340178 spawned.
+Thread with tid 340179 spawned.
+Thread with tid 340180 spawned.
+Thread with tid 340181 spawned.
+Thread with tid 340182 spawned.
+Thread with tid 340183 spawned.
+
+   iteration
+        1
+Got a new cores advice: 4
+Got a new thread advice: 4
+        2
+Thread with tid 340181 returned.
+Thread with tid 340182 returned.
+Thread with tid 340180 returned.
+Thread with tid 340183 returned.
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Thread with tid 340186 spawned.
+Thread with tid 340188 spawned.
+Thread with tid 340189 spawned.
+Thread with tid 340187 spawned.
+Thread with tid 340187 returned.
+Thread with tid 340189 returned.
+Thread with tid 340188 returned.
+Thread with tid 340186 returned.
+Full_verify: number of keys out of sort: 66893633
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     1.94
+ Total threads   =                        4
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   690.43
+ Mop/s/thread    =                   172.61
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340193 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340195 spawned.
+Thread with tid 340197 spawned.
+Thread with tid 340198 spawned.
+Thread with tid 340199 spawned.
+Thread with tid 340200 spawned.
+Thread with tid 340201 spawned.
+Thread with tid 340202 spawned.
+
+   iteration
+        1
+Got a new cores advice: 4
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     1.97
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   680.78
+ Mop/s/thread    =                    85.10
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340209 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340212 spawned.
+Thread with tid 340213 spawned.
+Thread with tid 340214 spawned.
+Thread with tid 340215 spawned.
+Thread with tid 340216 spawned.
+Thread with tid 340217 spawned.
+Thread with tid 340218 spawned.
+
+   iteration
+        1
+Got a new cores advice: 2
+Got a new thread advice: 2
+        2
+Thread with tid 340215 returned.
+Thread with tid 340218 returned.
+Thread with tid 340217 returned.
+Thread with tid 340213 returned.
+Thread with tid 340216 returned.
+Thread with tid 340214 returned.
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Thread with tid 340223 spawned.
+Thread with tid 340228 spawned.
+Thread with tid 340224 spawned.
+Thread with tid 340227 spawned.
+Thread with tid 340226 spawned.
+Thread with tid 340225 spawned.
+Thread with tid 340226 returned.
+Thread with tid 340228 returned.
+Thread with tid 340227 returned.
+Thread with tid 340223 returned.
+Thread with tid 340224 returned.
+Thread with tid 340225 returned.
+Full_verify: number of keys out of sort: 65606862
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     3.17
+ Total threads   =                        2
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   422.92
+ Mop/s/thread    =                   211.46
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340232 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340235 spawned.
+Thread with tid 340236 spawned.
+Thread with tid 340237 spawned.
+Thread with tid 340238 spawned.
+Thread with tid 340239 spawned.
+Thread with tid 340240 spawned.
+Thread with tid 340241 spawned.
+
+   iteration
+        1
+Got a new cores advice: 2
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     3.42
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   392.76
+ Mop/s/thread    =                    49.09
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340249 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340252 spawned.
+Thread with tid 340253 spawned.
+Thread with tid 340254 spawned.
+Thread with tid 340255 spawned.
+Thread with tid 340256 spawned.
+Thread with tid 340257 spawned.
+Thread with tid 340258 spawned.
+
+   iteration
+        1
+Got a new cores advice: 2
+Got a new thread advice: 2
+        2
+Thread with tid 340256 returned.
+Thread with tid 340254 returned.
+Thread with tid 340255 returned.
+Thread with tid 340253 returned.
+Thread with tid 340257 returned.
+Thread with tid 340258 returned.
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Thread with tid 340268 spawned.
+Thread with tid 340267 spawned.
+Thread with tid 340266 spawned.
+Thread with tid 340265 spawned.
+Thread with tid 340263 spawned.
+Thread with tid 340264 spawned.
+Thread with tid 340264 returned.
+Thread with tid 340268 returned.
+Thread with tid 340267 returned.
+Thread with tid 340265 returned.
+Thread with tid 340266 returned.
+Thread with tid 340263 returned.
+Full_verify: number of keys out of sort: 66093672
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     3.17
+ Total threads   =                        2
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   423.83
+ Mop/s/thread    =                   211.91
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340272 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340275 spawned.
+Thread with tid 340276 spawned.
+Thread with tid 340277 spawned.
+Thread with tid 340278 spawned.
+Thread with tid 340279 spawned.
+Thread with tid 340280 spawned.
+Thread with tid 340281 spawned.
+
+   iteration
+        1
+Got a new cores advice: 2
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     3.45
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   388.71
+ Mop/s/thread    =                    48.59
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340289 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340292 spawned.
+Thread with tid 340293 spawned.
+Thread with tid 340294 spawned.
+Thread with tid 340295 spawned.
+Thread with tid 340296 spawned.
+Thread with tid 340297 spawned.
+Thread with tid 340298 spawned.
+
+   iteration
+        1
+Got a new cores advice: 2
+Got a new thread advice: 2
+        2
+Thread with tid 340295 returned.
+Thread with tid 340297 returned.
+Thread with tid 340296 returned.
+Thread with tid 340293 returned.
+Thread with tid 340294 returned.
+Thread with tid 340298 returned.
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Thread with tid 340303 spawned.
+Thread with tid 340308 spawned.
+Thread with tid 340304 spawned.
+Thread with tid 340307 spawned.
+Thread with tid 340305 spawned.
+Thread with tid 340306 spawned.
+Thread with tid 340305 returned.
+Thread with tid 340307 returned.
+Thread with tid 340303 returned.
+Thread with tid 340308 returned.
+Thread with tid 340306 returned.
+Thread with tid 340304 returned.
+Full_verify: number of keys out of sort: 67017404
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     3.18
+ Total threads   =                        2
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   422.42
+ Mop/s/thread    =                   211.21
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340312 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340314 spawned.
+Thread with tid 340315 spawned.
+Thread with tid 340317 spawned.
+Thread with tid 340318 spawned.
+Thread with tid 340319 spawned.
+Thread with tid 340320 spawned.
+Thread with tid 340321 spawned.
+
+   iteration
+        1
+Got a new cores advice: 2
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     3.40
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   395.20
+ Mop/s/thread    =                    49.40
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340329 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340332 spawned.
+Thread with tid 340333 spawned.
+Thread with tid 340334 spawned.
+Thread with tid 340335 spawned.
+Thread with tid 340336 spawned.
+Thread with tid 340337 spawned.
+Thread with tid 340338 spawned.
+
+   iteration
+        1
+Got a new cores advice: 2
+Got a new thread advice: 2
+        2
+Thread with tid 340337 returned.
+Thread with tid 340338 returned.
+Thread with tid 340335 returned.
+Thread with tid 340334 returned.
+Thread with tid 340336 returned.
+Thread with tid 340333 returned.
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Thread with tid 340343 spawned.
+Thread with tid 340348 spawned.
+Thread with tid 340344 spawned.
+Thread with tid 340347 spawned.
+Thread with tid 340346 spawned.
+Thread with tid 340345 spawned.
+Thread with tid 340345 returned.
+Thread with tid 340347 returned.
+Thread with tid 340346 returned.
+Thread with tid 340343 returned.
+Thread with tid 340348 returned.
+Thread with tid 340344 returned.
+Full_verify: number of keys out of sort: 65739041
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     3.24
+ Total threads   =                        2
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   413.78
+ Mop/s/thread    =                   206.89
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340352 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340355 spawned.
+Thread with tid 340356 spawned.
+Thread with tid 340357 spawned.
+Thread with tid 340358 spawned.
+Thread with tid 340359 spawned.
+Thread with tid 340360 spawned.
+Thread with tid 340361 spawned.
+
+   iteration
+        1
+Got a new cores advice: 2
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     3.37
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   398.73
+ Mop/s/thread    =                    49.84
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340370 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340372 spawned.
+Thread with tid 340375 spawned.
+Thread with tid 340376 spawned.
+Thread with tid 340377 spawned.
+Thread with tid 340378 spawned.
+Thread with tid 340374 spawned.
+Thread with tid 340379 spawned.
+
+   iteration
+        1
+Got a new cores advice: 2
+Got a new thread advice: 2
+        2
+Thread with tid 340378 returned.
+Thread with tid 340376 returned.
+Thread with tid 340374 returned.
+Thread with tid 340375 returned.
+Thread with tid 340379 returned.
+Thread with tid 340377 returned.
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Thread with tid 340389 spawned.
+Thread with tid 340388 spawned.
+Thread with tid 340387 spawned.
+Thread with tid 340386 spawned.
+Thread with tid 340385 spawned.
+Thread with tid 340384 spawned.
+Thread with tid 340386 returned.
+Thread with tid 340387 returned.
+Thread with tid 340389 returned.
+Thread with tid 340388 returned.
+Thread with tid 340385 returned.
+Thread with tid 340384 returned.
+Full_verify: number of keys out of sort: 65813926
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     3.20
+ Total threads   =                        2
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   419.08
+ Mop/s/thread    =                   209.54
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340393 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340396 spawned.
+Thread with tid 340397 spawned.
+Thread with tid 340398 spawned.
+Thread with tid 340399 spawned.
+Thread with tid 340400 spawned.
+Thread with tid 340401 spawned.
+Thread with tid 340402 spawned.
+
+   iteration
+        1
+Got a new cores advice: 2
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     3.41
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   393.26
+ Mop/s/thread    =                    49.16
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340410 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340412 spawned.
+Thread with tid 340413 spawned.
+Thread with tid 340415 spawned.
+Thread with tid 340416 spawned.
+Thread with tid 340417 spawned.
+Thread with tid 340418 spawned.
+Thread with tid 340419 spawned.
+
+   iteration
+        1
+Got a new cores advice: 1
+Got a new thread advice: 1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Full_verify: number of keys out of sort: 163
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     5.09
+ Total threads   =                        1
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   263.76
+ Mop/s/thread    =                   263.76
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340430 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340433 spawned.
+Thread with tid 340434 spawned.
+Thread with tid 340435 spawned.
+Thread with tid 340436 spawned.
+Thread with tid 340437 spawned.
+Thread with tid 340438 spawned.
+Thread with tid 340439 spawned.
+
+   iteration
+        1
+Got a new cores advice: 1
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     5.39
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   248.94
+ Mop/s/thread    =                    31.12
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340450 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340452 spawned.
+Thread with tid 340453 spawned.
+Thread with tid 340455 spawned.
+Thread with tid 340456 spawned.
+Thread with tid 340457 spawned.
+Thread with tid 340458 spawned.
+Thread with tid 340459 spawned.
+
+   iteration
+        1
+Got a new cores advice: 1
+Got a new thread advice: 1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Full_verify: number of keys out of sort: 161
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     5.08
+ Total threads   =                        1
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   264.29
+ Mop/s/thread    =                   264.29
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340470 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340472 spawned.
+Thread with tid 340474 spawned.
+Thread with tid 340475 spawned.
+Thread with tid 340476 spawned.
+Thread with tid 340477 spawned.
+Thread with tid 340478 spawned.
+Thread with tid 340479 spawned.
+
+   iteration
+        1
+Got a new cores advice: 1
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     5.34
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   251.11
+ Mop/s/thread    =                    31.39
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340490 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340492 spawned.
+Thread with tid 340494 spawned.
+Thread with tid 340495 spawned.
+Thread with tid 340496 spawned.
+Thread with tid 340497 spawned.
+Thread with tid 340498 spawned.
+Thread with tid 340499 spawned.
+
+   iteration
+        1
+Got a new cores advice: 1
+Got a new thread advice: 1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Full_verify: number of keys out of sort: 162
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     5.08
+ Total threads   =                        1
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   264.36
+ Mop/s/thread    =                   264.36
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340510 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340512 spawned.
+Thread with tid 340515 spawned.
+Thread with tid 340514 spawned.
+Thread with tid 340516 spawned.
+Thread with tid 340517 spawned.
+Thread with tid 340518 spawned.
+Thread with tid 340519 spawned.
+
+   iteration
+        1
+Got a new cores advice: 1
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     5.40
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   248.72
+ Mop/s/thread    =                    31.09
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340530 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340532 spawned.
+Thread with tid 340534 spawned.
+Thread with tid 340535 spawned.
+Thread with tid 340536 spawned.
+Thread with tid 340537 spawned.
+Thread with tid 340538 spawned.
+Thread with tid 340539 spawned.
+
+   iteration
+        1
+Got a new cores advice: 1
+Got a new thread advice: 1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Full_verify: number of keys out of sort: 163
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     5.09
+ Total threads   =                        1
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   263.82
+ Mop/s/thread    =                   263.82
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340550 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340552 spawned.
+Thread with tid 340554 spawned.
+Thread with tid 340555 spawned.
+Thread with tid 340556 spawned.
+Thread with tid 340557 spawned.
+Thread with tid 340558 spawned.
+Thread with tid 340559 spawned.
+
+   iteration
+        1
+Got a new cores advice: 1
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     5.41
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   247.98
+ Mop/s/thread    =                    31.00
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340570 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340572 spawned.
+Thread with tid 340574 spawned.
+Thread with tid 340575 spawned.
+Thread with tid 340576 spawned.
+Thread with tid 340577 spawned.
+Thread with tid 340578 spawned.
+Thread with tid 340579 spawned.
+
+   iteration
+        1
+Got a new cores advice: 1
+Got a new thread advice: 1
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+Full_verify: number of keys out of sort: 161
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     5.08
+ Total threads   =                        1
+ Avail threads   =                        8
+ Warning: Threads used differ from threads available
+ Mop/s total     =                   264.42
+ Mop/s/thread    =                   264.42
+ Operation type  =              keys ranked
+ Verification    =             UNSUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 340590 added.
+Got a new cores advice: 8
+Got a new thread advice: 8
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - IS Benchmark
+
+ Size:  134217728  (class C)
+ Iterations:  10
+ Number of available threads:  8
+
+Thread with tid 340593 spawned.
+Thread with tid 340594 spawned.
+Thread with tid 340596 spawned.
+Thread with tid 340595 spawned.
+Thread with tid 340597 spawned.
+Thread with tid 340598 spawned.
+Thread with tid 340599 spawned.
+
+   iteration
+        1
+Got a new cores advice: 1
+Got a new thread advice: 8
+        2
+        3
+        4
+        5
+        6
+        7
+        8
+        9
+        10
+
+
+ IS Benchmark Completed
+ Class           =                        C
+ Size            =                134217728
+ Iterations      =                       10
+ Time in seconds =                     5.39
+ Total threads   =                        8
+ Avail threads   =                        8
+ Mop/s total     =                   249.10
+ Mop/s/thread    =                    31.14
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              09 Feb 2023
+
+ Compile options:
+    CC           = gcc
+    CLINK        = $(CC)
+    C_LIB        = -lm
+    C_INC        = (none)
+    CFLAGS       = -O3 -fopenmp
+    CLINKFLAGS   = $(CFLAGS)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...

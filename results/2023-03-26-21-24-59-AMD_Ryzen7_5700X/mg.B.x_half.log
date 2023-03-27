@@ -1,0 +1,3270 @@
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 86949 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 86953 spawned.
+Thread with tid 86954 spawned.
+Thread with tid 86952 spawned.
+Thread with tid 86955 spawned.
+Thread with tid 86956 spawned.
+Thread with tid 86957 spawned.
+Thread with tid 86958 spawned.
+Thread with tid 86959 spawned.
+Thread with tid 86960 spawned.
+Thread with tid 86961 spawned.
+Thread with tid 86962 spawned.
+Thread with tid 86963 spawned.
+Thread with tid 86964 spawned.
+Thread with tid 86965 spawned.
+Thread with tid 86966 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.289 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 8
+Got a new thread advice: 8
+Thread with tid 86962 returned.
+Thread with tid 86960 returned.
+Thread with tid 86966 returned.
+Thread with tid 86961 returned.
+Thread with tid 86964 returned.
+Thread with tid 86959 returned.
+Thread with tid 86965 returned.
+Thread with tid 86963 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.9138031934894E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.91
+ Total threads   =                        8
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10195.09
+ Mop/s/thread    =                  1274.39
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 86973 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 86976 spawned.
+Thread with tid 86977 spawned.
+Thread with tid 86978 spawned.
+Thread with tid 86979 spawned.
+Thread with tid 86980 spawned.
+Thread with tid 86981 spawned.
+Thread with tid 86982 spawned.
+Thread with tid 86983 spawned.
+Thread with tid 86984 spawned.
+Thread with tid 86985 spawned.
+Thread with tid 86986 spawned.
+Thread with tid 86987 spawned.
+Thread with tid 86988 spawned.
+Thread with tid 86989 spawned.
+Thread with tid 86990 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.293 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 8
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8879297439955E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     9.67
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  2012.54
+ Mop/s/thread    =                   125.78
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87008 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87011 spawned.
+Thread with tid 87012 spawned.
+Thread with tid 87013 spawned.
+Thread with tid 87014 spawned.
+Thread with tid 87015 spawned.
+Thread with tid 87016 spawned.
+Thread with tid 87017 spawned.
+Thread with tid 87018 spawned.
+Thread with tid 87019 spawned.
+Thread with tid 87020 spawned.
+Thread with tid 87021 spawned.
+Thread with tid 87022 spawned.
+Thread with tid 87023 spawned.
+Thread with tid 87024 spawned.
+Thread with tid 87025 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.289 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 8
+Got a new thread advice: 8
+Thread with tid 87020 returned.
+Thread with tid 87023 returned.
+Thread with tid 87025 returned.
+Thread with tid 87021 returned.
+Thread with tid 87018 returned.
+Thread with tid 87019 returned.
+Thread with tid 87022 returned.
+Thread with tid 87024 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.9126271276033E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.93
+ Total threads   =                        8
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10101.26
+ Mop/s/thread    =                  1262.66
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87035 added.
+--------
+Got a new cores advice: 16
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87040 spawned.
+Thread with tid 87042 spawned.
+Thread with tid 87043 spawned.
+Thread with tid 87038 spawned.
+Thread with tid 87044 spawned.
+Thread with tid 87041 spawned.
+Thread with tid 87046 spawned.
+Thread with tid 87039 spawned.
+Thread with tid 87045 spawned.
+Thread with tid 87047 spawned.
+Thread with tid 87048 spawned.
+Thread with tid 87049 spawned.
+Thread with tid 87050 spawned.
+Thread with tid 87051 spawned.
+Thread with tid 87052 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.300 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 8
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8867536781094E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     9.64
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  2019.28
+ Mop/s/thread    =                   126.21
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87070 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87074 spawned.
+Thread with tid 87076 spawned.
+Thread with tid 87078 spawned.
+Thread with tid 87075 spawned.
+Thread with tid 87073 spawned.
+Thread with tid 87077 spawned.
+Thread with tid 87079 spawned.
+Thread with tid 87081 spawned.
+Thread with tid 87080 spawned.
+Thread with tid 87082 spawned.
+Thread with tid 87083 spawned.
+Thread with tid 87084 spawned.
+Thread with tid 87085 spawned.
+Thread with tid 87086 spawned.
+Thread with tid 87087 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.292 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 8
+Got a new thread advice: 8
+Thread with tid 87083 returned.
+Thread with tid 87081 returned.
+Thread with tid 87080 returned.
+Thread with tid 87087 returned.
+Thread with tid 87084 returned.
+Thread with tid 87086 returned.
+Thread with tid 87085 returned.
+Thread with tid 87082 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.9138031934894E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.91
+ Total threads   =                        8
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10191.41
+ Mop/s/thread    =                  1273.93
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87094 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87097 spawned.
+Thread with tid 87098 spawned.
+Thread with tid 87099 spawned.
+Thread with tid 87100 spawned.
+Thread with tid 87101 spawned.
+Thread with tid 87102 spawned.
+Thread with tid 87103 spawned.
+Thread with tid 87104 spawned.
+Thread with tid 87105 spawned.
+Thread with tid 87106 spawned.
+Thread with tid 87107 spawned.
+Thread with tid 87108 spawned.
+Thread with tid 87109 spawned.
+Thread with tid 87110 spawned.
+Thread with tid 87111 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.295 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 8
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8867536781094E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     9.72
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  2003.21
+ Mop/s/thread    =                   125.20
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87129 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87132 spawned.
+Thread with tid 87133 spawned.
+Thread with tid 87134 spawned.
+Thread with tid 87135 spawned.
+Thread with tid 87136 spawned.
+Thread with tid 87137 spawned.
+Thread with tid 87138 spawned.
+Thread with tid 87139 spawned.
+Thread with tid 87140 spawned.
+Thread with tid 87141 spawned.
+Thread with tid 87142 spawned.
+Thread with tid 87143 spawned.
+Thread with tid 87144 spawned.
+Thread with tid 87145 spawned.
+Thread with tid 87146 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.298 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 8
+Got a new thread advice: 8
+Thread with tid 87144 returned.
+Thread with tid 87146 returned.
+Thread with tid 87139 returned.
+Thread with tid 87143 returned.
+Thread with tid 87141 returned.
+Thread with tid 87140 returned.
+Thread with tid 87142 returned.
+Thread with tid 87145 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.9138031934894E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.92
+ Total threads   =                        8
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10123.43
+ Mop/s/thread    =                  1265.43
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87156 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87161 spawned.
+Thread with tid 87163 spawned.
+Thread with tid 87164 spawned.
+Thread with tid 87166 spawned.
+Thread with tid 87169 spawned.
+Thread with tid 87170 spawned.
+Thread with tid 87165 spawned.
+Thread with tid 87168 spawned.
+Thread with tid 87159 spawned.
+Thread with tid 87173 spawned.
+Thread with tid 87167 spawned.
+Thread with tid 87160 spawned.
+Thread with tid 87162 spawned.
+Thread with tid 87171 spawned.
+Thread with tid 87172 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.297 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 8
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8879297439955E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     9.71
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  2003.91
+ Mop/s/thread    =                   125.24
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87191 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87195 spawned.
+Thread with tid 87196 spawned.
+Thread with tid 87197 spawned.
+Thread with tid 87194 spawned.
+Thread with tid 87198 spawned.
+Thread with tid 87199 spawned.
+Thread with tid 87200 spawned.
+Thread with tid 87201 spawned.
+Thread with tid 87202 spawned.
+Thread with tid 87203 spawned.
+Thread with tid 87204 spawned.
+Thread with tid 87205 spawned.
+Thread with tid 87206 spawned.
+Thread with tid 87207 spawned.
+Thread with tid 87208 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.296 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 8
+Got a new thread advice: 8
+Thread with tid 87201 returned.
+Thread with tid 87204 returned.
+Thread with tid 87206 returned.
+Thread with tid 87203 returned.
+Thread with tid 87208 returned.
+Thread with tid 87202 returned.
+Thread with tid 87207 returned.
+Thread with tid 87205 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.9138031934894E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.90
+ Total threads   =                        8
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10254.73
+ Mop/s/thread    =                  1281.84
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87216 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87219 spawned.
+Thread with tid 87220 spawned.
+Thread with tid 87221 spawned.
+Thread with tid 87222 spawned.
+Thread with tid 87223 spawned.
+Thread with tid 87224 spawned.
+Thread with tid 87225 spawned.
+Thread with tid 87226 spawned.
+Thread with tid 87227 spawned.
+Thread with tid 87228 spawned.
+Thread with tid 87229 spawned.
+Thread with tid 87230 spawned.
+Thread with tid 87231 spawned.
+Thread with tid 87232 spawned.
+Thread with tid 87233 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.294 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 8
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8879297439955E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     9.70
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                  2005.61
+ Mop/s/thread    =                   125.35
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87250 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87253 spawned.
+Thread with tid 87254 spawned.
+Thread with tid 87255 spawned.
+Thread with tid 87256 spawned.
+Thread with tid 87257 spawned.
+Thread with tid 87258 spawned.
+Thread with tid 87259 spawned.
+Thread with tid 87260 spawned.
+Thread with tid 87261 spawned.
+Thread with tid 87262 spawned.
+Thread with tid 87263 spawned.
+Thread with tid 87264 spawned.
+Thread with tid 87265 spawned.
+Thread with tid 87266 spawned.
+Thread with tid 87267 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.290 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 4
+Got a new thread advice: 4
+Thread with tid 87259 returned.
+Thread with tid 87266 returned.
+Thread with tid 87257 returned.
+Thread with tid 87258 returned.
+Thread with tid 87261 returned.
+Thread with tid 87263 returned.
+Thread with tid 87264 returned.
+Thread with tid 87256 returned.
+Thread with tid 87267 returned.
+Thread with tid 87260 returned.
+Thread with tid 87265 returned.
+Thread with tid 87262 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.1067867824567E-12
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.84
+ Total threads   =                        4
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10580.49
+ Mop/s/thread    =                  2645.12
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87275 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87278 spawned.
+Thread with tid 87279 spawned.
+Thread with tid 87280 spawned.
+Thread with tid 87281 spawned.
+Thread with tid 87282 spawned.
+Thread with tid 87283 spawned.
+Thread with tid 87284 spawned.
+Thread with tid 87285 spawned.
+Thread with tid 87286 spawned.
+Thread with tid 87287 spawned.
+Thread with tid 87288 spawned.
+Thread with tid 87289 spawned.
+Thread with tid 87290 spawned.
+Thread with tid 87291 spawned.
+Thread with tid 87292 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.294 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 4
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8879297439955E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    23.98
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   811.59
+ Mop/s/thread    =                    50.72
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87327 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87330 spawned.
+Thread with tid 87331 spawned.
+Thread with tid 87332 spawned.
+Thread with tid 87333 spawned.
+Thread with tid 87334 spawned.
+Thread with tid 87335 spawned.
+Thread with tid 87336 spawned.
+Thread with tid 87337 spawned.
+Thread with tid 87338 spawned.
+Thread with tid 87339 spawned.
+Thread with tid 87340 spawned.
+Thread with tid 87341 spawned.
+Thread with tid 87342 spawned.
+Thread with tid 87343 spawned.
+Thread with tid 87344 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.294 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 4
+Got a new thread advice: 4
+Thread with tid 87344 returned.
+Thread with tid 87342 returned.
+Thread with tid 87338 returned.
+Thread with tid 87334 returned.
+Thread with tid 87340 returned.
+Thread with tid 87341 returned.
+Thread with tid 87336 returned.
+Thread with tid 87335 returned.
+Thread with tid 87343 returned.
+Thread with tid 87337 returned.
+Thread with tid 87333 returned.
+Thread with tid 87339 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.1067867824567E-12
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.83
+ Total threads   =                        4
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10614.12
+ Mop/s/thread    =                  2653.53
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87352 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87355 spawned.
+Thread with tid 87356 spawned.
+Thread with tid 87357 spawned.
+Thread with tid 87358 spawned.
+Thread with tid 87359 spawned.
+Thread with tid 87360 spawned.
+Thread with tid 87361 spawned.
+Thread with tid 87362 spawned.
+Thread with tid 87363 spawned.
+Thread with tid 87364 spawned.
+Thread with tid 87365 spawned.
+Thread with tid 87366 spawned.
+Thread with tid 87367 spawned.
+Thread with tid 87368 spawned.
+Thread with tid 87369 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.295 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 4
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8879297439955E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    23.90
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   814.30
+ Mop/s/thread    =                    50.89
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87402 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87405 spawned.
+Thread with tid 87406 spawned.
+Thread with tid 87407 spawned.
+Thread with tid 87408 spawned.
+Thread with tid 87409 spawned.
+Thread with tid 87410 spawned.
+Thread with tid 87411 spawned.
+Thread with tid 87412 spawned.
+Thread with tid 87414 spawned.
+Thread with tid 87415 spawned.
+Thread with tid 87413 spawned.
+Thread with tid 87416 spawned.
+Thread with tid 87417 spawned.
+Thread with tid 87418 spawned.
+Thread with tid 87419 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.293 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 4
+Got a new thread advice: 4
+Thread with tid 87418 returned.
+Thread with tid 87417 returned.
+Thread with tid 87413 returned.
+Thread with tid 87416 returned.
+Thread with tid 87414 returned.
+Thread with tid 87412 returned.
+Thread with tid 87415 returned.
+Thread with tid 87419 returned.
+Thread with tid 87409 returned.
+Thread with tid 87408 returned.
+Thread with tid 87410 returned.
+Thread with tid 87411 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.1067867824567E-12
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.83
+ Total threads   =                        4
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10611.64
+ Mop/s/thread    =                  2652.91
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87426 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87429 spawned.
+Thread with tid 87430 spawned.
+Thread with tid 87431 spawned.
+Thread with tid 87432 spawned.
+Thread with tid 87433 spawned.
+Thread with tid 87434 spawned.
+Thread with tid 87435 spawned.
+Thread with tid 87436 spawned.
+Thread with tid 87437 spawned.
+Thread with tid 87438 spawned.
+Thread with tid 87439 spawned.
+Thread with tid 87440 spawned.
+Thread with tid 87441 spawned.
+Thread with tid 87442 spawned.
+Thread with tid 87443 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.300 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 4
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8867536781094E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    23.91
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   814.06
+ Mop/s/thread    =                    50.88
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87479 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87484 spawned.
+Thread with tid 87485 spawned.
+Thread with tid 87486 spawned.
+Thread with tid 87489 spawned.
+Thread with tid 87492 spawned.
+Thread with tid 87488 spawned.
+Thread with tid 87487 spawned.
+Thread with tid 87491 spawned.
+Thread with tid 87483 spawned.
+Thread with tid 87490 spawned.
+Thread with tid 87494 spawned.
+Thread with tid 87493 spawned.
+Thread with tid 87482 spawned.
+Thread with tid 87496 spawned.
+Thread with tid 87495 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.295 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 4
+Got a new thread advice: 4
+Thread with tid 87491 returned.
+Thread with tid 87495 returned.
+Thread with tid 87496 returned.
+Thread with tid 87494 returned.
+Thread with tid 87489 returned.
+Thread with tid 87492 returned.
+Thread with tid 87487 returned.
+Thread with tid 87490 returned.
+Thread with tid 87493 returned.
+Thread with tid 87488 returned.
+Thread with tid 87486 returned.
+Thread with tid 87485 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.1067867824567E-12
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.83
+ Total threads   =                        4
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10649.21
+ Mop/s/thread    =                  2662.30
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87504 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87507 spawned.
+Thread with tid 87508 spawned.
+Thread with tid 87509 spawned.
+Thread with tid 87510 spawned.
+Thread with tid 87511 spawned.
+Thread with tid 87512 spawned.
+Thread with tid 87513 spawned.
+Thread with tid 87514 spawned.
+Thread with tid 87515 spawned.
+Thread with tid 87516 spawned.
+Thread with tid 87517 spawned.
+Thread with tid 87518 spawned.
+Thread with tid 87519 spawned.
+Thread with tid 87520 spawned.
+Thread with tid 87521 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.295 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 4
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8867536781094E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    24.00
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   810.74
+ Mop/s/thread    =                    50.67
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87554 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87558 spawned.
+Thread with tid 87561 spawned.
+Thread with tid 87562 spawned.
+Thread with tid 87565 spawned.
+Thread with tid 87566 spawned.
+Thread with tid 87567 spawned.
+Thread with tid 87560 spawned.
+Thread with tid 87559 spawned.
+Thread with tid 87568 spawned.
+Thread with tid 87563 spawned.
+Thread with tid 87564 spawned.
+Thread with tid 87557 spawned.
+Thread with tid 87569 spawned.
+Thread with tid 87570 spawned.
+Thread with tid 87571 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.296 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 4
+Got a new thread advice: 4
+Thread with tid 87561 returned.
+Thread with tid 87570 returned.
+Thread with tid 87566 returned.
+Thread with tid 87571 returned.
+Thread with tid 87569 returned.
+Thread with tid 87563 returned.
+Thread with tid 87565 returned.
+Thread with tid 87568 returned.
+Thread with tid 87564 returned.
+Thread with tid 87560 returned.
+Thread with tid 87567 returned.
+Thread with tid 87562 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.1067867824567E-12
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.83
+ Total threads   =                        4
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10639.22
+ Mop/s/thread    =                  2659.81
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87579 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87582 spawned.
+Thread with tid 87583 spawned.
+Thread with tid 87584 spawned.
+Thread with tid 87585 spawned.
+Thread with tid 87586 spawned.
+Thread with tid 87587 spawned.
+Thread with tid 87588 spawned.
+Thread with tid 87589 spawned.
+Thread with tid 87590 spawned.
+Thread with tid 87591 spawned.
+Thread with tid 87592 spawned.
+Thread with tid 87593 spawned.
+Thread with tid 87594 spawned.
+Thread with tid 87595 spawned.
+Thread with tid 87596 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.298 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 4
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8879297439955E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    23.90
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   814.32
+ Mop/s/thread    =                    50.89
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87630 added.
+--------
+Got a new cores advice: 16
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87633 spawned.
+Thread with tid 87634 spawned.
+Thread with tid 87635 spawned.
+Thread with tid 87636 spawned.
+Thread with tid 87637 spawned.
+Thread with tid 87638 spawned.
+Thread with tid 87639 spawned.
+Thread with tid 87640 spawned.
+Thread with tid 87641 spawned.
+Thread with tid 87642 spawned.
+Thread with tid 87643 spawned.
+Thread with tid 87644 spawned.
+Thread with tid 87645 spawned.
+Thread with tid 87646 spawned.
+Thread with tid 87647 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.292 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 2
+Got a new thread advice: 2
+Thread with tid 87636 returned.
+Thread with tid 87638 returned.
+Thread with tid 87637 returned.
+Thread with tid 87641 returned.
+Thread with tid 87646 returned.
+Thread with tid 87647 returned.
+Thread with tid 87644 returned.
+Thread with tid 87634 returned.
+Thread with tid 87640 returned.
+Thread with tid 87642 returned.
+Thread with tid 87643 returned.
+Thread with tid 87645 returned.
+Thread with tid 87639 returned.
+Thread with tid 87635 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.1041994375073E-12
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.83
+ Total threads   =                        2
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10661.08
+ Mop/s/thread    =                  5330.54
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87655 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87658 spawned.
+Thread with tid 87659 spawned.
+Thread with tid 87660 spawned.
+Thread with tid 87661 spawned.
+Thread with tid 87662 spawned.
+Thread with tid 87663 spawned.
+Thread with tid 87664 spawned.
+Thread with tid 87665 spawned.
+Thread with tid 87666 spawned.
+Thread with tid 87667 spawned.
+Thread with tid 87669 spawned.
+Thread with tid 87671 spawned.
+Thread with tid 87670 spawned.
+Thread with tid 87668 spawned.
+Thread with tid 87672 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.292 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 2
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8879297439955E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    49.21
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   395.46
+ Mop/s/thread    =                    24.72
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87731 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87735 spawned.
+Thread with tid 87736 spawned.
+Thread with tid 87737 spawned.
+Thread with tid 87734 spawned.
+Thread with tid 87738 spawned.
+Thread with tid 87739 spawned.
+Thread with tid 87740 spawned.
+Thread with tid 87741 spawned.
+Thread with tid 87742 spawned.
+Thread with tid 87743 spawned.
+Thread with tid 87744 spawned.
+Thread with tid 87746 spawned.
+Thread with tid 87747 spawned.
+Thread with tid 87748 spawned.
+Thread with tid 87745 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.288 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 2
+Got a new thread advice: 2
+Thread with tid 87741 returned.
+Thread with tid 87735 returned.
+Thread with tid 87747 returned.
+Thread with tid 87739 returned.
+Thread with tid 87743 returned.
+Thread with tid 87746 returned.
+Thread with tid 87745 returned.
+Thread with tid 87740 returned.
+Thread with tid 87744 returned.
+Thread with tid 87736 returned.
+Thread with tid 87737 returned.
+Thread with tid 87738 returned.
+Thread with tid 87748 returned.
+Thread with tid 87742 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.1041994375073E-12
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.84
+ Total threads   =                        2
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10596.18
+ Mop/s/thread    =                  5298.09
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87756 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87759 spawned.
+Thread with tid 87760 spawned.
+Thread with tid 87761 spawned.
+Thread with tid 87762 spawned.
+Thread with tid 87763 spawned.
+Thread with tid 87764 spawned.
+Thread with tid 87765 spawned.
+Thread with tid 87766 spawned.
+Thread with tid 87768 spawned.
+Thread with tid 87769 spawned.
+Thread with tid 87770 spawned.
+Thread with tid 87767 spawned.
+Thread with tid 87771 spawned.
+Thread with tid 87772 spawned.
+Thread with tid 87773 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.293 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 2
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8879297439955E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    49.28
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   394.90
+ Mop/s/thread    =                    24.68
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87832 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87836 spawned.
+Thread with tid 87840 spawned.
+Thread with tid 87844 spawned.
+Thread with tid 87839 spawned.
+Thread with tid 87841 spawned.
+Thread with tid 87843 spawned.
+Thread with tid 87837 spawned.
+Thread with tid 87846 spawned.
+Thread with tid 87845 spawned.
+Thread with tid 87838 spawned.
+Thread with tid 87842 spawned.
+Thread with tid 87848 spawned.
+Thread with tid 87835 spawned.
+Thread with tid 87847 spawned.
+Thread with tid 87849 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.291 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 2
+Got a new thread advice: 2
+Thread with tid 87849 returned.
+Thread with tid 87847 returned.
+Thread with tid 87845 returned.
+Thread with tid 87843 returned.
+Thread with tid 87841 returned.
+Thread with tid 87839 returned.
+Thread with tid 87837 returned.
+Thread with tid 87836 returned.
+Thread with tid 87846 returned.
+Thread with tid 87848 returned.
+Thread with tid 87838 returned.
+Thread with tid 87840 returned.
+Thread with tid 87842 returned.
+Thread with tid 87844 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.1041994375073E-12
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.81
+ Total threads   =                        2
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10768.88
+ Mop/s/thread    =                  5384.44
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87857 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87861 spawned.
+Thread with tid 87862 spawned.
+Thread with tid 87860 spawned.
+Thread with tid 87863 spawned.
+Thread with tid 87864 spawned.
+Thread with tid 87865 spawned.
+Thread with tid 87866 spawned.
+Thread with tid 87867 spawned.
+Thread with tid 87868 spawned.
+Thread with tid 87869 spawned.
+Thread with tid 87870 spawned.
+Thread with tid 87871 spawned.
+Thread with tid 87872 spawned.
+Thread with tid 87873 spawned.
+Thread with tid 87874 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.292 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 2
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8867536781094E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    49.18
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   395.75
+ Mop/s/thread    =                    24.73
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87935 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87939 spawned.
+Thread with tid 87941 spawned.
+Thread with tid 87943 spawned.
+Thread with tid 87948 spawned.
+Thread with tid 87946 spawned.
+Thread with tid 87950 spawned.
+Thread with tid 87940 spawned.
+Thread with tid 87947 spawned.
+Thread with tid 87945 spawned.
+Thread with tid 87942 spawned.
+Thread with tid 87944 spawned.
+Thread with tid 87938 spawned.
+Thread with tid 87949 spawned.
+Thread with tid 87952 spawned.
+Thread with tid 87951 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.298 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 2
+Got a new thread advice: 2
+Thread with tid 87939 returned.
+Thread with tid 87942 returned.
+Thread with tid 87949 returned.
+Thread with tid 87947 returned.
+Thread with tid 87943 returned.
+Thread with tid 87941 returned.
+Thread with tid 87951 returned.
+Thread with tid 87940 returned.
+Thread with tid 87948 returned.
+Thread with tid 87946 returned.
+Thread with tid 87952 returned.
+Thread with tid 87945 returned.
+Thread with tid 87944 returned.
+Thread with tid 87950 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.1041994375073E-12
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.83
+ Total threads   =                        2
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10633.49
+ Mop/s/thread    =                  5316.74
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 87960 added.
+Got a new cores advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 87963 spawned.
+Thread with tid 87964 spawned.
+Thread with tid 87965 spawned.
+Thread with tid 87966 spawned.
+Got a new thread advice: 16
+Thread with tid 87967 spawned.
+Thread with tid 87968 spawned.
+Thread with tid 87969 spawned.
+Thread with tid 87970 spawned.
+Thread with tid 87971 spawned.
+Thread with tid 87972 spawned.
+Thread with tid 87973 spawned.
+Thread with tid 87974 spawned.
+Thread with tid 87975 spawned.
+Thread with tid 87976 spawned.
+Thread with tid 87977 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.289 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 2
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8879297439955E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    49.04
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   396.82
+ Mop/s/thread    =                    24.80
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 88037 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 88041 spawned.
+Thread with tid 88043 spawned.
+Thread with tid 88045 spawned.
+Thread with tid 88049 spawned.
+Thread with tid 88050 spawned.
+Thread with tid 88044 spawned.
+Thread with tid 88042 spawned.
+Thread with tid 88046 spawned.
+Thread with tid 88048 spawned.
+Thread with tid 88053 spawned.
+Thread with tid 88054 spawned.
+Thread with tid 88052 spawned.
+Thread with tid 88047 spawned.
+Thread with tid 88040 spawned.
+Thread with tid 88051 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.297 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 2
+Got a new thread advice: 2
+Thread with tid 88054 returned.
+Thread with tid 88042 returned.
+Thread with tid 88047 returned.
+Thread with tid 88041 returned.
+Thread with tid 88045 returned.
+Thread with tid 88051 returned.
+Thread with tid 88049 returned.
+Thread with tid 88043 returned.
+Thread with tid 88052 returned.
+Thread with tid 88048 returned.
+Thread with tid 88053 returned.
+Thread with tid 88050 returned.
+Thread with tid 88046 returned.
+Thread with tid 88044 returned.
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.1041994375073E-12
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     1.83
+ Total threads   =                        2
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                 10649.20
+ Mop/s/thread    =                  5324.60
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 88062 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 88065 spawned.
+Thread with tid 88066 spawned.
+Thread with tid 88067 spawned.
+Thread with tid 88068 spawned.
+Thread with tid 88069 spawned.
+Thread with tid 88070 spawned.
+Thread with tid 88071 spawned.
+Thread with tid 88072 spawned.
+Thread with tid 88073 spawned.
+Thread with tid 88074 spawned.
+Thread with tid 88075 spawned.
+Thread with tid 88076 spawned.
+Thread with tid 88077 spawned.
+Thread with tid 88078 spawned.
+Thread with tid 88079 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.288 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 2
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8879297439955E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                    49.20
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   395.59
+ Mop/s/thread    =                    24.72
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 88140 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 88143 spawned.
+Thread with tid 88144 spawned.
+Thread with tid 88145 spawned.
+Thread with tid 88146 spawned.
+Thread with tid 88147 spawned.
+Thread with tid 88148 spawned.
+Thread with tid 88149 spawned.
+Thread with tid 88150 spawned.
+Thread with tid 88151 spawned.
+Thread with tid 88152 spawned.
+Thread with tid 88153 spawned.
+Thread with tid 88155 spawned.
+Thread with tid 88156 spawned.
+Thread with tid 88157 spawned.
+Thread with tid 88154 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.293 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 1
+Got a new thread advice: 1
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.6633011597529E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     2.17
+ Total threads   =                        1
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                  8970.53
+ Mop/s/thread    =                  8970.53
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 88167 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 88170 spawned.
+Thread with tid 88171 spawned.
+Thread with tid 88172 spawned.
+Thread with tid 88173 spawned.
+Thread with tid 88174 spawned.
+Thread with tid 88175 spawned.
+Thread with tid 88176 spawned.
+Thread with tid 88177 spawned.
+Thread with tid 88178 spawned.
+Thread with tid 88179 spawned.
+Thread with tid 88180 spawned.
+Thread with tid 88181 spawned.
+Thread with tid 88182 spawned.
+Thread with tid 88183 spawned.
+Thread with tid 88184 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.292 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 1
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8867536781094E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                   104.26
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   186.66
+ Mop/s/thread    =                    11.67
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 88300 added.
+Got a new cores advice: 16
+--------
+Got a new thread advice: 16
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 88304 spawned.
+Thread with tid 88306 spawned.
+Thread with tid 88308 spawned.
+Thread with tid 88311 spawned.
+Thread with tid 88307 spawned.
+Thread with tid 88309 spawned.
+Thread with tid 88310 spawned.
+Thread with tid 88313 spawned.
+Thread with tid 88303 spawned.
+Thread with tid 88314 spawned.
+Thread with tid 88312 spawned.
+Thread with tid 88315 spawned.
+Thread with tid 88305 spawned.
+Thread with tid 88316 spawned.
+Thread with tid 88317 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.290 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 1
+Got a new thread advice: 1
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.6633011597529E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     2.17
+ Total threads   =                        1
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                  8955.73
+ Mop/s/thread    =                  8955.73
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 88327 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 88331 spawned.
+Thread with tid 88332 spawned.
+Thread with tid 88330 spawned.
+Thread with tid 88334 spawned.
+Thread with tid 88333 spawned.
+Thread with tid 88335 spawned.
+Thread with tid 88336 spawned.
+Thread with tid 88337 spawned.
+Thread with tid 88338 spawned.
+Thread with tid 88339 spawned.
+Thread with tid 88340 spawned.
+Thread with tid 88341 spawned.
+Thread with tid 88342 spawned.
+Thread with tid 88343 spawned.
+Thread with tid 88344 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.289 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 1
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8879297439955E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                   104.29
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   186.61
+ Mop/s/thread    =                    11.66
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 88459 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 88462 spawned.
+Thread with tid 88466 spawned.
+Thread with tid 88467 spawned.
+Thread with tid 88469 spawned.
+Thread with tid 88470 spawned.
+Thread with tid 88472 spawned.
+Thread with tid 88468 spawned.
+Thread with tid 88464 spawned.
+Thread with tid 88465 spawned.
+Thread with tid 88474 spawned.
+Thread with tid 88463 spawned.
+Thread with tid 88471 spawned.
+Thread with tid 88475 spawned.
+Thread with tid 88476 spawned.
+Thread with tid 88473 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.289 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 1
+Got a new thread advice: 1
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.6633011597529E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     2.13
+ Total threads   =                        1
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                  9147.62
+ Mop/s/thread    =                  9147.62
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 88486 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 88489 spawned.
+Thread with tid 88490 spawned.
+Thread with tid 88491 spawned.
+Thread with tid 88492 spawned.
+Thread with tid 88493 spawned.
+Thread with tid 88494 spawned.
+Thread with tid 88495 spawned.
+Thread with tid 88496 spawned.
+Thread with tid 88497 spawned.
+Thread with tid 88498 spawned.
+Thread with tid 88499 spawned.
+Thread with tid 88500 spawned.
+Thread with tid 88501 spawned.
+Thread with tid 88502 spawned.
+Thread with tid 88503 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.297 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 1
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8879297439955E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                   104.25
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   186.67
+ Mop/s/thread    =                    11.67
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 88619 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 88623 spawned.
+Thread with tid 88625 spawned.
+Thread with tid 88627 spawned.
+Thread with tid 88624 spawned.
+Thread with tid 88626 spawned.
+Thread with tid 88622 spawned.
+Thread with tid 88629 spawned.
+Thread with tid 88628 spawned.
+Thread with tid 88630 spawned.
+Thread with tid 88631 spawned.
+Thread with tid 88632 spawned.
+Thread with tid 88633 spawned.
+Thread with tid 88634 spawned.
+Thread with tid 88635 spawned.
+Thread with tid 88636 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.291 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 1
+Got a new thread advice: 1
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.6633011597529E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     2.18
+ Total threads   =                        1
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                  8914.36
+ Mop/s/thread    =                  8914.36
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 88646 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 88651 spawned.
+Thread with tid 88653 spawned.
+Thread with tid 88652 spawned.
+Thread with tid 88649 spawned.
+Thread with tid 88650 spawned.
+Thread with tid 88654 spawned.
+Thread with tid 88656 spawned.
+Thread with tid 88658 spawned.
+Thread with tid 88657 spawned.
+Thread with tid 88655 spawned.
+Thread with tid 88659 spawned.
+Thread with tid 88660 spawned.
+Thread with tid 88661 spawned.
+Thread with tid 88662 spawned.
+Thread with tid 88663 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.291 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 1
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8867536781094E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                   104.28
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   186.62
+ Mop/s/thread    =                    11.66
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 88778 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 88783 spawned.
+Thread with tid 88785 spawned.
+Thread with tid 88784 spawned.
+Thread with tid 88781 spawned.
+Thread with tid 88782 spawned.
+Thread with tid 88786 spawned.
+Thread with tid 88787 spawned.
+Thread with tid 88788 spawned.
+Thread with tid 88789 spawned.
+Thread with tid 88790 spawned.
+Thread with tid 88791 spawned.
+Thread with tid 88792 spawned.
+Thread with tid 88793 spawned.
+Thread with tid 88794 spawned.
+Thread with tid 88795 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.291 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 1
+Got a new thread advice: 1
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.6633011597529E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                     2.17
+ Total threads   =                        1
+ Avail threads   =                       16
+ Warning: Threads used differ from threads available
+ Mop/s total     =                  8951.09
+ Mop/s/thread    =                  8951.09
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
+App uses GOMP!
+Waiting for thread/core advice.
+MAIN Thread with tid 88805 added.
+Got a new cores advice: 16
+Got a new thread advice: 16
+--------
+
+
+ NAS Parallel Benchmarks (NPB3.4-OMP) - MG Benchmark
+
+ No input file. Using compiled defaults 
+Thread with tid 88809 spawned.
+Thread with tid 88808 spawned.
+Thread with tid 88810 spawned.
+Thread with tid 88812 spawned.
+Thread with tid 88811 spawned.
+Thread with tid 88813 spawned.
+Thread with tid 88814 spawned.
+Thread with tid 88815 spawned.
+Thread with tid 88816 spawned.
+Thread with tid 88817 spawned.
+Thread with tid 88818 spawned.
+Thread with tid 88819 spawned.
+Thread with tid 88820 spawned.
+Thread with tid 88821 spawned.
+Thread with tid 88822 spawned.
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+ Number of available threads:    16
+
+ Initialization time:           0.294 seconds
+
+  iter   1
+  iter   5
+Got a new cores advice: 1
+Got a new thread advice: 16
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ L2 Norm is  0.1800564401355E-05
+ Error is    0.8879297439955E-13
+
+
+ MG Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Time in seconds =                   104.29
+ Total threads   =                       16
+ Avail threads   =                       16
+ Mop/s total     =                   186.60
+ Mop/s/thread    =                    11.66
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.4.2
+ Compile date    =              26 Mar 2023
+
+ Compile options:
+    FC           = gfortran
+    FLINK        = $(FC)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -fopenmp
+    FLINKFLAGS   = $(FFLAGS)
+    RAND         = randi8
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Main thread closed pipe. Exiting normally...
