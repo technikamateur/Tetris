@@ -31,6 +31,7 @@ file_output = None
 class Output(Enum):
     SVG = auto()
     PNG = auto()
+    PGF = auto()
 
 
 class Bench:
@@ -209,6 +210,8 @@ def generate_heatmap(x_ax: list, y_ax: list, data_array: list, title: str, file_
     fig.tight_layout()
     if file_output.name == 'PNG':
         plt.savefig(f"{file_out}.png", dpi=300)
+    if file_output.name == 'PGF':
+        plt.savefig(f"{file_out}.pgf")
     else:
         plt.savefig(f"{file_out}.svg")
     plt.close()
@@ -218,21 +221,21 @@ def generate_heatmap(x_ax: list, y_ax: list, data_array: list, title: str, file_
 def generate_bars(x_ax: list, y_ax: str, vals: dict, title: str, file_out: str) -> None:
     plt.style.use('ggplot')
     max_ylim = [max(elem) for elem in vals.values()]  # max from each sublist
-    max_ylim = round(1.2 * max(max_ylim))  # global max
+    max_ylim = round(1.1 * max(max_ylim))  # global max
 
     if len(vals.keys()) != 3:
-        sys.exit(f"{Fore.RED}You are trying to plot something diffrent than 3 bars. This will not work.{Style.RESET_ALL}")
+        sys.exit(f"{Fore.RED}You are trying to plot something diffrent than 3 bars. This will fail.{Style.RESET_ALL}")
 
     x = np.arange(len(x_ax))  # the label locations
     width = 0.25  # the width of the bars
     multiplier = 0
 
-    fig, ax = plt.subplots(constrained_layout=True)
+    fig, ax = plt.subplots(constrained_layout=True, figsize=(10, 6))
 
     for attribute, measurement in vals.items():
         offset = width * multiplier
         rects = ax.bar(x + offset, measurement, width, label=attribute)
-        ax.bar_label(rects, padding=3)
+        ax.bar_label(rects, padding=0, rotation=60)
         multiplier += 1
 
     # Add some text for labels, title and custom x-axis tick labels, etc.
@@ -243,6 +246,8 @@ def generate_bars(x_ax: list, y_ax: str, vals: dict, title: str, file_out: str) 
     ax.set_ylim(0, max_ylim)
     if file_output.name == 'PNG':
         plt.savefig(f"{file_out}.png", dpi=300)
+    if file_output.name == 'PGF':
+        plt.savefig(f"{file_out}.pgf")
     else:
         plt.savefig(f"{file_out}.svg")
     plt.close()
@@ -263,7 +268,7 @@ def full_heat_map():
                 energy[i][j] = fmean(energy[i][j].energy_pkg)
                 exec_time[i][j] = fmean(exec_time[i][j].time)
         generate_heatmap(x_ax, y_ax, energy, f"Package Energy {name}", f"{pictures.get('full_energy')}/{name}")
-        generate_heatmap(x_ax, y_ax, exec_time, f"Exe Time {name}", f"{pictures.get('full_time')}/{name}")
+        generate_heatmap(x_ax, y_ax, exec_time, f"Execution Time {name}", f"{pictures.get('full_time')}/{name}")
 
 
 def half_heat_map():
@@ -298,7 +303,7 @@ def half_heat_map():
                 print(f"{Fore.RED}Something with the half benchs went wrong. The length of the vals does not match. Therefore I cant create your plots.{Style.RESET_ALL}")
                 return
             generate_bars(x_ax, "Energy [Joules]", vals_energy, f"Package Energy {name} {title}", f"{pictures.get('half_energy')}/{name}_{source[0]}C{source[1]}T")
-            generate_bars(x_ax, "Time [s]", vals_time, f"Exe Time {name} {title}", f"{pictures.get('half_time')}/{name}_{source[0]}C{source[1]}T")
+            generate_bars(x_ax, "Time [s]", vals_time, f"Execution Time {name} {title}", f"{pictures.get('half_time')}/{name}_{source[0]}C{source[1]}T")
 
     return
 
@@ -324,13 +329,20 @@ def half_heat_map():
 
 def main():
     colorama_init()
+    # setup matplotlib for pgf
+    plt.rcParams.update({
+    "pgf.texsystem": "pdflatex",
+    "pgf.preamble": "\n".join([
+         r"\usepackage{bookman}",
+    ]),
+})
     # check Python version
     MIN_PYTHON = (3, 6)  #enum auto
     if sys.version_info < MIN_PYTHON:
         sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-o', '--output', required=True, choices=['png', 'svg'], help='Select output format.')
+    parser.add_argument('-o', '--output', required=True, choices=['png', 'svg', 'pgf'], help='Select output format.')
     parser.add_argument('-g', '--generate', required=True, choices=['half', 'full', 'all'], help='Select what you would like to generate.')
     parser.add_argument('--clean', action='store_true', help='Set this flag if you want to clean up before running.')
     args = parser.parse_args()
@@ -338,6 +350,8 @@ def main():
     global file_output
     if args.output == 'png':
         file_output = Output.PNG
+    if args.output == 'pgf':
+        file_output = Output.PGF
     else:
         file_output = Output.SVG
 
